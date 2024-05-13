@@ -1,6 +1,10 @@
+import Model from './components/Model'
+
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">Hello World</h1> 
+    <main className="bg-black">
+      <Model />
+    </main>
   )
 }
 
