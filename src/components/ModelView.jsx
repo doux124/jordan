@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import Lights from './Lights';
 import Loader from './Loader';
 import Cube from './Cube';
+import Raycaster from "./Raycaster";
 import { Suspense } from "react";
 
 const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, size, item }) => {
@@ -32,10 +33,7 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
 
       <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, 0 ,0]}>
         <Suspense fallback={<Loader />}>
-          <Cube
-            item={item}
-            size={size}
-          />
+          <Raycaster />
         </Suspense>
       </group>
     </View>

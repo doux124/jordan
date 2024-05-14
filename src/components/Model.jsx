@@ -1,10 +1,11 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ModelView from "./ModelView";
-import { useRef, useState, useEffect } from "react";
+import Raycaster from "./Raycaster";
+import { useRef, useState, useEffect, useCallback } from "react";
 import * as THREE from "three";
 import { yellowImg } from "../utils";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 
 const Model = () => {
@@ -24,10 +25,11 @@ const Model = () => {
     // Rotation
     const [rotation, setRotation] = useState(0);
 
+    // GSAP
     useGSAP(() => {
         gsap.to("#heading", { y: 0, opacity: 1})
     }, [])
-    
+
     return (
         <section className="common-padding">
             <div className="screen-max-width">
@@ -59,7 +61,6 @@ const Model = () => {
                         >
                             <View.Port />
                         </Canvas>
-
                     </div>
                 </div>
             </div>
