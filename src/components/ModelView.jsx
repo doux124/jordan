@@ -3,7 +3,6 @@ import { Html, OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 import * as THREE from 'three'
 import Lights from './Lights';
 import Loader from './Loader';
-import IPhone from './IPhone';
 import Cube from './Cube';
 import { Suspense } from "react";
 
