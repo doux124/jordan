@@ -1,11 +1,10 @@
-import * as THREE from 'three';
-import React, { useEffect, useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import React, { useRef } from 'react';
+import { useGLTF } from '@react-three/drei';
 
 function Model(props) {
-  const { nodes, materials } = useGLTF('/models/cube.glb')
+  const { nodes, materials } = useGLTF('/models/cube.glb');
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} scale={[0.015, 0.015, 0.015]}>
       <mesh
         castShadow
         receiveShadow
@@ -49,9 +48,9 @@ function Model(props) {
         material={materials.blinn5SG}
       />
     </group>
-  )
+  );
 }
 
-export default Model
+useGLTF.preload('/models/cube.glb');
 
-useGLTF.preload('/models/cube.glb')
+export default Model;
