@@ -2,6 +2,9 @@ class Resources {
     constructor() {
         this.toLoad = {
             background: "/sprites/background.png",
+            unlit: "/sprites/background_unlit.png",
+            lit1: "/sprites/background_lit.png",
+            lit2: "/sprites/background_lit2.png",
             frisk: "/sprites/frisk.png"
         };
 
