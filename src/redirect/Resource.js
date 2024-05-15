@@ -5,7 +5,8 @@ class Resources {
             unlit: "/sprites/background_unlit.png",
             lit1: "/sprites/background_lit.png",
             lit2: "/sprites/background_lit2.png",
-            frisk: "/sprites/frisk.png"
+            frisk: "/sprites/frisk.png",
+            heart: "/sprites/heart_all.png"
         };
 
         this.images ={};

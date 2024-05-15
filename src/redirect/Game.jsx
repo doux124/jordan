@@ -30,6 +30,14 @@ const Game = () => {
             frame: 3,
         })
 
+        const heart = new Sprite({
+            resource: resources.images.heart,
+            frameSize: new Vector2(145, 139),
+            hFrames: 4,
+            vFrames: 1,
+            frame: 1,
+        })
+
         const pos = new Vector2(760, 100);
         const input = new Input();
         let count = 0;
@@ -50,6 +58,7 @@ const Game = () => {
             }
             if (count > 50) {
                 count = 0;
+                heart.frame = Math.floor(Math.random() * 4) + 1;
             }
 
 
@@ -83,12 +92,14 @@ const Game = () => {
                 if (x && y) {
                     light = !light;
                 }
+                console.log(pos);
             }
         };
 
         const draw = () => {
             backgroundSprite.drawImage(ctx, 0, 0);
             frisk.drawImage(ctx, pos.x, pos.y);
+            heart.drawImage(ctx, 2800, 1100);
         };
 
         const gameLoop = new GameLoop(update, draw);
