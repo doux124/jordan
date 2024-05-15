@@ -20,6 +20,14 @@ body {
 
 canvas {
   touch-action: none;
+  
+}
+
+#game-canvas {
+  width:100%;
+  background:blue;
+  overflow:hidden;
+  image-rendering: pixelated;
 }
 
 .scrim-max-width {

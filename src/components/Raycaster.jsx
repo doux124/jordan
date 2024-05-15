@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import * as THREE from 'three';
 import { useThree } from '@react-three/fiber';
-import Cube from "./Cube";
+import NUSH from "./NUSH";
 import { useNavigate } from 'react-router-dom';
 
 const Raycaster = () => {
@@ -19,11 +19,12 @@ const Raycaster = () => {
         const intersects = raycaster.intersectObjects(scene.children, true);
 
         if (intersects.length > 0) {
-            const object = intersects[0].object.name;
-            if (object === "mesh6") {
-                console.log('Mesh 6');
-                navigate('/achievements');
-            }
+            intersects.forEach(intersect => {
+                const object = intersect.object.name;
+                if (object === "mesh2") {
+                    navigate('/achievements');
+                }
+            });
         }
     }, [camera, scene]);
 
@@ -37,7 +38,7 @@ const Raycaster = () => {
 
     return (
         <>
-            <Cube/>
+            <NUSH />
         </>
     );
 };

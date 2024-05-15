@@ -1,8 +1,8 @@
-import React from 'react'
+import Game from "./Game";
 
 const Achievements = () => {
   return (
-    <div>Achievements</div>
+    <Game />
   )
 }
 

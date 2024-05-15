@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ModelView from "./ModelView";
-import Raycaster from "./Raycaster";
 import { useRef, useState, useEffect, useCallback } from "react";
 import * as THREE from "three";
 import { yellowImg } from "../utils";
@@ -34,7 +33,7 @@ const Model = () => {
         <section className="common-padding">
             <div className="screen-max-width">
                 <h1 id='heading' className="section-heading">
-                    Welcome.
+                    Click on the screen.
                 </h1>
                 <div className="flex flex-col items-center mt-5">
                     <div className="w-full h-[75vh] md:h-[90vh] overflow-hidden relative">
