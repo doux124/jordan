@@ -6,6 +6,7 @@ import { GameLoop } from "./GameLoop.js";
 import { Input } from "./Input.js";
 import { UP, DOWN, LEFT, RIGHT, ENTER } from "./Input.js";
 import { useNavigate } from 'react-router-dom';
+import { Walls } from "./Walls.js";
 
 const Game = () => {
     const canvasRef = useRef(null);
@@ -38,13 +39,27 @@ const Game = () => {
             frame: 1,
         })
 
-        const pos = new Vector2(760, 100);
+        const pos = new Vector2(760, 100); // Frisk's starting point
         const input = new Input();
         let count = 0;
         let animation = true;
         let light = false;
 
+        const walls = new Walls();
+        walls.addWall(420, 170, 520, 1270);
+        walls.addWall(520, -250, 700, 270);
+        walls.addWall(2514, 370, 2524, 770);
+        walls.addWall(1044, -250, 1354, 270);
+        walls.addWall(1334, 270, 2574, 350);
+        walls.addWall(520, 1470, 2680, 1480);
+        walls.addWall(2514, 1380, 3220, 1580);
+        walls.addWall(2514, 820, 3220, 830);
+        walls.addWall(2824, 820, 2834, 1390);
+        
+        let lastEnterPress = 0;
+
         const update = () => {
+            const currentTime = Date.now();
             if (!light) {backgroundSprite.resource = resources.images.unlit;} 
 
             count += 1
@@ -63,24 +78,34 @@ const Game = () => {
 
 
             if (input.direction === DOWN) {
-                pos.y += 10;
+                if (!walls.checkCollision(pos.x, pos.y + 10, frisk.frameSize.x, frisk.frameSize.y)) {
+                    pos.y += 10;
+                }
                 frisk.frame = (animation === true) ? 1 : 3;
             }
             if (input.direction === UP) {
-                pos.y -= 10;
+                if (!walls.checkCollision(pos.x, pos.y - 10, frisk.frameSize.x, frisk.frameSize.y)) {
+                    pos.y -= 10;
+                }     
                 frisk.frame = (animation === true) ? 4 : 6;
             }
             if (input.direction === LEFT) {
-                pos.x -= 10;
+                if (!walls.checkCollision(pos.x - 10, pos.y, frisk.frameSize.x, frisk.frameSize.y)) {
+                    pos.x -= 10;
+                }
                 frisk.frame = (animation === true) ? 2 : 8;
             }
             if (input.direction === RIGHT) {
-                pos.x += 10;
+                if (!walls.checkCollision(pos.x + 10, pos.y, frisk.frameSize.x, frisk.frameSize.y)) {
+                    pos.x += 10;
+                }
                 frisk.frame = (animation === true) ? 5 : 7;
             }
 
             
-            if (input.direction === ENTER) {
+            if (input.direction === ENTER && currentTime - lastEnterPress >= 1000) {
+                console.log(currentTime - lastEnterPress );
+                lastEnterPress = currentTime;
                 let x = (pos.x < 2100 && pos.x > 1700) ? true : false;
                 let y = (pos.y < 400 && pos.y > 200) ? true : false;
                 if (x && y) {
@@ -92,7 +117,6 @@ const Game = () => {
                 if (x && y) {
                     light = !light;
                 }
-                console.log(pos);
             }
         };
 
