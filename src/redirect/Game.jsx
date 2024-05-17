@@ -141,6 +141,7 @@ const Game = () => {
 
         return () => {
             input.stop();
+            gameLoop.stop();
         };
 
     }, []);
