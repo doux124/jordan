@@ -18,10 +18,12 @@ const Raycaster = () => {
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(scene.children, true);
 
+        // Interactable
         if (intersects.length > 0) {
             intersects.forEach(intersect => {
                 const object = intersect.object.name;
-                if (object === "mesh2") {
+                console.log(object);
+                if (object === "mesh3") {
                     navigate('/achievements');
                 }
             });
