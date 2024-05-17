@@ -7,48 +7,15 @@ export const ENTER = "ENTER";
 export class Input {
     constructor() {
         this.heldDirections = [];
+        this.touchButtons = [];
 
-        document.addEventListener("keydown", (e) => {
-            if (e.code === "ArrowUp" || e.code === "KeyW") {
-                this.onArrowPressed(UP);
-            }
+        this.touchStartHandler = this.touchStartHandler.bind(this);
+        this.touchEndHandler = this.touchEndHandler.bind(this);
+        this.mouseDownHandler = this.mouseDownHandler.bind(this);
+        this.mouseUpHandler = this.mouseUpHandler.bind(this);
 
-            if (e.code === "ArrowDown" || e.code === "KeyS") {
-                this.onArrowPressed(DOWN);
-            }
-
-            if (e.code === "ArrowLeft" || e.code === "KeyA") {
-                this.onArrowPressed(LEFT);
-            }
-
-            if (e.code === "ArrowRight" || e.code === "KeyD") {
-                this.onArrowPressed(RIGHT);
-            }
-            if (e.code === "Enter") {
-                this.onArrowPressed(ENTER);
-            }
-        });
-
-        document.addEventListener("keyup", (e) => {
-            if (e.code === "ArrowUp" || e.code === "KeyW") {
-                this.onArrowReleased(UP);
-            }
-
-            if (e.code === "ArrowDown" || e.code === "KeyS") {
-                this.onArrowReleased(DOWN);
-            }
-
-            if (e.code === "ArrowLeft" || e.code === "KeyA") {
-                this.onArrowReleased(LEFT);
-            }
-
-            if (e.code === "ArrowRight" || e.code === "KeyD") {
-                this.onArrowReleased(RIGHT);
-            }
-            if (e.code === "Enter") {
-                this.onArrowReleased(ENTER);
-            }
-        });
+        document.addEventListener("keydown", (e) => this.keyDownHandler(e));
+        document.addEventListener("keyup", (e) => this.keyUpHandler(e));
 
         this.createTouchControls();
     }
@@ -71,13 +38,57 @@ export class Input {
         this.heldDirections.splice(index, 1);
     }
 
+    keyDownHandler(e) {
+        if (e.code === "ArrowUp" || e.code === "KeyW") {
+            this.onArrowPressed(UP);
+        }
+
+        if (e.code === "ArrowDown" || e.code === "KeyS") {
+            this.onArrowPressed(DOWN);
+        }
+
+        if (e.code === "ArrowLeft" || e.code === "KeyA") {
+            this.onArrowPressed(LEFT);
+        }
+
+        if (e.code === "ArrowRight" || e.code === "KeyD") {
+            this.onArrowPressed(RIGHT);
+        }
+
+        if (e.code === "Enter") {
+            this.onArrowPressed(ENTER);
+        }
+    }
+
+    keyUpHandler(e) {
+        if (e.code === "ArrowUp" || e.code === "KeyW") {
+            this.onArrowReleased(UP);
+        }
+
+        if (e.code === "ArrowDown" || e.code === "KeyS") {
+            this.onArrowReleased(DOWN);
+        }
+
+        if (e.code === "ArrowLeft" || e.code === "KeyA") {
+            this.onArrowReleased(LEFT);
+        }
+
+        if (e.code === "ArrowRight" || e.code === "KeyD") {
+            this.onArrowReleased(RIGHT);
+        }
+
+        if (e.code === "Enter") {
+            this.onArrowReleased(ENTER);
+        }
+    }
+
     createTouchControls() {
         const controls = [
-            { id: "up", direction: UP },
-            { id: "down", direction: DOWN },
-            { id: "left", direction: LEFT },
-            { id: "right", direction: RIGHT },
-            { id: "enter", direction: ENTER }
+            { id: "UP", direction: UP },
+            { id: "DOWN", direction: DOWN },
+            { id: "LEFT", direction: LEFT },
+            { id: "RIGHT", direction: RIGHT },
+            { id: "ENTER", direction: ENTER }
         ];
 
         controls.forEach(control => {
@@ -120,25 +131,13 @@ export class Input {
                     break;
             }
 
-            button.addEventListener("touchstart", (e) => {
-                e.preventDefault();
-                this.onArrowPressed(control.direction);
-            });
-            button.addEventListener("touchend", (e) => {
-                e.preventDefault();
-                this.onArrowReleased(control.direction);
-            });
-
-            button.addEventListener("mousedown", (e) => {
-                e.preventDefault();
-                this.onArrowPressed(control.direction);
-            });
-            button.addEventListener("mouseup", (e) => {
-                e.preventDefault();
-                this.onArrowReleased(control.direction);
-            });
+            button.addEventListener("touchstart", this.touchStartHandler);
+            button.addEventListener("touchend", this.touchEndHandler);
+            button.addEventListener("mousedown", this.mouseDownHandler);
+            button.addEventListener("mouseup", this.mouseUpHandler);
 
             document.body.appendChild(button);
+            this.touchButtons.push(button); 
         });
 
         const blankButton = document.createElement("button");
@@ -150,5 +149,38 @@ export class Input {
         blankButton.style.left = "60px";
 
         document.body.appendChild(blankButton);
+        this.touchButtons.push(blankButton); 
+    }
+
+    touchStartHandler(e) {
+        e.preventDefault();
+        const direction = e.target.id;
+        this.onArrowPressed(direction);
+    }
+  
+    touchEndHandler(e) {
+        e.preventDefault();
+        const direction = e.target.id;
+        this.onArrowReleased(direction);
+    } 
+    mouseDownHandler(e) {
+        e.preventDefault();
+        const direction = e.target.id;
+        this.onArrowPressed(direction);
+    } 
+    mouseUpHandler(e) {
+        e.preventDefault();
+        const direction = e.target.id;
+        this.onArrowReleased(direction);
+    }
+    
+
+    stop() {
+        this.touchButtons.forEach(button => {
+            if (button.parentNode) {
+                button.parentNode.removeChild(button);
+            }
+        });
+        this.touchButtons = [];
     }
 }

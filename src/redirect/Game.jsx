@@ -104,14 +104,24 @@ const Game = () => {
 
             
             if (input.direction === ENTER && currentTime - lastEnterPress >= 1000) {
-                console.log(currentTime - lastEnterPress );
+                console.log(pos);
                 lastEnterPress = currentTime;
+
+                // Bookshelf
                 let x = (pos.x < 2100 && pos.x > 1700) ? true : false;
                 let y = (pos.y < 400 && pos.y > 200) ? true : false;
                 if (x && y) {
                     navigate('/achievements/research');
                 }
                 
+                // Heart
+                x = (pos.x < 2700 && pos.x > 2500) ? true : false;
+                y = (pos.y < 1090 && pos.y > 890) ? true : false;
+                if (x && y) {
+                    navigate('/achievements/volunteer');
+                }
+
+                // Fireplace
                 x = (pos.x < 1600 && pos.x > 1300) ? true : false;
                 y = (pos.y < 400 && pos.y > 200) ? true : false;
                 if (x && y) {
@@ -128,7 +138,11 @@ const Game = () => {
 
         const gameLoop = new GameLoop(update, draw);
         gameLoop.start();
-        
+
+        return () => {
+            input.stop();
+        };
+
     }, []);
 
     return (
