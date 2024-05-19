@@ -1,7 +1,7 @@
-import React from 'react';
 import Annuloplasty from './Annuloplasty';
 import Graphene from './Graphene';
 import EEG from './EEG';
+import Awards from './Awards';
 
 const Research = () => {
   const styles = {
@@ -37,6 +37,7 @@ const Research = () => {
         <a style={styles.navLink} onClick={() => scrollToSection('annuloplasty')}>Annuloplasty</a>
         <a style={styles.navLink} onClick={() => scrollToSection('graphene')}>Graphene</a>
         <a style={styles.navLink} onClick={() => scrollToSection('eeg')}>EEG</a>
+        <a style={styles.navLink} onClick={() => scrollToSection('awards')}>Awards</a>
       </nav>
       <main className="bg-white" style={styles.sectionContainer}>
         <div id="annuloplasty">
@@ -47,6 +48,9 @@ const Research = () => {
         </div>
         <div id="eeg">
           <EEG />
+        </div>
+        <div id="awards">
+          <Awards />
         </div>
       </main>
     </div>
