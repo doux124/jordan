@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import gsap from "gsap";
+import RingModel from "./RingModel";
 import Ring from "./Ring";
 import { useGSAP } from "@gsap/react";
 import "./styles.css";
@@ -9,18 +10,20 @@ const Annuloplasty = () => {
   const styles = {
     rotateText: {
       position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       cursor: 'pointer',
-      opacity: modelClicked ? 0 : 0.5, // Adjust opacity based on modelClicked state
+      opacity: modelClicked ? 0 : 0.5,
+      pointerEvents: 'none',
     },
   };
   const handleModelMouseDown = () => {
     setModelClicked(true);
-  };
-  const handleModelMouseUp = () => {
-    setModelClicked(false);
   };
 
   useGSAP(() => {
@@ -55,15 +58,11 @@ const Annuloplasty = () => {
             </p>
           </section>
   
-          <section className="section flexItem">
-            <div 
-              onMouseDown={handleModelMouseDown} 
-              onMouseUp={handleModelMouseUp}
-              style={styles.rotateText}
-            >
+          <section className="section flexItem" onMouseDown={handleModelMouseDown}>
+            <Ring />
+            <div style={styles.rotateText}>
               Click to Rotate Model
             </div>
-            <Ring />
           </section>
         </div>
   
