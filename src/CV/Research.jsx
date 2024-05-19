@@ -2,6 +2,11 @@ import Annuloplasty from './Annuloplasty';
 import Graphene from './Graphene';
 import EEG from './EEG';
 import Awards from './Awards';
+import { ScrollTrigger } from 'gsap/all';
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Research = () => {
   const styles = {
@@ -21,8 +26,9 @@ const Research = () => {
       fontSize: '16px',
       cursor: 'pointer',
     },
-    sectionContainer: {
-      marginTop: '40px',
+    section: {
+      opacity: 0.5,
+      minHeight: '100vh',  // Ensure sections are tall enough to trigger scroll
     },
   };
 
@@ -31,25 +37,44 @@ const Research = () => {
     section.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      const sections = scrollRef.current.children;
+      gsap.utils.toArray(sections).forEach((section) => {
+        gsap.to(section, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+          },
+        });
+      });
+    }
+  }, []);
+
   return (
     <div>
       <nav style={styles.navbar}>
         <a style={styles.navLink} onClick={() => scrollToSection('annuloplasty')}>Annuloplasty</a>
-        <a style={styles.navLink} onClick={() => scrollToSection('graphene')}>Graphene</a>
         <a style={styles.navLink} onClick={() => scrollToSection('eeg')}>EEG</a>
+        <a style={styles.navLink} onClick={() => scrollToSection('graphene')}>Graphene</a>
         <a style={styles.navLink} onClick={() => scrollToSection('awards')}>Awards</a>
       </nav>
-      <main className="bg-white" style={styles.sectionContainer}>
-        <div id="annuloplasty">
+      <main ref={scrollRef}>
+        <div id="annuloplasty" style={styles.section}>
           <Annuloplasty />
         </div>
-        <div id="graphene">
-          <Graphene />
-        </div>
-        <div id="eeg">
+        <div id="eeg" style={styles.section}>
           <EEG />
         </div>
-        <div id="awards">
+        <div id="graphene" style={styles.section}>
+          <Graphene />
+        </div>
+        <div id="awards" style={styles.section}>
           <Awards />
         </div>
       </main>

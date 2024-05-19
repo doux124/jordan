@@ -4,7 +4,7 @@ import { useGLTF } from '@react-three/drei'
 export function RingModel(props) {
   const { nodes, materials } = useGLTF('/models/ring.glb')
   return (
-    <group {...props} dispose={null} scale={[0.075, 0.075, 0.075]}>
+    <group {...props} dispose={null} scale={[0.078, 0.078, 0.078]}>
       <mesh
         castShadow
         receiveShadow
