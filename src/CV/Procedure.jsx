@@ -38,7 +38,9 @@ const Procedure = () => {
             A sizer is used to measure the size of the annulus.
             <img src="/jordan/images/sizer.png" className="image w-[20vh] h-auto"/>
             <br />
-            <img src="/jordan/images/steps.png" className="image w-[80vh] h-auto"/>
+            <img src="/jordan/images/steps.png" className="image w-[100vh] h-auto"/>
+            <img src="/jordan/images/prep.png" className="image w-[100vh] h-auto"/>
+            <img src="/jordan/images/biodegrade.png" className="image w-[100vh] h-auto"/>
           </p>
         </section>
       </div>

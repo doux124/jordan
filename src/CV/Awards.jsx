@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Awards = () => {
   const styles = {
     pageContainer: {

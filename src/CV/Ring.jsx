@@ -1,18 +1,10 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState } from "react";
 import * as THREE from "three";
-import { yellowImg } from "../utils";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import RingView from "./RingView";
 
 const Ring = () => {
-    // Model
-    const[model, setModel] = useState({
-        title: "Test",
-        color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
-        img: yellowImg, //Texture
-    })
-
     // Camera Control
     const cameraControl = useRef();
 
@@ -26,12 +18,10 @@ const Ring = () => {
         <div className="flex flex-col items-center pt-5">
             <div className="w-[30vh] h-[30vh] md:h-[20vh] overflow-hidden relative">
                 <RingView
-                    index={1}
                     groupRef={track}
                     gsapType="view1"
                     controlRef={cameraControl}
-                    setRotationState={setRotation}
-                    item={model}   
+                    setRotationState={setRotation}  
                 />
 
                 <Canvas 

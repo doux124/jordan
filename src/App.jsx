@@ -5,6 +5,7 @@ import Research from "./CV/Research";
 import Volunteer from "./CV/Volunteer";
 import AnnuloplastyMore from './CV/AnnuloplastyMore';
 import Procedure from './CV/Procedure';
+import Results from './CV/Results';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='achievements/research' element={<Research />} />
         <Route path='achievements/research/annuloplasty' element={<AnnuloplastyMore />} />
         <Route path='achievements/research/annuloplasty/procedure' element={<Procedure />} />
+        <Route path='achievements/research/annuloplasty/results' element={<Results />} />
         <Route path='achievements/volunteer' element={<Volunteer />} />
       </Routes>
     </main>

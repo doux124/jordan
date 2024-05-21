@@ -1,5 +1,3 @@
-import React from 'react';
-
 const EEG = () => {
   const styles = {
     pageContainer: {

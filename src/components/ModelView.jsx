@@ -1,4 +1,4 @@
-import { Html, OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
+import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 
 import * as THREE from 'three'
 import Lights from './Lights';
@@ -30,7 +30,7 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       /> 
 
-      <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, 0 ,0]}>
+      <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, -0.5, 0]} rotation={[0, Math.PI, 0]}>
         <Suspense fallback={<Loader />}>
           <Raycaster />
         </Suspense>

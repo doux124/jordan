@@ -1,10 +1,9 @@
-import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 function Model(props) {
   const { nodes, materials } = useGLTF('/jordan/models/arcade.glb')
   return (
-    <group {...props} dispose={null} scale={[0.35, 0.35, 0.35]}>
+    <group {...props} dispose={null} scale={[0.45, 0.45, 0.45]}>
       <group position={[0, 1, 0]}>
         <mesh
           castShadow
