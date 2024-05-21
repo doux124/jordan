@@ -36,9 +36,9 @@ const Procedure = () => {
           <h2 className="subHeader">Procedure</h2>
           <p className="text-justify mt-3">
             A sizer is used to measure the size of the annulus.
-            <img src="/images/sizer.png" className="image w-[20vh] h-auto"/>
+            <img src="/public/images/sizer.png" className="image w-[20vh] h-auto"/>
             <br />
-            <img src="/images/steps.png" className="image w-[80vh] h-auto"/>
+            <img src="/public/images/steps.png" className="image w-[80vh] h-auto"/>
           </p>
         </section>
       </div>
