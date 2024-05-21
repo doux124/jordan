@@ -116,13 +116,14 @@ const Annuloplasty = () => {
   
         <section className="section">
           <h2 className="subHeader">Results</h2>
-          <p className="flex-1 text-justify mt-2">  
+          <p className="flex-1 text-justify mt-2">
             Our <Link to="/achievements/research/annuloplasty/results" style={{ color: '#004d99', textDecoration: 'underline' }}>experimental results</Link> verified 
             the Nitinol and MMA-PEGDMA designs' 
             efficacy in reducing mitral valve regurgitation, as well as their 
             ability to undergo the shape memory effect. Our novel research has great 
             significance in making improving the accessibility of treatment for 
             patients suffering from mitral valve regurgitation.
+            <img src="/jordan/images/results.png" className="image w-[50vh] h-auto mx-auto mt-3"/>
           </p>
         </section>
       </div>

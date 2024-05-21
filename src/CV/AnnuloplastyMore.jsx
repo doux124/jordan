@@ -74,7 +74,10 @@ const AnnuloplastyMore = () => {
               ring. As it sets in the mould, the polymer forms in a way that minimizes strain and 
               is at its equilibrated state. When deformed, it forms new chain-chain interactions 
               that keep it in its temporary form. However, upon heating, these weak chain-chain 
-              interactions are broken, and it returns to their original permanent shape.
+              interactions are broken, and it returns to their original permanent shape.  for biodegradable rings, 
+              as they degrade, the patient’s fibrous tissue and cardiac cells will grow around the 
+              ring and form a sort of natural annuloplasty ring. This makes the MMA-PEGDMA ring 
+              suitable for children. 
             </p>
           </section>
         </div>
