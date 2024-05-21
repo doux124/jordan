@@ -40,6 +40,7 @@ const Research = () => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
+    window.history.scrollRestoration = 'manual'
     if (scrollRef.current) {
       const sections = scrollRef.current.children;
       gsap.utils.toArray(sections).forEach((section) => {

@@ -29,6 +29,14 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  .sectionAnimate {
+    margin-top: 20px;
+    padding: 20px;
+    background: #FCF3E0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
   
   .subHeader {
     color: #0066cc;
@@ -57,4 +65,5 @@
     min-width: 300px;
     position: relative;
   }
+
   
