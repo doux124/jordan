@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function RingModel(props) {
-  const { nodes, materials } = useGLTF('/models/ring.glb')
+  const { nodes, materials } = useGLTF('/jordan/models/ring.glb')
   return (
     <group {...props} dispose={null} scale={[0.078, 0.078, 0.078]}>
       <mesh
@@ -15,6 +15,6 @@ export function RingModel(props) {
   )
 }
 
-useGLTF.preload('/models/ring.glb')
+useGLTF.preload('/jordan/models/ring.glb')
 
 export default RingModel

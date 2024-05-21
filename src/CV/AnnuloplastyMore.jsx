@@ -35,7 +35,7 @@ const AnnuloplastyMore = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Shape Memory Effect</h2>
           <br />
-          <img src="/images/SHE.png" className="w-[100vh] h-auto"/>
+          <img src="/jordan/images/SHE.png" className="w-[100vh] h-auto"/>
           <p className="text-justify mt-3">
             The shape memory property of these rings allows them to be pliable 
             outside the body. They can be shaped into a thin rod and inserted through the left ribs. 
@@ -48,7 +48,7 @@ const AnnuloplastyMore = () => {
         <div className="flexContainer">
           <section className="sectionAnimate flexItem">
             <h2 className="subHeader">Nitinol</h2>
-            <img src="/images/nitinol_SHE.png" className="w-[100vh] h-auto mt-3"/>
+            <img src="/jordan/images/nitinol_SHE.png" className="w-[100vh] h-auto mt-3"/>
             <p className="text-justify">
               <br />
               In Shape Memory Alloys such as Nitinol, monoclinic multi-variant martensite undergoes detwinning 
@@ -66,7 +66,7 @@ const AnnuloplastyMore = () => {
   
           <section className="sectionAnimate flexItem">
             <h2 className="subHeader">MMA-PEGDMA</h2>
-            <img src="/images/MMAPEGDMA_SHE.png" className="w-[100vh] h-auto mt-3"/>
+            <img src="/jordan/images/MMAPEGDMA_SHE.png" className="w-[100vh] h-auto mt-3"/>
             <p className="text-justify">
               <br />
               In Shape Memory Polymers such as MMA-PEGDMA, the copolymer is made via the 

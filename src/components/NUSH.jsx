@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 function Model(props) {
-  const { nodes, materials } = useGLTF('/models/arcade.glb')
+  const { nodes, materials } = useGLTF('/jordan/models/arcade.glb')
   return (
     <group {...props} dispose={null} scale={[0.35, 0.35, 0.35]}>
       <group position={[0, 1, 0]}>
@@ -89,6 +89,6 @@ function Model(props) {
   )
 }
 
-useGLTF.preload('/models/arcade.glb')
+useGLTF.preload('/jordan/models/arcade.glb')
 
 export default Model

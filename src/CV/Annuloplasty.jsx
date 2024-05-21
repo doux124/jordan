@@ -59,7 +59,7 @@ const Annuloplasty = () => {
 
           <div className="flex flex-col md:flex-row items-start">
               <div className="inline-flex mb-4 md:mr-4">
-                  <img src="/images/backflow.png" className="w-[45vh] h-auto"/>
+                  <img src="/jordan/images/backflow.png" className="w-[45vh] h-auto"/>
               </div>
               <p className="flex-1 text-justify">
                   <br />
@@ -77,7 +77,7 @@ const Annuloplasty = () => {
               usually do not get it treated immediately.    
             </p>
             <div className="inline-flex mr-4 mb-4">
-              <img src="/images/annuloplasty_ring.png" className="w-[45vh] h-auto ml-4"/>
+              <img src="/jordan/images/annuloplasty_ring.png" className="w-[45vh] h-auto ml-4"/>
             </div>            
           </div>
         </section>

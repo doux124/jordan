@@ -1,12 +1,12 @@
 class Resources {
     constructor() {
         this.toLoad = {
-            background: "/sprites/background.png",
-            unlit: "/sprites/background_unlit.png",
-            lit1: "/sprites/background_lit.png",
-            lit2: "/sprites/background_lit2.png",
-            frisk: "/sprites/frisk.png",
-            heart: "/sprites/heart_all.png"
+            background: "/jordan/sprites/background.png",
+            unlit: "/jordan/sprites/background_unlit.png",
+            lit1: "/jordan/sprites/background_lit.png",
+            lit2: "/jordan/sprites/background_lit2.png",
+            frisk: "/jordan/sprites/frisk.png",
+            heart: "/jordan/sprites/heart_all.png"
         };
 
         this.images ={};
