@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { resources } from "./Resource.js";
 import { Sprite } from "./Sprite.js";
 import { Vector2 } from "./Vector2.js";
@@ -7,6 +7,7 @@ import { Input } from "./Input.js";
 import { UP, DOWN, LEFT, RIGHT, ENTER } from "./Input.js";
 import { useNavigate } from 'react-router-dom';
 import { Walls } from "./Walls.js";
+import Music from '../components/Music';
 
 const Game = () => {
     const canvasRef = useRef(null);
@@ -147,7 +148,9 @@ const Game = () => {
     }, []);
 
     return (
-        <canvas id="game-canvas" ref={canvasRef} width={3200} height={1800}></canvas>
+        <canvas id="game-canvas" ref={canvasRef} width={3200} height={1800}>
+            <Music />
+        </canvas>
     );
 };
 
