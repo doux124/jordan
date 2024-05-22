@@ -35,7 +35,7 @@ const Pet = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">This is my guniea pig</h2>
           <br />
-          <img src="/jordan/images/latte.jpeg" className="w-[100vh] h-auto"/>
+          <img src="/jordan/images/latte.png" className="w-[100vh] h-auto"/>
         </section>
       </div>
     </div>
