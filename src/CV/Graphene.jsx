@@ -58,44 +58,31 @@ const Graphene = () => {
       <div style={styles.projectContainer}>
         <h1 style={styles.header}>Graphene Research Project</h1>
         <p>
-          Welcome to our research project on Annuloplasty, a surgical procedure
-          aimed at repairing and reconstructing the annulus, which is the ring-like
-          part of a heart valve. Our project aims to improve the outcomes and
-          techniques used in this critical procedure.
+          yap
         </p>
         <section style={styles.section}>
-          <h2 style={styles.subHeader}>About Annuloplasty</h2>
+          <h2 style={styles.subHeader}>yap</h2>
           <p>
-            Annuloplasty is primarily used to treat conditions like mitral valve
-            regurgitation and tricuspid valve regurgitation. The procedure involves
-            placing a ring around the valve to tighten or reinforce the annulus,
-            helping the valve to close more effectively.
+            yap
           </p>
         </section>
         <section style={styles.section}>
-          <h2 style={styles.subHeader}>Research Objectives</h2>
+          <h2 style={styles.subHeader}>yap</h2>
           <ul style={styles.list}>
-            <li>To analyze the effectiveness of various annuloplasty techniques.</li>
-            <li>To develop new materials and designs for annuloplasty rings.</li>
-            <li>To evaluate patient outcomes and recovery times post-surgery.</li>
+            <p>yap</p>
           </ul>
         </section>
         <div style={styles.flexContainer}>
           <section style={{ ...styles.section, ...styles.flexItem }}>
-            <h2 style={styles.subHeader}>Our Team</h2>
+            <h2 style={styles.subHeader}>yap</h2>
             <p>
-              Our multidisciplinary team includes cardiologists, surgeons, biomedical
-              engineers, and researchers dedicated to advancing the field of valve
-              repair surgery.
+              yap
             </p>
           </section>
           <section style={{ ...styles.section, ...styles.flexItem }}>
-            <h2 style={styles.subHeader}>Get Involved</h2>
+            <h2 style={styles.subHeader}>yap</h2>
             <p>
-              We welcome collaboration and participation from other researchers,
-              medical professionals, and institutions. If you are interested in
-              contributing to our research or have any questions, please contact us
-              at <a style={styles.link} href="mailto:research@annuloplastyproject.org">research@annuloplastyproject.org</a>.
+              yap
             </p>
           </section>
         </div>

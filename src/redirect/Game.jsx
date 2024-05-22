@@ -57,6 +57,14 @@ const Game = () => {
             frame: 1,
             scale: 1.7,
         })
+        const pet = new Sprite({
+            resource: resources.images.pet1,
+            frameSize: new Vector2(178, 178),
+            hFrames: 1,
+            vFrames: 1,
+            frame: 1,
+            scale: 1.7,
+        })
 
         const camera = new Camera(canvas.width, canvas.height);
 
@@ -104,15 +112,17 @@ const Game = () => {
             if (count < 25) {
                 animation = true;
                 if (light && main) {rooms[currentRoom].background.resource = resources.images.lit1;}
-                if (sound) {radio.resource = resources.images.radio1;} else {radio.resource = resources.images.radio;}
+                if (sound) {radio.resource = resources.images.radio1;} else {radio.resource = resources.images.radio2;}
                 trophy.resource = rando < 0.5 ? resources.images.trophy1 : resources.images.trophy3;
                 heart.resource = rando < 0.5 ? resources.images.heart1 : resources.images.heart3;
+                pet.resource = rando < 0.5 ? resources.images.pet1 : resources.images.pet3;
             } else {
                 animation = false;
                 if (light && main) {rooms[currentRoom].background.resource = resources.images.lit2;}
                 if (sound) {radio.resource = resources.images.radio2;}
                 trophy.resource = resources.images.trophy2;
                 heart.resource = resources.images.heart2;
+                pet.resource = resources.images.pet2;
                 if (count > 50) { count = 0; rando = Math.random();}
             } 
 
@@ -182,6 +192,13 @@ const Game = () => {
                     if (x && y) {
                         navigate('/achievements/volunteer');
                     }
+
+                    // Pet
+                    x = (pos.x < 2300 && pos.x > 2130) ? true : false;
+                    y = (pos.y < 840 && pos.y > 800) ? true : false;
+                    if (x && y) {
+                        navigate('/achievements/pet');
+                    }
                 }
             }
         };
@@ -192,6 +209,7 @@ const Game = () => {
             if (!main) {
                 trophy.drawImage(ctx, 610 - camera.x, 400 - camera.y);
                 heart.drawImage(ctx, 1600 - camera.x, 320 - camera.y);
+                pet.drawImage(ctx, 2800 - camera.x, 500 - camera.y);
                 radio.drawImage(ctx, 3800 - camera.x, 970 - camera.y);
             }
             frisk.drawImage(ctx, pos.x, pos.y);

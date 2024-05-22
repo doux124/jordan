@@ -15,6 +15,9 @@ class Resources {
             trophy1: "/jordan/sprites/trophy1.png",
             trophy2: "/jordan/sprites/trophy2.png",
             trophy3: "/jordan/sprites/trophy3.png",
+            pet1: "/jordan/sprites/pet1.png",
+            pet2: "/jordan/sprites/pet2.png",
+            pet3: "/jordan/sprites/pet3.png",
         };
 
         this.images ={};
