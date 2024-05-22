@@ -9,7 +9,7 @@ const Music = () => {
 
   return (
     <audio ref={audioRef} loop>
-      <source src="/jordan/audio/rachel.mp3" type="audio/mpeg" />
+      <source src="/jordan/audio/firefly.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
   );
