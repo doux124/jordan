@@ -33,7 +33,6 @@ const Game = () => {
             vFrames: 4,
             frame: fresh ? 3 : (currentRoom === 'mainRoom' ? 8 : 7),
         })
-
         const radio = new Sprite({
             resource: resources.images.radio1,
             frameSize: new Vector2(138, 145),
@@ -41,6 +40,22 @@ const Game = () => {
             vFrames: 1,
             frame: 1,
             scale: 2,
+        })
+        const trophy = new Sprite({
+            resource: resources.images.trophy1,
+            frameSize: new Vector2(234, 233),
+            hFrames: 1,
+            vFrames: 1,
+            frame: 1,
+            scale: 2,
+        })
+        const heart = new Sprite({
+            resource: resources.images.heart1,
+            frameSize: new Vector2(354, 354),
+            hFrames: 1,
+            vFrames: 1,
+            frame: 1,
+            scale: 1.7,
         })
 
         const camera = new Camera(canvas.width, canvas.height);
@@ -58,6 +73,7 @@ const Game = () => {
         let time = 0;
         let light = lit;
         let sound = music;
+        let rando = 0;
 
         const update = () => {
             camera.update(pos, rooms[currentRoom].width, rooms[currentRoom].height);
@@ -89,11 +105,15 @@ const Game = () => {
                 animation = true;
                 if (light && main) {rooms[currentRoom].background.resource = resources.images.lit1;}
                 if (sound) {radio.resource = resources.images.radio1;} else {radio.resource = resources.images.radio;}
+                trophy.resource = rando < 0.5 ? resources.images.trophy1 : resources.images.trophy3;
+                heart.resource = rando < 0.5 ? resources.images.heart1 : resources.images.heart3;
             } else {
                 animation = false;
                 if (light && main) {rooms[currentRoom].background.resource = resources.images.lit2;}
                 if (sound) {radio.resource = resources.images.radio2;}
-                if (count > 50) { count = 0; }
+                trophy.resource = resources.images.trophy2;
+                heart.resource = resources.images.heart2;
+                if (count > 50) { count = 0; rando = Math.random();}
             } 
 
             if (input.direction === DOWN) {
@@ -139,22 +159,42 @@ const Game = () => {
                     light = !light;
                     setLit(light);
                 }
+                
+                if (!main) {
+                    // Radio
+                    x = (pos.x < 2610 && pos.x > 2550) ? true : false;
+                    y = (pos.y < 1110 && pos.y > 820) ? true : false;
+                    if (x && y) {
+                        sound = !sound;
+                        setMusic(sound);
+                    }
 
-                // Radio
-                x = (pos.x < 2610 && pos.x > 2550) ? true : false;
-                y = (pos.y < 1110 && pos.y > 820) ? true : false;
-                if (x && y) {
-                    sound = !sound;
-                    setMusic(sound);
+                    // Trophy
+                    x = (pos.x < 850 && pos.x > 600) ? true : false;
+                    y = (pos.y < 840 && pos.y > 800) ? true : false;
+                    if (x && y) {
+                        navigate('/achievements/research');
+                    }
+
+                    // Heart
+                    x = (pos.x < 1750 && pos.x > 1640) ? true : false;
+                    y = (pos.y < 840 && pos.y > 800) ? true : false;
+                    if (x && y) {
+                        navigate('/achievements/volunteer');
+                    }
                 }
             }
         };
 
         const draw = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            rooms[currentRoom].background.drawImage(ctx, -camera.x, -camera.y);
+            rooms[currentRoom].background.drawImage(ctx, -camera.x, -camera.y);      
+            if (!main) {
+                trophy.drawImage(ctx, 610 - camera.x, 400 - camera.y);
+                heart.drawImage(ctx, 1600 - camera.x, 320 - camera.y);
+                radio.drawImage(ctx, 3800 - camera.x, 970 - camera.y);
+            }
             frisk.drawImage(ctx, pos.x, pos.y);
-            radio.drawImage(ctx, 3800 - camera.x, 970 - camera.y);
         };
 
         const gameLoop = new GameLoop(update, draw);
