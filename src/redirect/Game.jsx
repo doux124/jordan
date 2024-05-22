@@ -20,6 +20,7 @@ const Game = () => {
     const [transitionInProgress, setTransitionInProgress] = useState(false);
     const [fresh, setFresh] = useState(true);
     const [lit, setLit] = useState(false);
+    const [music, setMusic] = useState(true);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -31,6 +32,15 @@ const Game = () => {
             hFrames: 2,
             vFrames: 4,
             frame: fresh ? 3 : (currentRoom === 'mainRoom' ? 8 : 7),
+        })
+
+        const radio = new Sprite({
+            resource: resources.images.radio1,
+            frameSize: new Vector2(138, 145),
+            hFrames: 1,
+            vFrames: 1,
+            frame: 1,
+            scale: 2,
         })
 
         const camera = new Camera(canvas.width, canvas.height);
@@ -47,6 +57,7 @@ const Game = () => {
         let trans = 0;
         let time = 0;
         let light = lit;
+        let sound = music;
 
         const update = () => {
             camera.update(pos, rooms[currentRoom].width, rooms[currentRoom].height);
@@ -72,19 +83,18 @@ const Game = () => {
 
             if (!light && main) { rooms[currentRoom].background.resource = resources.images.unlit; }
 
-            count += 1
+            count += 1;
+
             if (count < 25) {
                 animation = true;
                 if (light && main) {rooms[currentRoom].background.resource = resources.images.lit1;}
-            }
-            if (count > 25) {
+                if (sound) {radio.resource = resources.images.radio1;} else {radio.resource = resources.images.radio;}
+            } else {
                 animation = false;
                 if (light && main) {rooms[currentRoom].background.resource = resources.images.lit2;}
-            }
-            if (count > 50) {
-                count = 0;
-                // animations go here
-            }
+                if (sound) {radio.resource = resources.images.radio2;}
+                if (count > 50) { count = 0; }
+            } 
 
             if (input.direction === DOWN) {
                 if (!walls.checkCollision(pos.x, pos.y + 10, frisk.frameSize.x, frisk.frameSize.y)) {
@@ -112,7 +122,7 @@ const Game = () => {
             }
      
             if (input.direction === ENTER && currentTime - lastEnterPress >= 1000) {
-                console.log(pos, main);
+                console.log(pos);
                 lastEnterPress = currentTime;
 
                 // Bookshelf
@@ -129,6 +139,14 @@ const Game = () => {
                     light = !light;
                     setLit(light);
                 }
+
+                // Radio
+                x = (pos.x < 2610 && pos.x > 2550) ? true : false;
+                y = (pos.y < 1110 && pos.y > 820) ? true : false;
+                if (x && y) {
+                    sound = !sound;
+                    setMusic(sound);
+                }
             }
         };
 
@@ -136,6 +154,7 @@ const Game = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             rooms[currentRoom].background.drawImage(ctx, -camera.x, -camera.y);
             frisk.drawImage(ctx, pos.x, pos.y);
+            radio.drawImage(ctx, 3800 - camera.x, 970 - camera.y);
         };
 
         const gameLoop = new GameLoop(update, draw);
@@ -150,7 +169,7 @@ const Game = () => {
 
     return (
         <canvas id="game-canvas" ref={canvasRef} width={3200} height={1800}>
-            <Music />
+            {music && <Music />}
         </canvas>
     );
 };

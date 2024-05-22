@@ -7,7 +7,10 @@ class Resources {
             lit2: "/jordan/sprites/background_lit2.png",
             longroom: "/jordan/sprites/longroom.png",
             frisk: "/jordan/sprites/frisk.png",
-            heart: "/jordan/sprites/heart_all.png"
+            heart: "/jordan/sprites/heart_all.png",
+            radio1: "/jordan/sprites/radio1.png",
+            radio2: "/jordan/sprites/radio2.png",
+            radio: "/jordan/sprites/radio.png",
         };
 
         this.images ={};
