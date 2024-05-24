@@ -5,7 +5,7 @@ import rooms from './Rooms.js';
 import { Input } from "./Input.js";
 import { Walls } from "./Walls.js";
 import Music from '../components/Music';
-import { resources } from "./Resource.js";
+import { resources}  from "./Resource.js";
 import { Sprite } from "./Sprite.js";
 import { Vector2 } from "./Vector2.js";
 import { GameLoop } from "./GameLoop.js";
@@ -21,6 +21,7 @@ const Game = () => {
     const [fresh, setFresh] = useState(true);
     const [lit, setLit] = useState(false);
     const [music, setMusic] = useState(true);
+    const [havePlant, setPlant] = useState(false);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -65,6 +66,14 @@ const Game = () => {
             frame: 1,
             scale: 1.7,
         })
+        const popup = new Sprite({
+            resource: resources.images.popup,
+            frameSize: new Vector2(939, 485),
+            hFrames: 1,
+            vFrames: 1,
+            frame: 1,
+            scale: 2,
+        })
 
         const camera = new Camera(canvas.width, canvas.height);
 
@@ -82,6 +91,8 @@ const Game = () => {
         let light = lit;
         let sound = music;
         let rando = 0;
+        let pop = false;
+        let plant = havePlant;
 
         const update = () => {
             camera.update(pos, rooms[currentRoom].width, rooms[currentRoom].height);
@@ -105,7 +116,7 @@ const Game = () => {
                 setMain(true);
             }
 
-            if (!light && main) { rooms[currentRoom].background.resource = resources.images.unlit; }
+            if (!light && main) { rooms[currentRoom].background.resource = plant ? resources.images.unlit : resources.images.plant; }
 
             count += 1;
 
@@ -169,6 +180,15 @@ const Game = () => {
                     light = !light;
                     setLit(light);
                 }
+
+                // Plant
+                x = (pos.x < 2300 && pos.x > 2200) ? true : false;
+                y = (pos.y < 1600 && pos.y > 1450) ? true : false;
+                if (x && y && !plant) {
+                    pop = true;
+                    plant = true;
+                    setPlant(plant);
+                }
                 
                 if (!main) {
                     // Radio
@@ -213,6 +233,12 @@ const Game = () => {
                 radio.drawImage(ctx, 3800 - camera.x, 970 - camera.y);
             }
             frisk.drawImage(ctx, pos.x, pos.y);
+            if (pop) {
+                popup.drawImage(ctx, 600, 350);
+                setTimeout(() => {
+                    pop = false;
+                }, 1500)
+            }
         };
 
         const gameLoop = new GameLoop(update, draw);

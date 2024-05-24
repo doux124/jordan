@@ -5,6 +5,7 @@ class Resources {
             unlit: "/jordan/sprites/unlit_clean.png",
             lit1: "/jordan/sprites/background_lit.png",
             lit2: "/jordan/sprites/background_lit2.png",
+            plant: "/jordan/sprites/plant.png",
             longroom: "/jordan/sprites/longroom.png",
             frisk: "/jordan/sprites/frisk.png",
             heart1: "/jordan/sprites/heart1.png",
@@ -18,6 +19,7 @@ class Resources {
             pet1: "/jordan/sprites/pet1.png",
             pet2: "/jordan/sprites/pet2.png",
             pet3: "/jordan/sprites/pet3.png",
+            popup: "/jordan/sprites/popup.png",
         };
 
         this.images ={};
