@@ -1,20 +1,27 @@
-import { useEffect } from 'react';
+class Preloader {
+  constructor() {
+    this.toLoad = {
+      latte: "/jordan/images/latte.png",
+    };
 
-const useImagePreloader = (imageUrls) => {
-  useEffect(() => {
-    const imagePromises = imageUrls.map((url) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = url;
-        img.onload = resolve;
-        img.onerror = reject;
-      });
+    this.images = {};
+
+    Object.keys(this.toLoad).forEach(key => {
+      const img = new Image();
+      img.src = this.toLoad[key];
+      this.images[key] = {
+        image: img,
+        isLoaded: false
+      };
+      img.onload = () => {
+        this.images[key].isLoaded = true;
+      };
     });
+  }
 
-    Promise.all(imagePromises)
-      .then(() => console.log('Images preloaded successfully'))
-      .catch((err) => console.error('Failed to preload images', err));
-  }, [imageUrls]);
-};
+  isLoaded() {
+    return Object.values(this.images).every(img => img.isLoaded);
+  }
+}
 
-export default useImagePreloader;
+export const preloader = new Preloader();

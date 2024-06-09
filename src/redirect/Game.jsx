@@ -5,8 +5,9 @@ import rooms from './Rooms.js';
 import { Input } from "./Input.js";
 import { Walls } from "./Walls.js";
 import Music from '../components/Music';
-import { resources}  from "./Resource.js";
+import { resources }  from "./Resource.js";
 import { Sprite } from "./Sprite.js";
+import { EnhancedSprite } from './EnhancedSprite.js';
 import { Vector2 } from "./Vector2.js";
 import { GameLoop } from "./GameLoop.js";
 import { UP, DOWN, LEFT, RIGHT, ENTER } from "./Input.js";
@@ -66,14 +67,19 @@ const Game = () => {
             frame: 1,
             scale: 1.7,
         })
-        const popup = new Sprite({
-            resource: resources.images.popup,
-            frameSize: new Vector2(939, 485),
-            hFrames: 1,
-            vFrames: 1,
-            frame: 1,
-            scale: 2,
-        })
+        const popup = new EnhancedSprite(
+            new Sprite({
+                resource: resources.images.popup,
+                frameSize: new Vector2(939, 485),
+                hFrames: 1,
+                vFrames: 1,
+                frame: 1,
+                scale: 2,
+            }),
+            "Plant has been added \n to your inventory"
+        );
+        
+        const feed = new EnhancedSprite(pet, "You have fed the guinea pig");
 
         const camera = new Camera(canvas.width, canvas.height);
 
@@ -92,6 +98,7 @@ const Game = () => {
         let sound = music;
         let rando = 0;
         let pop = false;
+        let feedPop = false;
         let plant = havePlant;
 
         const update = () => {
@@ -217,7 +224,9 @@ const Game = () => {
                     x = (pos.x < 2300 && pos.x > 2130) ? true : false;
                     y = (pos.y < 840 && pos.y > 800) ? true : false;
                     if (x && y) {
-                        navigate('/achievements/pet');
+                        if (plant) { feedPop = true; } else { navigate('/achievements/pet'); }
+                        plant = false;
+                        setPlant(plant);
                     }
                 }
             }
@@ -234,9 +243,15 @@ const Game = () => {
             }
             frisk.drawImage(ctx, pos.x, pos.y);
             if (pop) {
-                popup.drawImage(ctx, 600, 350);
+                popup.drawImage(ctx, 700, 350);
                 setTimeout(() => {
                     pop = false;
+                }, 1500)
+            }
+            if (feedPop) {
+                feed.drawImage(ctx, 700, 350);
+                setTimeout(() => {
+                    feedPop = false;
                 }, 1500)
             }
         };
