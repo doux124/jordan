@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Camera from './Camera.js';
 import rooms from './Rooms.js';
@@ -12,8 +12,6 @@ import { Vector2 } from "./Vector2.js";
 import { GameLoop } from "./GameLoop.js";
 import { UP, DOWN, LEFT, RIGHT, ENTER } from "./Input.js";
 
-const Pet = lazy(() => import('../CV/Pet'));
-
 const Game = () => {
     const canvasRef = useRef(null);
     const navigate = useNavigate();
@@ -25,7 +23,6 @@ const Game = () => {
     const [lit, setLit] = useState(false);
     const [music, setMusic] = useState(true);
     const [havePlant, setPlant] = useState(false);
-    const [feedPop, setFeedPop] = useState(false);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -227,12 +224,7 @@ const Game = () => {
                     x = (pos.x < 2300 && pos.x > 2130) ? true : false;
                     y = (pos.y < 840 && pos.y > 800) ? true : false;
                     if (x && y) {
-                        if (plant) {
-                            feedPop = true;
-                            setFeedPop(true);
-                        } else {
-                            navigate('/achievements/pet');
-                        }
+                        if (plant) { feedPop = true; } else { navigate('/achievements/pet'); }
                         plant = false;
                         setPlant(plant);
                     }
@@ -275,16 +267,9 @@ const Game = () => {
     }, [currentRoom]);
 
     return (
-        <>
-            <canvas id="game-canvas" ref={canvasRef} width={3200} height={1800}>
-                {music && <Music />}
-            </canvas>
-            {feedPop && (
-                <Suspense fallback={<div>Loading Pet...</div>}>
-                    <Pet />
-                </Suspense>
-            )}
-        </>
+        <canvas id="game-canvas" ref={canvasRef} width={3200} height={1800}>
+            {music && <Music />}
+        </canvas>
     );
 };
 
