@@ -141,7 +141,6 @@ canvas {
   
   .timeline {
     position: relative;
-    z-index: 3;
   }
   
   .timeline-item {
@@ -175,18 +174,21 @@ canvas {
   .timeline-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; /* Adjust based on your design */
     overflow: hidden;
   }
 
-  .background-video {
+  .background-video-1,
+  .background-video-2 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     z-index: 1;
     pointer-events: none;
+  }
+  
+  .background-video-2 {
+    top: 500px;
   }
 }

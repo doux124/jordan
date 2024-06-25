@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { eruditionVid } from '../utils/';
+import { eruditionVid, huntVid } from '../utils/';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,9 +18,11 @@ const achievements = [
 
 const Timeline = () => {
     const timelineRef = useRef(null);
-    const videoRef = useRef(null);
+    const videoRef1 = useRef(null);
+    const videoRef2 = useRef(null);
 
     useEffect(() => {
+        // Timeline
         const items = timelineRef.current.querySelectorAll('.timeline-item');
         items.forEach(item => {
             gsap.to(item, {
@@ -35,38 +37,61 @@ const Timeline = () => {
                 ease: 'power1.inOut'
             });
         });
-
-        const video = videoRef.current;
-        video.pause();
-
-        // Ensure video metadata is loaded
-        const onVideoLoaded = () => {
-            gsap.to(video, {
-                currentTime: video.duration,
+    
+        // Erudition
+        const video1 = videoRef1.current;
+        video1.pause();
+        const onVideo1Loaded = () => {
+            gsap.to(video1, {
+                currentTime: video1.duration,
                 scrollTrigger: {
                     trigger: '.timeline-container',
-                    scrub: 2,
+                    scrub: true,
                     start: "top top",
                     end: "bottom bottom",
+                    smoothChildTiming: true,
                 },
                 ease: "none"
             });
         };
-
-        // Add event listener for video metadata load
-        video.addEventListener('loadedmetadata', onVideoLoaded);
-
-        return () => {
-            video.removeEventListener('loadedmetadata', onVideoLoaded);
+        video1.addEventListener('loadedmetadata', onVideo1Loaded);
+    
+        // Hunt
+        const video2 = videoRef2.current;
+        video2.pause();
+        const onVideo2Loaded = () => {
+            gsap.to(video2, {
+                currentTime: video2.duration,
+                scrollTrigger: {
+                    trigger: '.timeline-container',
+                    scrub: true,
+                    start: "top bottom",
+                    end: "bottom top",
+                    smoothChildTiming: true,
+                },
+                ease: "none"
+            });
         };
-
+        video2.addEventListener('loadedmetadata', onVideo2Loaded);
+    
+        return () => {
+            video1.removeEventListener('loadedmetadata', onVideo1Loaded);
+            video2.removeEventListener('loadedmetadata', onVideo2Loaded);
+        };
     }, []);
+    
 
     return (
         <div className="timeline-wrapper">
-            <video className="background-video" ref={videoRef} autoPlay muted playsInline>
-                <source src={eruditionVid} type="video/mp4" />
-            </video>
+            <div>
+                <video className="background-video-1" ref={videoRef1} autoPlay muted playsInline>
+                    <source src={eruditionVid} type="video/mp4" />
+                </video>
+                <video className="background-video-2" ref={videoRef2} autoPlay muted playsInline>
+                    <source src={huntVid} type="video/mp4" />
+                </video>
+            </div>     
+    
             <div className="timeline-container">
                 <div className="timeline" ref={timelineRef}>
                     {achievements.map((achievement, index) => (
