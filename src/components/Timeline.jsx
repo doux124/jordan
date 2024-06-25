@@ -6,14 +6,14 @@ import { eruditionVid, huntVid } from '../utils/';
 gsap.registerPlugin(ScrollTrigger);
 
 const achievements = [
-    { year: "2020", text: "Started learning programming." },
-    { year: "2021", text: "Built my first web application." },
-    { year: "2022", text: "Got my first job as a developer." },
-    { year: "2023", text: "Promoted to senior developer." },
-    { year: "2024", text: "Promoted to senior developer." },
-    { year: "2025", text: "Promoted to senior developer." },
-    { year: "2026", text: "Promoted to senior developer." },
-    { year: "2027", text: "Promoted to senior developer." },
+    { year: "2017", text: "Entered NUSH" },
+    { year: "2019", text: "Started first research project - \"Plasma Based Defect Engineering for Biosensing Applications\"" },
+    { year: "2019", text: "SJChO (Gold), SJBO (Gold), UK Biology Olympiad (Gold)" },
+    { year: "2020", text: "Interned at Computational Intelligence Lab @ NTU" },
+    { year: "2021", text: "Interned at MD6 @ NUH" },
+    { year: "2021", text: "IChTo Gold, 2 research publications in IRC-SET" },
+    { year: "2022", text: "Global Youth Science and Technology Bowl (1st Place), SSEF (Gold)" },
+    { year: "2023", text: "Professionally chao kenged in NS" },
 ];
 
 const Timeline = () => {

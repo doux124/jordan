@@ -25,6 +25,9 @@ const Model = () => {
     return (
         <section className="common-padding">
             <div className="screen-max-width">
+                <h1 id='heading' className="section-heading">
+                    Timeline
+                </h1>
                 <Timeline/>
                 <h1 id='heading' className="section-heading">
                     Click on the arcade machine's screen
