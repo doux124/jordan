@@ -47,11 +47,11 @@ const Timeline = () => {
                 scrollTrigger: {
                     trigger: '.timeline-container',
                     scrub: true,
-                    start: "top top",
-                    end: "bottom bottom",
+                    start: "top center",
+                    end: "bottom top+100px",
                     smoothChildTiming: true,
                 },
-                ease: "none"
+                ease: 'power1.inOut'
             });
         };
         video1.addEventListener('loadedmetadata', onVideo1Loaded);
@@ -63,13 +63,13 @@ const Timeline = () => {
             gsap.to(video2, {
                 currentTime: video2.duration,
                 scrollTrigger: {
-                    trigger: '.timeline-container',
+                    trigger: '.background-video-2',
                     scrub: true,
                     start: "top bottom",
-                    end: "bottom top",
+                    end: "top top",
                     smoothChildTiming: true,
                 },
-                ease: "none"
+                ease: 'power1.inOut'
             });
         };
         video2.addEventListener('loadedmetadata', onVideo2Loaded);
