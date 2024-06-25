@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ModelView from "./ModelView";
-import Summary from "./Summary";
+import Timeline from "./Timeline";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
@@ -25,7 +25,7 @@ const Model = () => {
     return (
         <section className="common-padding">
             <div className="screen-max-width">
-                <Summary/>
+                <Timeline/>
                 <h1 id='heading' className="section-heading">
                     Click on the arcade machine's screen
                 </h1>
