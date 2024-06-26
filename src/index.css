@@ -134,6 +134,33 @@ canvas {
     @apply opacity-0 translate-y-[100px]
   }
 
+  .main-content {
+    height: 200vh; /* Make sure the content is tall enough to scroll */
+    padding-top: 150px;
+    transition: transform 0.3s ease;
+  }
+
+  .main-content.shifted {
+      transform: translateY(150px); /* Adjust this value to match the height of the secret drawings */
+  }
+
+  .secret-drawings {
+    position: fixed;
+    top: -150px; /* Place it above the viewport */
+    left: 0;
+    width: 100%;
+    background: white; /* or any background you prefer */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.3s ease;
+  }
+
+  .secret-drawings.show {
+      top: 0; /* Slide down into view */
+  }
+
   .timeline-container {
     position: relative;
     width: 80%;

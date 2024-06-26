@@ -2,10 +2,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ModelView from "./ModelView";
 import Timeline from "./Timeline";
+import SecretDrawings from "./SecretDrawings";
 import { useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
+import { useEffect } from "react";
 
 const Model = () => {
     // Camera Control
@@ -22,9 +24,43 @@ const Model = () => {
         gsap.to("#heading", { y: 0, opacity: 1})
     }, [])
 
+    const [showSecret, setShowSecret] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY < -50) { // Adjust this threshold as needed
+                setShowSecret(true);
+            } else {
+                setShowSecret(false);
+            }
+        };
+
+        const handleTouchMove = (e) => {
+            if (window.scrollY <= 0 && e.touches[0].clientY > window.touchStartY) {
+                e.preventDefault();
+                setShowSecret(true);
+            }
+        };
+
+        const handleTouchStart = (e) => {
+            window.touchStartY = e.touches[0].clientY;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        window.addEventListener('touchstart', handleTouchStart);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchstart', handleTouchStart);
+        };
+    }, []);
+
     return (
         <section className="common-padding">
-            <div className="screen-max-width">
+            <SecretDrawings />
+            <div className="className={`main-content ${showSecret ? 'shifted' : ''}`}">
                 <h1 id='heading' className="section-heading">
                     Timeline
                 </h1>

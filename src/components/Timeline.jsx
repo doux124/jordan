@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { eruditionVid, huntVid } from '../utils/';
+import { eruditionVid, huntVid, eruditionVidSmall, huntVidSmall } from '../utils/';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,11 +17,26 @@ const achievements = [
 ];
 
 const Timeline = () => {
+    const [videoSrc, setVideoSrc] = useState(window.innerWidth < 760 ? eruditionVidSmall : eruditionVid)
+    const [videoSrc2, setVideoSrc2] = useState(window.innerWidth < 760 ? huntVidSmall : huntVid)
+    const handleVideoSrcSet = () => {
+        if(window.innerWidth < 760) {
+            setVideoSrc(eruditionVidSmall)
+            setVideoSrc2(huntVidSmall)
+        } else {
+            setVideoSrc(eruditionVid)
+            setVideoSrc2(huntVid)
+        }
+    }
+
     const timelineRef = useRef(null);
     const videoRef1 = useRef(null);
     const videoRef2 = useRef(null);
 
     useEffect(() => {
+        // Dynamic Video
+        window.addEventListener('resize', handleVideoSrcSet);
+
         // Timeline
         const items = timelineRef.current.querySelectorAll('.timeline-item');
         items.forEach(item => {
@@ -77,6 +92,7 @@ const Timeline = () => {
         return () => {
             video1.removeEventListener('loadedmetadata', onVideo1Loaded);
             video2.removeEventListener('loadedmetadata', onVideo2Loaded);
+            window.removeEventListener('resize', handleVideoSrcSet);
         };
     }, []);
     
@@ -85,10 +101,10 @@ const Timeline = () => {
         <div className="timeline-wrapper">
             <div>
                 <video className="background-video-1" ref={videoRef1} autoPlay muted playsInline>
-                    <source src={eruditionVid} type="video/mp4" />
+                    <source src={videoSrc} type="video/mp4" />
                 </video>
                 <video className="background-video-2" ref={videoRef2} autoPlay muted playsInline>
-                    <source src={huntVid} type="video/mp4" />
+                    <source src={videoSrc2} type="video/mp4" />
                 </video>
             </div>     
     
