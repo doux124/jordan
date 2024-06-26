@@ -3,11 +3,10 @@ import gsap from "gsap";
 import ModelView from "./ModelView";
 import Timeline from "./Timeline";
 import SecretDrawings from "./SecretDrawings";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
-import { useEffect } from "react";
 
 const Model = () => {
     // Camera Control
@@ -21,27 +20,36 @@ const Model = () => {
 
     // GSAP
     useGSAP(() => {
-        gsap.to("#heading", { y: 0, opacity: 1})
-    }, [])
+        gsap.to("#heading", { y: 0, opacity: 1 });
+    }, []);
 
     const [showSecret, setShowSecret] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY < -50) { // Adjust this threshold as needed
-                setShowSecret(true);
-            } else {
+        let hideTimeout;
+        const hideAfterDelay = () => {
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(() => {
                 setShowSecret(false);
+            }, 500);
+            window.scrollTo({ top: 10, behavior: 'smooth' });
+        }
+
+        // Scrolling on pc
+        const handleScroll = () => {
+            if (window.scrollY <= 0) {
+                setShowSecret(true);
+                hideAfterDelay();
             }
         };
-
+        // Scrolling on mobile
         const handleTouchMove = (e) => {
             if (window.scrollY <= 0 && e.touches[0].clientY > window.touchStartY) {
                 e.preventDefault();
                 setShowSecret(true);
+                hideAfterDelay();
             }
         };
-
         const handleTouchStart = (e) => {
             window.touchStartY = e.touches[0].clientY;
         };
@@ -54,17 +62,20 @@ const Model = () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('touchstart', handleTouchStart);
+            clearTimeout(hideTimeout);
         };
     }, []);
 
     return (
         <section className="common-padding">
-            <SecretDrawings />
-            <div className="className={`main-content ${showSecret ? 'shifted' : ''}`}">
+            <SecretDrawings show={showSecret} />
+            <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                 <h1 id='heading' className="section-heading">
                     Timeline
                 </h1>
-                <Timeline/>
+                <Timeline />
+            </div>
+            <div className="screen-max-width">
                 <h1 id='heading' className="section-heading">
                     Click on the arcade machine's screen
                 </h1>
@@ -74,11 +85,11 @@ const Model = () => {
                             groupRef={track}
                             gsapType="view1"
                             controlRef={cameraControl}
-                            setRotationState={setRotation} 
+                            setRotationState={setRotation}
                         />
 
-                        <Canvas 
-                            className="w-full -full" 
+                        <Canvas
+                            className="w-full h-full"
                             style={{
                                 position: 'fixed',
                                 top: 0,
@@ -95,7 +106,7 @@ const Model = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
-export default Model
+export default Model;

@@ -67,7 +67,7 @@ canvas {
   }
 
   .common-padding {
-    @apply sm:py-32 py-20 sm:px-10 px-5
+    @apply sm:pb-32 pb-20 sm:pt-10 pt-8 sm:px-10 px-5
   }
 
   .section-heading {
@@ -135,13 +135,11 @@ canvas {
   }
 
   .main-content {
-    height: 200vh; /* Make sure the content is tall enough to scroll */
-    padding-top: 150px;
     transition: transform 0.3s ease;
   }
 
   .main-content.shifted {
-      transform: translateY(150px); /* Adjust this value to match the height of the secret drawings */
+    transform: translateY(150px); /* Adjust this value to match the height of the secret drawings */
   }
 
   .secret-drawings {
@@ -149,8 +147,7 @@ canvas {
     top: -150px; /* Place it above the viewport */
     left: 0;
     width: 100%;
-    background: white; /* or any background you prefer */
-    z-index: 1000;
+    background: white; /* bg color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,7 +155,8 @@ canvas {
   }
 
   .secret-drawings.show {
-      top: 0; /* Slide down into view */
+      top: 0;
+      color: black; /* text color */
   }
 
   .timeline-container {
