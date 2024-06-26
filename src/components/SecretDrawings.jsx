@@ -1,8 +1,7 @@
 const SecretDrawings = ({ show }) => {
     return (
         <div className={`secret-drawings ${show ? 'show' : ''}`}>
-            <h2>Secret Drawings</h2>
-            {/* Add your drawings here */}
+            <img src="/jordan/sprites/hollow_knight.png" className="full-width h-auto"/>
         </div>
     );
 };
