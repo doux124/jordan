@@ -207,7 +207,8 @@ canvas {
   }
 
   .background-video-1,
-  .background-video-2 {
+  .background-video-2,
+  .background-video-3 {
     position: absolute;
     top: 0;
     left: 0;
@@ -219,5 +220,66 @@ canvas {
   
   .background-video-2 {
     top: 600px;
+  }
+
+  .background-video-3 {
+    top: 1200px;
+  }
+
+  /* Media Queries for mobile */
+  @media (max-width: 760px) {
+    .timeline-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    .timeline-item {
+      opacity: 0;
+      margin: 5px 0 50px;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      width: 100%;
+      color: black;
+    }
+
+    .timeline-item:nth-child(odd) {
+      border-right: 4px solid #3498db;
+      margin-left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      border-left: 4px solid #3498db;
+      margin-left: 0;
+    }
+
+    .timeline-item h3 {
+        font-size: 1.2em;
+    }
+
+    .timeline-item p {
+        font-size: 0.9em;
+    }
+
+    .background-video-1,
+    .background-video-2,
+    .background-video-3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      object-fit: cover;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .background-video-2 {
+      top: 550px;
+    }
+
+    .background-video-3 {
+      top: 1050px;
+    }
   }
 }

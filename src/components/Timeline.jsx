@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { eruditionVid, huntVid, eruditionVidSmall, huntVidSmall } from '../utils/';
+import { eruditionVid, huntVid, eruditionVidSmall, huntVidSmall, harmonyVidSmall } from '../utils/';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,19 +19,23 @@ const achievements = [
 const Timeline = () => {
     const [videoSrc, setVideoSrc] = useState(window.innerWidth < 760 ? eruditionVidSmall : eruditionVid)
     const [videoSrc2, setVideoSrc2] = useState(window.innerWidth < 760 ? huntVidSmall : huntVid)
+    const [harmony, setHarmony] = useState(window.innerWidth < 760 ? true : false)
     const handleVideoSrcSet = () => {
         if(window.innerWidth < 760) {
             setVideoSrc(eruditionVidSmall)
             setVideoSrc2(huntVidSmall)
+            setHarmony(true)
         } else {
             setVideoSrc(eruditionVid)
             setVideoSrc2(huntVid)
+            setHarmony(false)
         }
     }
 
     const timelineRef = useRef(null);
     const videoRef1 = useRef(null);
     const videoRef2 = useRef(null);
+    const videoRef3 = useRef(null);
 
     useEffect(() => {
         // Dynamic Video
@@ -88,7 +92,30 @@ const Timeline = () => {
             });
         };
         video2.addEventListener('loadedmetadata', onVideo2Loaded);
-    
+
+        if (harmony) { 
+            const video3 = videoRef3.current;
+            video3.pause();
+            const onVideo3Loaded = () => {
+              gsap.to(video3, {
+                currentTime: video3.duration,
+                scrollTrigger: {
+                  trigger: '.background-video-3',
+                  scrub: true,
+                  start: "top bottom",
+                  end: "top top",
+                  smoothChildTiming: true,
+                },
+                ease: 'power1.inOut'
+              });
+            };
+            video3.addEventListener('loadedmetadata', onVideo3Loaded);
+      
+            return () => {
+              video3.removeEventListener('loadedmetadata', onVideo3Loaded);
+            };
+          }
+        
         return () => {
             video1.removeEventListener('loadedmetadata', onVideo1Loaded);
             video2.removeEventListener('loadedmetadata', onVideo2Loaded);
@@ -106,6 +133,11 @@ const Timeline = () => {
                 <video className="background-video-2" ref={videoRef2} autoPlay muted playsInline>
                     <source src={videoSrc2} type="video/mp4" />
                 </video>
+                {harmony && (
+                    <video className="background-video-3" ref={videoRef3} autoPlay muted playsInline>
+                        <source src={harmonyVidSmall} type="video/mp4" />
+                    </video>
+                )}
             </div>     
     
             <div className="timeline-container">
