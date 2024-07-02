@@ -3,6 +3,7 @@ import gsap from "gsap";
 import ModelView from "./ModelView";
 import Timeline from "./Timeline";
 import SecretDrawings from "./SecretDrawings";
+import Intro from "./Intro";
 import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
@@ -24,8 +25,14 @@ const Model = () => {
     }, []);
 
     const [showSecret, setShowSecret] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        // Load for 2s
+        const loadingTimeout = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
         let hideTimeout;
         const hideAfterDelay = () => {
             clearTimeout(hideTimeout);
@@ -63,13 +70,19 @@ const Model = () => {
             window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('touchstart', handleTouchStart);
             clearTimeout(hideTimeout);
+            clearTimeout(loadingTimeout);
         };
     }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <section className="common-padding">
             <SecretDrawings show={showSecret} />
             <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
+                <Intro />
                 <h1 id='heading' className="section-heading">
                     Timeline
                 </h1>
