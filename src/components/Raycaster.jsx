@@ -23,7 +23,11 @@ const Raycaster = () => {
             intersects.forEach(intersect => {
                 const object = intersect.object.name;
                 console.log(object);
-                if (object === "mesh3") {
+                const rect = document.body.getBoundingClientRect();
+                const docHeight = document.body.scrollHeight;
+                const mouseY = (event.clientY - rect.top) / docHeight;
+                console.log(mouseY)
+                if (object === "mesh3" && mouseY > .7) {
                     navigate('/achievements');
                 }
             });
