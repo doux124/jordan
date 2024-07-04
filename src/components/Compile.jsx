@@ -13,14 +13,8 @@ const Compile = () => {
     }, []);
 
     const [showSecret, setShowSecret] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Load for 2s
-        const loadingTimeout = setTimeout(() => {
-            setIsLoading(false);
-        }, 1000);
-
         let hideTimeout;
         const hideAfterDelay = () => {
             clearTimeout(hideTimeout);
@@ -58,13 +52,9 @@ const Compile = () => {
             window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('touchstart', handleTouchStart);
             clearTimeout(hideTimeout);
-            clearTimeout(loadingTimeout);
+
         };
     }, []);
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <section className="common-padding">
