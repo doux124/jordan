@@ -61,16 +61,24 @@ const Timeline = () => {
         const video1 = videoRef1.current;
         video1.pause();
         const onVideo1Loaded = () => {
-            gsap.to(video1, {
-                currentTime: video1.duration,
-                scrollTrigger: {
-                    trigger: '.timeline-container',
-                    scrub: true,
-                    start: "top center",
-                    end: "bottom top+100px",
-                    smoothChildTiming: true,
+            ScrollTrigger.create({
+                trigger: '.timeline-container',
+                start: "top center",
+                end: "top center",
+                smoothChildTiming: true,
+                onEnter: () => {
+                    gsap.to(video1, {
+                        currentTime: video1.duration,
+                        duration: 4
+                    });
                 },
-                ease: 'power1.inOut'
+                onEnterBack: () => {
+                    gsap.to(video1, {
+                        currentTime: 0,
+                        duration: 2,
+                    });
+                },
+                markers: true
             });
         };
         video1.addEventListener('loadedmetadata', onVideo1Loaded);
@@ -79,16 +87,23 @@ const Timeline = () => {
         const video2 = videoRef2.current;
         video2.pause();
         const onVideo2Loaded = () => {
-            gsap.to(video2, {
-                currentTime: video2.duration,
-                scrollTrigger: {
-                    trigger: '.background-video-2',
-                    scrub: true,
-                    start: "top bottom",
-                    end: "top top",
-                    smoothChildTiming: true,
+            ScrollTrigger.create({
+                trigger: '.background-video-2',
+                start: "top center",
+                end: "top center",
+                smoothChildTiming: true,
+                onEnter: () => {
+                    gsap.to(video2, {
+                        currentTime: video2.duration,
+                        duration: 4,
+                    });
                 },
-                ease: 'power1.inOut'
+                onEnterBack: () => {
+                    gsap.to(video2, {
+                        currentTime: 0,
+                        duration: 2,
+                    });
+                }
             });
         };
         video2.addEventListener('loadedmetadata', onVideo2Loaded);
@@ -97,17 +112,24 @@ const Timeline = () => {
             const video3 = videoRef3.current;
             video3.pause();
             const onVideo3Loaded = () => {
-              gsap.to(video3, {
-                currentTime: video3.duration,
-                scrollTrigger: {
-                  trigger: '.background-video-3',
-                  scrub: true,
-                  start: "top bottom",
-                  end: "top top",
-                  smoothChildTiming: true,
-                },
-                ease: 'power1.inOut'
-              });
+                ScrollTrigger.create({
+                    trigger: '.background-video-3',
+                    start: "top center",
+                    end: "top center",
+                    smoothChildTiming: true,
+                    onEnter: () => {
+                        gsap.to(video3, {
+                            currentTime: video3.duration,
+                            duration: 4,
+                        });
+                    },
+                    onEnterBack: () => {
+                        gsap.to(video3, {
+                            currentTime: 0,
+                            duration: 2,
+                        });
+                    },
+                });
             };
             video3.addEventListener('loadedmetadata', onVideo3Loaded);
       
@@ -127,14 +149,14 @@ const Timeline = () => {
     return (
         <div className="timeline-wrapper">
             <div>
-                <video className="background-video-1" ref={videoRef1} autoPlay muted playsInline>
+                <video className="background-video-1" preload="auto" ref={videoRef1} autoPlay muted playsInline>
                     <source src={videoSrc} type="video/mp4" />
                 </video>
-                <video className="background-video-2" ref={videoRef2} autoPlay muted playsInline>
+                <video className="background-video-2" preload="auto" ref={videoRef2} autoPlay muted playsInline>
                     <source src={videoSrc2} type="video/mp4" />
                 </video>
                 {harmony && (
-                    <video className="background-video-3" ref={videoRef3} autoPlay muted playsInline>
+                    <video className="background-video-3" preload="auto" ref={videoRef3} autoPlay muted playsInline>
                         <source src={harmonyVidSmall} type="video/mp4" />
                     </video>
                 )}
