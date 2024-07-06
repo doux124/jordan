@@ -183,12 +183,12 @@ canvas {
   }
   
   .timeline-item:nth-child(odd) {
-    border-right: 4px solid #3498db;
+    border-right: 4px solid #973cff;
     margin-left: 50%;
   }
   
   .timeline-item:nth-child(even) {
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #973cff;
     margin-left: 0;
   }
   
@@ -245,12 +245,12 @@ canvas {
     }
 
     .timeline-item:nth-child(odd) {
-      border-right: 4px solid #3498db;
+      border-right: 4px solid #973cff;
       margin-left: 0;
     }
     
     .timeline-item:nth-child(even) {
-      border-left: 4px solid #3498db;
+      border-left: 4px solid #973cff;
       margin-left: 0;
     }
 

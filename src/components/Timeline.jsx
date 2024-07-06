@@ -6,13 +6,14 @@ import { eruditionVid, huntVid, eruditionVidSmall, huntVidSmall, harmonyVidSmall
 gsap.registerPlugin(ScrollTrigger);
 
 const achievements = [
-    { year: "2017", text: "Entered NUSH" },
-    { year: "2019", text: "Started first research project - \"Plasma Based Defect Engineering for Biosensing Applications\"" },
-    { year: "2019", text: "SJChO (Gold), SJBO (Gold), UK Biology Olympiad (Gold)" },
-    { year: "2020", text: "Interned at Computational Intelligence Lab @ NTU" },
-    { year: "2021", text: "Interned at MD6 @ NUH" },
-    { year: "2021", text: "IChTo Gold, 2 research publications in IRC-SET" },
-    { year: "2022", text: "Global Youth Science and Technology Bowl (1st Place), SSEF (Gold)" },
+    { year: "2017", text: "Humble beginnings at NUSH" },
+    { year: "2019", text: "Started my first research project" },
+    { year: "2019", text: "My first olympiad gold medal" },
+    { year: "2020", text: "My first research publication" },
+    { year: "2020", text: "Interned at NTU's Computational Intelligence Lab" },
+    { year: "2021", text: "Interned at MD6 under NUH" },
+    { year: "2021", text: "My first international gold medal" },
+    { year: "2022", text: "Graduated NUSH" },
     { year: "2023", text: "Professionally chao kenged in NS" },
 ];
 
@@ -77,8 +78,7 @@ const Timeline = () => {
                         currentTime: 0,
                         duration: 2,
                     });
-                },
-                markers: true
+                }
             });
         };
         video1.addEventListener('loadedmetadata', onVideo1Loaded);

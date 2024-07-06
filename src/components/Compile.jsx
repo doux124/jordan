@@ -61,14 +61,14 @@ const Compile = () => {
             <SecretDrawings show={showSecret} />
             <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                 <Intro />
-                <h1 id='heading' className="section-heading">
-                    Timeline
+                <h1 id='heading' className="section-heading text-center">
+                    Jordan's Lore
                 </h1>
                 <Timeline />
             </div>
             <div className="screen-max-width">
-                <h1 id='heading' className="section-heading">
-                    Click on the arcade machine's screen
+                <h1 id='heading' className="section-heading text-center">
+                    Game Area
                 </h1>
                 <Model/>
             </div>
