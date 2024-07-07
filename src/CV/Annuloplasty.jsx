@@ -90,6 +90,7 @@ const Annuloplasty = () => {
             , and one using <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>MMA-PEGDMA</Link>.
             This allowed the rings to be shaped into thin rods for insertion between the ribs. As such, the sternum does not need to be split, reducing the invasiveness of the surgery.
           </p>
+          <img src="/jordan/images/rings.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
         </section>
   
         <div className="flexContainer">
@@ -124,6 +125,31 @@ const Annuloplasty = () => {
             significance in making improving the accessibility of treatment for 
             patients suffering from mitral valve regurgitation.
             <img src="/jordan/images/results.png" className="image w-[50vh] h-auto mx-auto mt-3"/>
+          </p>
+        </section>
+
+        <section className="section">
+          <h2 className="subHeader">Links</h2>
+          <p className="flex-1 text-justify mt-2">
+            Our poster: 
+            <a 
+              href="/jordan/pdfs/cardiac_poster.pdf"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#004d99', textDecoration: 'underline', marginLeft: '10px' }}
+            >
+              View Poster
+            </a>
+            <br />
+            Our research paper: 
+            <a 
+              href="/jordan/pdfs/cardiac_report.pdf"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#004d99', textDecoration: 'underline', marginLeft: '10px' }}
+            >
+              View Report
+            </a>
           </p>
         </section>
       </div>

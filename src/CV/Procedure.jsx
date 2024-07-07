@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "./styles.css";
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const Procedure = () => {
   useGSAP(() => {
@@ -35,12 +36,42 @@ const Procedure = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Procedure</h2>
           <p className="text-justify mt-3">
-            A sizer is used to measure the size of the annulus.
+            1. A sizer is used to measure the size of the annulus.
             <img src="/jordan/images/sizer.png" className="image w-[20vh] h-auto"/>
             <br />
-            <img src="/jordan/images/steps.png" className="image w-[100vh] h-auto"/>
+            2. The correctly sized <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>ring</Link> is made.
+            <img src="/jordan/images/steps.png" className="image w-[100vh] h-auto mt-2"/>
+            <br />
+            2.5. For MMA-PEGDMA rings, the copolymer has to be prepared before letting it set in our molds. 
             <img src="/jordan/images/prep.png" className="image w-[100vh] h-auto"/>
+            3. The rings are sutured onto swine hearts exhibiting mitral valve regurgitation.
+            <img src="/jordan/images/procedure.png" className="image w-[100vh] h-auto mt-2"/>
+            <br />
+            4. Four seperate measurements were taken: 
+            <br />&emsp;- Reduction in incision size
+            <br />&emsp;- Recovery time
+            <br />&emsp;- Reduction in backflow
+            <br />&emsp;- Flexural Rigidity
+          </p>
+        </section>
+        <section className="sectionAnimate">
+          <h2 className="subHeader">Biodegradability of MMA-PEGDMA</h2>
+          <p className="text-justify mt-3">
             <img src="/jordan/images/biodegrade.png" className="image w-[100vh] h-auto"/>
+            <br />
+            MMA-PEGDMA is non-toxic and hydrolyzes into PMMA and PEG, both of which are also safe. 
+            PEG is metabolized by the liver and excreted in urine after seven days, while PMMA 
+            is used in various medical applications, including bone screw fixation and intraocular 
+            lenses. Biocompatibility testing by an independent lab confirmed its safety through a 
+            series of standardized tests for cytotoxicity, irritation, and toxicity*.
+            <br />
+            <br />
+            *Biocompatibility testing of MMA-PEGDMA was conducted by AppTec, an independent 
+            laboratory in St. Paul, MN. The samples, prepared as 8 × 16 mm² cylinders, 
+            were cleaned in boiling water for an hour and sterilized with gamma irradiation. 
+            The tests, adhering to ISO 10993 GLP standards, assessed cytotoxicity, sensitization, 
+            intracutaneous irritation, acute and subchronic toxicity, and genotoxicity, confirming 
+            the material's safety.
           </p>
         </section>
       </div>

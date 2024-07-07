@@ -1,91 +1,63 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import "./styles.css";
+
 const Graphene = () => {
-  const styles = {
-    pageContainer: {
-      padding: '40px',
-      fontFamily: 'Arial, sans-serif',
-      backgroundColor: '#f0f4f8',
-      color: '#000000',
-    },
-    projectContainer: {
-      maxWidth: '800px',
-      margin: '0 auto',
-      padding: '20px',
-      backgroundColor: '#ffffff',
-      borderRadius: '8px',
-      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-      marginBottom: '40px',
-    },
-    header: {
-      textAlign: 'center',
-      color: '#004d99',
-    },
-    section: {
-      marginTop: '20px',
-      padding: '20px',
-      background: '#f9f9f9',
-      borderRadius: '8px',
-      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    },
-    subHeader: {
-      color: '#0066cc',
-      borderBottom: '2px solid #004d99',
-      paddingBottom: '5px',
-    },
-    list: {
-      paddingLeft: '20px',
-    },
-    link: {
-      color: '#004d99',
-      textDecoration: 'none',
-    },
-    flexContainer: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      gap: '20px',
-      flexWrap: 'wrap', // Ensures items wrap on small screens
-    },
-    flexItem: {
-      flex: '1 1 45%', // Flex-grow, flex-shrink, flex-basis
-      minWidth: '300px', // Ensures items don't shrink too small
-    },
-    fullFlexItem: {
-      flex: '1 1 100%', // Full width on small screens
-    },
-  };
+  useGSAP(() => {
+    gsap.fromTo('.sectionAnimate', {
+      opacity: 0,
+      y:20
+    }, {
+      opacity: 1,
+      y: 0,
+      delay: 1,
+      stagger: 0.2
+    })
+  }, [])
 
   return (
-    <div style={styles.pageContainer}>
-      <div style={styles.projectContainer}>
-        <h1 style={styles.header}>Graphene Research Project</h1>
-        <p>
-          yap
-        </p>
-        <section style={styles.section}>
-          <h2 style={styles.subHeader}>yap</h2>
-          <p>
-            yap
+    <div className="pageContainer">
+      <div className="projectContainer">
+        <section className="sectionAnimate">
+          <h1 className="header">Plasma-based Defect Engineering of Graphene for Biosensing Applications</h1>
+        </section>
+
+        <section className="sectionAnimate">
+          <h2 className="subHeader">Introduction</h2>
+          <p className="flex-1 text-justify mt-2">
+            Our research aims to enhance glucose biosensors by improving the attachment of glucose 
+            oxidase (GOx) to graphene. By exposing graphene to low power radiofrequency (RF) plasma, 
+            defects are introduced on its surface, which is expected to increase GOx adsorption. This 
+            enhanced attachment is hypothesized to lead to a larger dynamic range in glucose sensing. 
+            The project's success will be evaluated through electrical property measurements using an 
+            IV probe station and quality assessments of graphene via Raman spectroscopy.
           </p>
         </section>
-        <section style={styles.section}>
-          <h2 style={styles.subHeader}>yap</h2>
-          <ul style={styles.list}>
-            <p>yap</p>
-          </ul>
+
+        <section className="section">
+          <h2 className="subHeader">Links</h2>
+          <p className="flex-1 text-justify mt-2">
+            Our poster: 
+            <a 
+              href="/jordan/pdfs/smp_poster.pdf"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#004d99', textDecoration: 'underline', marginLeft: '10px' }}
+            >
+              View Poster
+            </a>
+            <br />
+            Our research paper: 
+            <a 
+              href="/jordan/pdfs/smp_report.pdf"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ color: '#004d99', textDecoration: 'underline', marginLeft: '10px' }}
+            >
+              View Report
+            </a>
+          </p>
         </section>
-        <div style={styles.flexContainer}>
-          <section style={{ ...styles.section, ...styles.flexItem }}>
-            <h2 style={styles.subHeader}>yap</h2>
-            <p>
-              yap
-            </p>
-          </section>
-          <section style={{ ...styles.section, ...styles.flexItem }}>
-            <h2 style={styles.subHeader}>yap</h2>
-            <p>
-              yap
-            </p>
-          </section>
-        </div>
       </div>
     </div>
   );

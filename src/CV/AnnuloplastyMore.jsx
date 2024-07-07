@@ -38,10 +38,10 @@ const AnnuloplastyMore = () => {
           <img src="/jordan/images/SHE.png" className="w-[100vh] h-auto"/>
           <p className="text-justify mt-3">
             The shape memory property of these rings allows them to be pliable 
-            outside the body. They can be shaped into a thin rod and inserted through the left ribs. 
-            The sternum will not need to be split. After being inserted into the heart, 
+            outside the body. Since they can be shaped into a thin rod and inserted through the left ribs, 
+            the sternum will not need to be split. After being inserted into the heart, 
             they will return to their original ring shape, where they can then be sutured onto the 
-            annulus to reduce mitral valve regurgitation.
+            annulus.
           </p>
         </section>
 
@@ -51,16 +51,14 @@ const AnnuloplastyMore = () => {
             <img src="/jordan/images/nitinol_SHE.png" className="w-[100vh] h-auto mt-3"/>
             <p className="text-justify">
               <br />
-              In Shape Memory Alloys such as Nitinol, monoclinic multi-variant martensite undergoes detwinning 
-              instead of irreversible deformation, transforming into single-variant martensite with the 
-              application of an external stress. The shape memory effect refers to the transformation between 
-              the martensitic and austenitic phases. When the temperature is raised beyond the austenite start 
-              temperature, both single and multi-variant martensitic fractions assume the interpenetrating 
-              simple cubic structure austenite, which reverts to multi-variant martensite as the temperature 
-              is lowered. Since austenite and multi-variant martensite have the same macroscopic structure, 
-              the original shape of the material is restored.
-
-              Advantages of Nitinol is its cheap cost and accessibility.
+              Shape Memory Alloys like Nitinol can return to their original shape after being deformed. 
+              This happens because, under stress, they change from a complex to a simpler internal 
+              structure without permanent damage. When heated, they transform from a martensitic phase 
+              to an austenitic phase, and when cooled, they revert back. This transformation allows 
+              the material to "remember" and return to its original shape.
+              <br />
+              <br />
+              An advantage of Nitinol is its cheap cost and accessibility.
             </p>
           </section>
   
@@ -69,15 +67,16 @@ const AnnuloplastyMore = () => {
             <img src="/jordan/images/MMAPEGDMA_SHE.png" className="w-[100vh] h-auto mt-3"/>
             <p className="text-justify">
               <br />
-              In Shape Memory Polymers such as MMA-PEGDMA, the copolymer is made via the 
-              silicon mould to have a stored permanent shape in the form of the annuloplasty 
-              ring. As it sets in the mould, the polymer forms in a way that minimizes strain and 
-              is at its equilibrated state. When deformed, it forms new chain-chain interactions 
-              that keep it in its temporary form. However, upon heating, these weak chain-chain 
-              interactions are broken, and it returns to their original permanent shape.  for biodegradable rings, 
-              as they degrade, the patient’s fibrous tissue and cardiac cells will grow around the 
-              ring and form a sort of natural annuloplasty ring. This makes the MMA-PEGDMA ring 
-              suitable for children. 
+              Shape Memory Polymers are set using a silicon mold. As it forms, 
+              strain is minimized and it reaches a stable state. When deformed, 
+              it creates temporary interactions that keep it in a new shape. 
+              However, heating breaks these interactions, allowing it to return 
+              to its original shape. 
+              <br />
+              <br />
+              For biodegradable rings, as the material degrades, 
+              the patient's tissue and cells grow around the ring, creating a natural structure. 
+              This feature makes MMA-PEGDMA rings ideal for use in children.
             </p>
           </section>
         </div>
