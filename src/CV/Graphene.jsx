@@ -34,6 +34,26 @@ const Graphene = () => {
           </p>
         </section>
 
+        <section className="sectionAnimate">
+          <h2 className="subHeader">Graphene Synthesis</h2>
+          <p className="flex-1 text-justify mt-2">
+            We grew our graphene using Chemical Vapor Deposition (CVD) on copper substrates in 
+            quartz tubes acting as the reaction chamber. Hydrogen gas was flowed in while the copper 
+            strip was heated incrementally, achieving a final temperature of approximately 1100°C. 
+            This initial treatment allowed hydrogen molecules to adsorb and decompose, cleaning the 
+            substrate surface of contaminants. Following hydrogen treatment, methane gas was introduced, 
+            chemisorbing onto the copper surface and initiating the growth of graphene. The process is 
+            self-limiting due to graphene's minimal solubility in copper.
+            <br />
+            <br />
+            To transfer the graphene layer onto glass slides, polymethyl methacrylate (PMMA) was 
+            spin-coated on top of the graphene-copper stack. It was then baked in an oven and floated 
+            in Iron Chloride (III) solution to dissolve the copper. The remaining PMMA-graphene stack 
+            was transferred onto a glass slide and incubated to dryness. To remove the PMMA layer, an 
+            acetone bath was used.
+          </p>
+        </section>
+
         <section className="section">
           <h2 className="subHeader">Links</h2>
           <p className="flex-1 text-justify mt-2">

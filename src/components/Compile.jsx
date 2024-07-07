@@ -7,6 +7,10 @@ import Intro from "./Intro";
 import { useState, useEffect } from "react";
 
 const Compile = () => {
+    if(navigator.userAgent.includes("Instagram")){
+        window.location.href = "https://doux124.github.io/jordan/";
+    }
+
     // GSAP
     useGSAP(() => {
         gsap.to("#heading", { y: 0, opacity: 1 });
