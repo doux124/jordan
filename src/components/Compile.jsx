@@ -20,7 +20,7 @@ const Compile = () => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 10000)
+        }, 5000)
 
         let hideTimeout;
         const hideAfterDelay = () => {
@@ -63,27 +63,33 @@ const Compile = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (loading) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [loading]);
+
     return (
         <div>
             <Loader loading={loading} />
-            {!loading && (
-                <section className="common-padding">
-                    <SecretDrawings show={showSecret} />
-                    <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
-                        <Intro />
-                        <h1 id='heading' className="section-heading text-center">
-                            Jordan's Lore
-                        </h1>
-                        <Timeline />
-                    </div>
-                    <div className="screen-max-width">
-                        <h1 id='heading' className="section-heading text-center">
-                            Game Area
-                        </h1>
-                        <Model />
-                    </div>
-                </section>
-            )}
+            <section className="common-padding">
+                <SecretDrawings show={showSecret} />
+                <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
+                    <Intro />
+                    <h1 id='heading' className="section-heading text-center">
+                        Jordan's Lore
+                    </h1>
+                    <Timeline />
+                </div>
+                <div className="screen-max-width">
+                    <h1 id='heading' className="section-heading text-center">
+                        Game Area
+                    </h1>
+                    <Model />
+                </div>
+            </section>
         </div>
     );
 }

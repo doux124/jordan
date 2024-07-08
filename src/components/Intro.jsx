@@ -1,6 +1,6 @@
 import { mainVid } from "../utils";
 import { useNavigate } from 'react-router-dom';
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Intro = () => {
     const navigate = useNavigate();
@@ -23,6 +23,15 @@ const Intro = () => {
             navigate('/hobbies');
         }
     };
+
+    useEffect(() => {
+        const video = videoRef.current;
+        video.pause();
+        const timeout = setTimeout(() => {
+            video.play();
+        }, 5000);
+        return () => clearTimeout(timeout);
+    }, [])
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>

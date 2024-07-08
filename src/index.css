@@ -315,5 +315,17 @@ canvas {
     .background-video-3 {
       top: 1050px;
     }
+
+    .secret-drawings {
+      position: fixed;
+      top: -150px; /* Place it above the viewport */
+      left: 0;
+      width: 100%;
+      background: black; /* bg color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: top 0.3s ease;
+    }
   }
 }
