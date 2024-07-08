@@ -2,7 +2,6 @@ import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 
 import * as THREE from 'three'
 import Lights from './Lights';
-import Loader from './Loader';
 import Raycaster from './Raycaster';
 import { Suspense } from "react";
 
@@ -31,7 +30,7 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, si
       /> 
 
       <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, -0.5, 0]} rotation={[0, Math.PI, 0]}>
-        <Suspense fallback={<Loader />}>
+        <Suspense>
           <Raycaster />
         </Suspense>
       </group>

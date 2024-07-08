@@ -2,11 +2,12 @@ import Compile from './components/Compile'
 import { Route, Routes } from 'react-router-dom';
 import Achievements from './redirect/Achievements';
 import Research from "./CV/Research";
-import Volunteer from "./CV/Volunteer";
+import Volunteer from "./Hobbies/Volunteer";
 import AnnuloplastyMore from './CV/AnnuloplastyMore';
 import Procedure from './CV/Procedure';
 import Results from './CV/Results';
 import Pet from './CV/Pet';
+import Hobbies from './Hobbies/Hobbies';
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
         <Route path='achievements/research/annuloplasty/procedure' element={<Procedure />} />
         <Route path='achievements/research/annuloplasty/results' element={<Results />} />
         <Route path='achievements/pet' element={<Pet />} />
-        <Route path='achievements/volunteer' element={<Volunteer />} />
+        <Route path='hobbies/volunteer' element={<Volunteer />} />
+        <Route path='hobbies' element={<Hobbies />} />
       </Routes>
     </main>
   )

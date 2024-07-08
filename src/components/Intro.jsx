@@ -20,7 +20,7 @@ const Intro = () => {
             navigate('/achievements/research');
         }
         if (1250 < x && x < 1800 && 600 < y && y < 940) {
-            navigate('/achievements/volunteer');
+            navigate('/hobbies');
         }
     };
 

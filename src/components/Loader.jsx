@@ -1,43 +1,48 @@
-import { Html } from '@react-three/drei'
+import { useState, useEffect } from "react";
+import { ClimbingBoxLoader } from "react-spinners";
 
-const Loader = () => {
-  const loadingScreenStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 9999,
-  };
+const Loader = ({ loading }) => {
+  const texts = [
+    "Savouring jellyfish...", 
+    "Marinating potatoes...", 
+    "Resolving crisises...", 
+    "Debugging sins..."
+  ];
+  const [text, setText] = useState(texts[Math.floor(Math.random() * texts.length)]);
+  const [index, setIndex] = useState("");
 
-  const spinnerStyle = {
-    border: '16px solid #f3f3f3',
-    borderTop: '16px solid #3498db',
-    borderRadius: '50%',
-    width: '120px',
-    height: '120px',
-    animation: 'spin 2s linear infinite',
-  };
-
-  const spinKeyframes = `
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+  useEffect(() => {
+    let intervalId;
+    if (loading) {
+      intervalId = setInterval(() => {
+        displayRandomText();
+      }, 1500);
+    } else {
+      clearInterval(intervalId);
     }
-  `;
+
+    return () => clearInterval(intervalId);
+  }, [loading]);
+
+  const displayRandomText = () => {
+    let newIndex = Math.floor(Math.random() * texts.length);
+    while (newIndex == index) {
+      newIndex = Math.floor(Math.random() * texts.length);
+    }
+    setIndex(newIndex);
+    setText(texts[newIndex]);
+  };
 
   return (
-    <Html>
-      <div style={loadingScreenStyle}>
-        <style>{spinKeyframes}</style>
-        <div style={spinnerStyle}></div>
+    <div className={`loader ${loading ? 'visible' : 'hidden'}`}>
+      <div>
+        <ClimbingBoxLoader size={30} color={"#A020F0"} loading={loading} />
       </div>
-    </Html>  
+      <div className="loader-text">
+        <p>{text}</p>
+      </div>
+    </div>
   );
-}
+};
 
-export default Loader
+export default Loader;

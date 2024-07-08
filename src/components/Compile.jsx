@@ -5,20 +5,23 @@ import Timeline from "./Timeline";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import { useState, useEffect } from "react";
+import Loader from "./Loader";
 
 const Compile = () => {
-    if(navigator.userAgent.includes("Instagram")){
-        window.location.href = "https://doux124.github.io/jordan/";
-    }
+    const [loading, setLoading] = useState(false);
+    const [showSecret, setShowSecret] = useState(false);
 
     // GSAP
     useGSAP(() => {
         gsap.to("#heading", { y: 0, opacity: 1 });
     }, []);
 
-    const [showSecret, setShowSecret] = useState(false);
-
     useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 10000)
+
         let hideTimeout;
         const hideAfterDelay = () => {
             clearTimeout(hideTimeout);
@@ -61,22 +64,27 @@ const Compile = () => {
     }, []);
 
     return (
-        <section className="common-padding">
-            <SecretDrawings show={showSecret} />
-            <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
-                <Intro />
-                <h1 id='heading' className="section-heading text-center">
-                    Jordan's Lore
-                </h1>
-                <Timeline />
-            </div>
-            <div className="screen-max-width">
-                <h1 id='heading' className="section-heading text-center">
-                    Game Area
-                </h1>
-                <Model/>
-            </div>
-        </section>
+        <div>
+            <Loader loading={loading} />
+            {!loading && (
+                <section className="common-padding">
+                    <SecretDrawings show={showSecret} />
+                    <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
+                        <Intro />
+                        <h1 id='heading' className="section-heading text-center">
+                            Jordan's Lore
+                        </h1>
+                        <Timeline />
+                    </div>
+                    <div className="screen-max-width">
+                        <h1 id='heading' className="section-heading text-center">
+                            Game Area
+                        </h1>
+                        <Model />
+                    </div>
+                </section>
+            )}
+        </div>
     );
 }
 

@@ -42,6 +42,40 @@ canvas {
 }
 
 @layer utilities {
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+    opacity: 1;
+    z-index: 1000;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .loader-text {
+    position: absolute;
+    bottom: 30%;
+    text-align: center;
+    width: 100%;
+    color: white;
+  }
+  
+  .loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .loader.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
   .flex-center {
     @apply flex items-center justify-center
   }
