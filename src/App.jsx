@@ -8,6 +8,8 @@ import Procedure from './CV/Procedure';
 import Results from './CV/Results';
 import Pet from './CV/Pet';
 import Hobbies from './Hobbies/Hobbies';
+import Origami from './Hobbies/Origami';
+import Embroidery from './Hobbies/Embroidery';
 
 const App = () => {
   return (
@@ -20,8 +22,11 @@ const App = () => {
         <Route path='achievements/research/annuloplasty/procedure' element={<Procedure />} />
         <Route path='achievements/research/annuloplasty/results' element={<Results />} />
         <Route path='achievements/pet' element={<Pet />} />
-        <Route path='hobbies/volunteer' element={<Volunteer />} />
+
         <Route path='hobbies' element={<Hobbies />} />
+        <Route path='hobbies/volunteer' element={<Volunteer />} />
+        <Route path='hobbies/origami' element={<Origami />} />
+        <Route path='hobbies/embroidery' element={<Embroidery />} />
       </Routes>
     </main>
   )

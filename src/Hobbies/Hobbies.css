@@ -2,19 +2,24 @@
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
-padding: 20px;
 background: rgba(255, 255, 255, 0);
 z-index: 2;
+width: 100%;
+height: 100%;
+align-items: center;
+justify-content: center;
+position: absolute;
 }
 
 .hobby-box {
-width: 200px;
-border: 1px solid #ddd;
+width: 300px;
+height: 350px;
+border: 3px solid #ddd;
 border-radius: 8px;
 overflow: hidden;
 cursor: pointer;
 transition: transform 0.2s;
-background: rgb(0, 0, 0);
+background: #ddd;
 z-index: 2;
 }
 
@@ -24,32 +29,40 @@ transform: scale(1.05);
 
 .hobby-image {
 width: 100%;
-height: 150px;
+height: 300px;
 object-fit: cover;
 }
 
+.hobby-background-image {
+width: 300px;
+height: 50px;
+position: relative;
+z-index: 1;
+}
+    
 .hobby-name {
 font-size: 1.2em;
+color: black;
 text-align: center;
-margin: 10px 0;
-}
-
-.hobby-description {
-padding: 10px;
-font-size: 0.9em;
-background: #000000;
+padding-top: 4px;
+border-top: 3px solid #ddd;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 2;
 }
 
 .background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/jordan/images/background.JPEG');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/jordan/images/background.JPEG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
   

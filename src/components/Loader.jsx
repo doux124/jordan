@@ -6,7 +6,6 @@ const Loader = ({ loading }) => {
     "Savouring jellyfish...", 
     "Marinating potatoes...", 
     "Resolving crisises...", 
-    "Debugging sins..."
   ];
   const [text, setText] = useState(texts[Math.floor(Math.random() * texts.length)]);
   const [index, setIndex] = useState("");

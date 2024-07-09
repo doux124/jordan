@@ -1,31 +1,31 @@
-import { useState, useEffect } from 'react';
 import '../index.css';
 import './Hobbies.css';
+import { useNavigate } from 'react-router-dom';
 
 const hobbies = [
-  { id: 1, name: 'Photography', image: '/jordan/images/sizer.png', description: 'Capturing moments with a camera.' },
-  { id: 2, name: 'Cooking', image: '/jordan/images/sizer.png', description: 'Creating delicious meals.' },
-  { id: 3, name: 'Gardening', image: '/jordan/images/sizer.png', description: 'Growing plants and flowers.' },
-];
+  { id: 1, name: 'Origami', image: '/jordan/images/origami.jpg', backgroundImage: '/jordan/images/origami_bg.png' },
+  { id: 2, name: 'Embroidery', image: '/jordan/images/embroidery.jpg', backgroundImage: '/jordan/images/embroidery_bg.png' },
+]
 
 const Hobbies = () => {
-  const [expandedHobby, setExpandedHobby] = useState(null);
+  const navigate = useNavigate();
 
-  const handleExpand = (id) => {
-    setExpandedHobby(expandedHobby === id ? null : id);
+  const handleClick = (path) => {
+    navigate(path);
   };
 
   return (
     <div>
       <div className="background-image"></div>
+
       <div className="hobbies-container">
         {hobbies.map((hobby) => (
-          <div key={hobby.id} className="hobby-box" onClick={() => handleExpand(hobby.id)}>
+          <div key={hobby.id} className="hobby-box" onClick={() => handleClick(`/hobbies/${hobby.name.toLowerCase()}/`)}>
             <img src={hobby.image} alt={hobby.name} className="hobby-image" />
-            <div className="hobby-name">{hobby.name}</div>
-            {expandedHobby === hobby.id && (
-              <div className="hobby-description">{hobby.description}</div>
-            )}
+            <div className="relative">
+              <img src={hobby.backgroundImage} alt={hobby.name} className="hobby-background-image" />
+              <p className="hobby-name">{hobby.name}</p>
+            </div>
           </div>
         ))}
       </div>

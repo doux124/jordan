@@ -55,7 +55,7 @@ canvas {
     opacity: 1;
     z-index: 1000;
     pointer-events: none;
-    transition: opacity 0.5s ease;
+    transition: opacity duration-600 ease-out;
   }
 
   .loader-text {

@@ -1,4 +1,3 @@
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Model from "./Model";
 import Timeline from "./Timeline";
@@ -10,11 +9,6 @@ import Loader from "./Loader";
 const Compile = () => {
     const [loading, setLoading] = useState(false);
     const [showSecret, setShowSecret] = useState(false);
-
-    // GSAP
-    useGSAP(() => {
-        gsap.to("#heading", { y: 0, opacity: 1 });
-    }, []);
 
     useEffect(() => {
         setLoading(true)
@@ -64,10 +58,11 @@ const Compile = () => {
     }, []);
 
     useEffect(() => {
-        if (loading) {
-            document.body.style.overflow = 'hidden';
+        if (!loading) {
+            document.body.style.overflowY = 'auto';
+            gsap.to("#heading", { y: 0, opacity: 1 });
         } else {
-            document.body.style.overflow = 'auto';
+            document.body.style.overflowY = 'hidden';
         }
     }, [loading]);
 
@@ -78,7 +73,7 @@ const Compile = () => {
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     <Intro />
-                    <h1 id='heading' className="section-heading text-center">
+                    <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
                         Jordan's Lore
                     </h1>
                     <Timeline />

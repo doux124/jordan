@@ -15,6 +15,7 @@ const achievements = [
     { year: "2021", text: "My first international gold medal" },
     { year: "2022", text: "Graduated NUSH" },
     { year: "2023", text: "Professionally chao kenged in NS" },
+    { year: "2024", text: "happi happi happi" },
 ];
 
 const Timeline = () => {
