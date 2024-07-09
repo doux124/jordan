@@ -3,9 +3,9 @@ import { ClimbingBoxLoader } from "react-spinners";
 
 const Loader = ({ loading }) => {
   const texts = [
-    "Savouring jellyfish...", 
-    "Marinating potatoes...", 
-    "Resolving crisises...", 
+    "jiggling jellyfish...", 
+    "polishing potatoes...", 
+    "illuminated sobbing...", 
   ];
   const [text, setText] = useState(texts[Math.floor(Math.random() * texts.length)]);
   const [index, setIndex] = useState("");
