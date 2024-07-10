@@ -3,8 +3,9 @@ import './Hobbies.css';
 import { useNavigate } from 'react-router-dom';
 
 const hobbies = [
-  { id: 1, name: 'Origami', image: '/jordan/images/origami.jpg', backgroundImage: '/jordan/images/origami_bg.png' },
-  { id: 2, name: 'Embroidery', image: '/jordan/images/embroidery.jpg', backgroundImage: '/jordan/images/embroidery_bg.png' },
+  { id: 1, name: 'Origami', image: '/jordan/images/hobbies/origami/origami.jpg', backgroundImage: '/jordan/images/hobbies/origami_bg.png' },
+  { id: 2, name: 'Embroidery', image: '/jordan/images/hobbies/embroidery/embroidery.jpg', backgroundImage: '/jordan/images/hobbies/embroidery_bg.png' },
+  { id: 2, name: 'Volunteer', image: '/jordan/images/hobbies/volunteering/carwash.jpg', backgroundImage: '/jordan/images/hobbies/embroidery_bg.png' },
 ]
 
 const Hobbies = () => {
