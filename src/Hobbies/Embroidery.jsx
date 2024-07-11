@@ -22,11 +22,11 @@ const Embroidery = () => {
           <Link to="/hobbies/origami/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg">«</Link>
           <Link to="/hobbies/origami/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">1</Link>
           <div className="hover-scale bg-black ml-2 flex items-center justify-center w-10 h-10 rounded-full">
-            <Link to="/hobbies/embroidery/" className="bg-blue-500 text-white rounded-lg">2</Link>
+            <Link to="/hobbies/string/" className="bg-blue-500 text-white rounded-lg">2</Link>
           </div>
-          <Link to="/hobbies/volunteer/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">3</Link>
-          <Link to="/hobbies/origami/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">4</Link>
-          <Link to="/hobbies/volunteer/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">»</Link>
+          <Link to="/hobbies/sports/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">3</Link>
+          <Link to="/hobbies/volunteering/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">4</Link>
+          <Link to="/hobbies/sports/" className=" hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">»</Link>
         </div>
       </div>
     </div>

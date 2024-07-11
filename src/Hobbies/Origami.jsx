@@ -18,10 +18,10 @@ const Origami = () => {
           <div className="hover-scale bg-black ml-2 flex items-center justify-center w-10 h-10 rounded-full">
             <Link to="/hobbies/origami/" className="px-4 py-2 bg-blue-500 text-white rounded-lg">1</Link>
           </div>
-          <Link to="/hobbies/embroidery/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">2</Link>
-          <Link to="/hobbies/volunteer/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">3</Link>
-          <Link to="/hobbies/origami/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">4</Link>
-          <Link to="/hobbies/embroidery/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">»</Link>
+          <Link to="/hobbies/string/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">2</Link>
+          <Link to="/hobbies/sports/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">3</Link>
+          <Link to="/hobbies/volunteering/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">4</Link>
+          <Link to="/hobbies/string/" className="hover-scale px-4 py-2 bg-blue-500 text-white rounded-lg ml-2">»</Link>
         </div>
       </div>
     </div>

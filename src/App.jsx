@@ -10,6 +10,7 @@ import Pet from './CV/Pet';
 import Hobbies from './Hobbies/Hobbies';
 import Origami from './Hobbies/Origami';
 import Embroidery from './Hobbies/Embroidery';
+import Sports from './Hobbies/Sports';
 
 const App = () => {
   return (
@@ -24,9 +25,10 @@ const App = () => {
         <Route path='achievements/pet' element={<Pet />} />
 
         <Route path='hobbies' element={<Hobbies />} />
-        <Route path='hobbies/volunteer' element={<Volunteer />} />
+        <Route path='hobbies/volunteering' element={<Volunteer />} />
         <Route path='hobbies/origami' element={<Origami />} />
-        <Route path='hobbies/embroidery' element={<Embroidery />} />
+        <Route path='hobbies/string' element={<Embroidery />} />
+        <Route path='hobbies/sports' element={<Sports />} />
       </Routes>
     </main>
   )
