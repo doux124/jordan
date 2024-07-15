@@ -1,7 +1,6 @@
 import Annuloplasty from './Annuloplasty';
 import Graphene from './Graphene';
 import EEG from './EEG';
-import Awards from './Awards';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
@@ -63,7 +62,6 @@ const Research = () => {
         <a style={styles.navLink} onClick={() => scrollToSection('annuloplasty')}>Annuloplasty</a>
         <a style={styles.navLink} onClick={() => scrollToSection('eeg')}>EEG</a>
         <a style={styles.navLink} onClick={() => scrollToSection('graphene')}>Graphene</a>
-        <a style={styles.navLink} onClick={() => scrollToSection('awards')}>Awards</a>
       </nav>
       <main ref={scrollRef}>
         <div id="annuloplasty" style={styles.section}>
@@ -74,9 +72,6 @@ const Research = () => {
         </div>
         <div id="graphene" style={styles.section}>
           <Graphene />
-        </div>
-        <div id="awards" style={styles.section}>
-          <Awards />
         </div>
       </main>
     </div>

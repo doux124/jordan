@@ -25,32 +25,26 @@ const Graphene = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Introduction</h2>
           <p className="flex-1 text-justify mt-2">
-            Our research aims to enhance glucose biosensors by improving the attachment of glucose 
-            oxidase (GOx) to graphene. By exposing graphene to low power radiofrequency (RF) plasma, 
-            defects are introduced on its surface, which is expected to increase GOx adsorption. This 
-            enhanced attachment is hypothesized to lead to a larger dynamic range in glucose sensing. 
-            The project's success will be evaluated through electrical property measurements using an 
-            IV probe station and quality assessments of graphene via Raman spectroscopy.
+            We improved glucose biosensors by increasing the range of glucose sensing. 
+            By exposing graphene to low power RF plasma, defects are introduced on its 
+            surface, increasing glucose oxidase adsorption. The new sensors were evaulated 
+            through Raman spectroscopy and an accessment of their electrical properties.
+            <img src="/jordan/images/raman.png" className="image w-[100vh] h-auto mx-auto mt-5 center"/>
           </p>
         </section>
 
         <section className="sectionAnimate">
           <h2 className="subHeader">Graphene Synthesis</h2>
           <p className="flex-1 text-justify mt-2">
-            We grew our graphene using Chemical Vapor Deposition (CVD) on copper substrates in 
-            quartz tubes acting as the reaction chamber. Hydrogen gas was flowed in while the copper 
-            strip was heated incrementally, achieving a final temperature of approximately 1100°C. 
-            This initial treatment allowed hydrogen molecules to adsorb and decompose, cleaning the 
-            substrate surface of contaminants. Following hydrogen treatment, methane gas was introduced, 
-            chemisorbing onto the copper surface and initiating the growth of graphene. The process is 
-            self-limiting due to graphene's minimal solubility in copper.
-            <br />
+            We grew our graphene using Chemical Vapor Deposition (CVD). Hydrogen gas 
+            was used to clean the copper substrate surface of contaminants. 
+            Methane gas was then flowed in, chemisorbing onto the copper surface and 
+            initiating the growth of graphene. The process is self-limiting due to graphene's minimal solubility in copper.
+            <img src="/jordan/images/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
             <br />
             To transfer the graphene layer onto glass slides, polymethyl methacrylate (PMMA) was 
-            spin-coated on top of the graphene-copper stack. It was then baked in an oven and floated 
-            in Iron Chloride (III) solution to dissolve the copper. The remaining PMMA-graphene stack 
-            was transferred onto a glass slide and incubated to dryness. To remove the PMMA layer, an 
-            acetone bath was used.
+            spin-coated on top of the graphene-copper stack. To isolate the graphene, it was baked 
+            in an oven, floated in Iron Chloride (III) solution and soaked in acetone.
           </p>
         </section>
 

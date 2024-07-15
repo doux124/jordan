@@ -85,8 +85,8 @@ const Annuloplasty = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Project Idea</h2>
           <p className="flex-1 text-justify mt-2">
-            I used <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>shape memory materials</Link> to
-            design novel annuloplasty rings. <br /> <br /> I made 2 versions, one using <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>Nitinol</Link>
+            We used <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>shape memory materials</Link> to
+            design the novel annuloplasty rings. <br /> <br /> We made 2 versions, one using <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>Nitinol</Link>
             , and one using <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>MMA-PEGDMA</Link>.
             This allowed the rings to be shaped into thin rods for insertion between the ribs. As such, the sternum does not need to be split, reducing the invasiveness of the surgery.
           </p>

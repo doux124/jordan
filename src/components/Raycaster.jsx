@@ -27,7 +27,7 @@ const Raycaster = () => {
                 const docHeight = document.body.scrollHeight;
                 const mouseY = (event.clientY - rect.top) / docHeight;
                 console.log(mouseY)
-                if (object === "mesh3" && mouseY > .7) {
+                if (object === "mesh3" && mouseY > .8) {
                     navigate('/achievements');
                 }
             });

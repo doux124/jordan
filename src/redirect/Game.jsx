@@ -217,7 +217,7 @@ const Game = () => {
                     x = (pos.x < 1750 && pos.x > 1640) ? true : false;
                     y = (pos.y < 840 && pos.y > 800) ? true : false;
                     if (x && y) {
-                        navigate('/hobbies/volunteer');
+                        navigate('/hobbies/volunteering');
                     }
 
                     // Pet

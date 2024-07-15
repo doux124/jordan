@@ -5,6 +5,7 @@ import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
+import Awards from "./Awards";
 
 const Compile = () => {
     const [loading, setLoading] = useState(false);
@@ -77,9 +78,13 @@ const Compile = () => {
                         Jordan's Lore
                     </h1>
                     <Timeline />
+                    <h1 id='heading' className="section-heading text-center md:mb-6">
+                        Don't mind me flexing here
+                    </h1>
+                    <Awards />
                 </div>
                 <div className="screen-max-width">
-                    <h1 id='heading' className="section-heading text-center">
+                    <h1 id='heading' className="section-heading text-center mt-4">
                         Game Area
                     </h1>
                     <Model />
