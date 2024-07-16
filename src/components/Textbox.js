@@ -1,18 +1,18 @@
 import Matter from 'matter-js';
 
-const createTextBox = (x, y, text) => {
+const createTextBox = (x, y, text, color) => {
   const fontSize = 20; 
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   context.font = `${fontSize}px "Playpen Sans"`;
   const textWidth = context.measureText(text).width + 20;
   const textHeight = fontSize + 10;
-  const scale = 0.7
+  const scale = window.innerWidth < 760 ? 0.2 : 0.7
 
   const box = Matter.Bodies.rectangle(x, y, textWidth, textHeight, {
     render: {
       sprite: {
-        texture: createTextTexture(text, textWidth, textHeight),
+        texture: createTextTexture(text, textWidth, textHeight, color),
         xScale: 1 * scale,
         yScale: 1 * scale
       }
@@ -22,23 +22,20 @@ const createTextBox = (x, y, text) => {
 };
 
 
-const createTextTexture = (text, width, height) => {
+const createTextTexture = (text, width, height, color) => {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
 
   const pixelRatio = window.devicePixelRatio || 1;
-
-  // Set canvas size accounting for pixel ratio
   canvas.width = width * pixelRatio;
   canvas.height = height * pixelRatio;
-
-  // Scale the context to ensure text is sharp
   context.scale(pixelRatio, pixelRatio);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw the background and text
+  // Draw
   context.fillStyle = 'rgba(0, 0, 0, 0)';
   context.fillRect(0, 0, width, height);
-  context.fillStyle = 'white';
+  context.fillStyle = color;
   context.font = '20px "Playpen Sans"';
   context.textAlign = 'center';
   context.textBaseline = 'middle';

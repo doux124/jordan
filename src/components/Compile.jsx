@@ -12,7 +12,7 @@ const Compile = () => {
     const [showSecret, setShowSecret] = useState(false);
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(false)
         setTimeout(() => {
             setLoading(false)
         }, 5000)

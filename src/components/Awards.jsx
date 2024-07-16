@@ -8,13 +8,9 @@ const Awards = () => {
   useEffect(() => {
     // Set up Matter.js
     const { Engine, Render, Composite, Bodies, Runner, Events, Mouse, MouseConstraint } = Matter;
-
-    // Create an engine with gravity
     const engine = Engine.create({
       gravity: { x: 0, y: 0, scale: 0.001 }
     });
-
-    // Create a renderer
     const render = Render.create({
       element: sceneRef.current,
       engine: engine,
@@ -26,11 +22,9 @@ const Awards = () => {
       },
     });
 
-    // Define the canvas dimensions
+    // Borders
     const canvasWidth = window.innerWidth * 0.8;
     const canvasHeight = 600;
-
-    // Create border rectangles with labels
     const borders = [
       Bodies.rectangle(canvasWidth / 2, 0, canvasWidth, 10, { isStatic: true, render: { fillStyle: '#FFD700' }, label: 'Top' }), 
       Bodies.rectangle(canvasWidth / 2, canvasHeight, canvasWidth, 10, { isStatic: true, render: { fillStyle: '#FFD700' }, label: 'Bottom' }),
@@ -40,22 +34,34 @@ const Awards = () => {
 
     // Achievements
     const texts = [
-      'IChTo 1st place', 
-      'GYSTB 1st place',
-      'ill fill this list later'
+      { text: 'IChTo 1st place', color: 'gold' },
+      { text: 'GYSTB 1st place', color: 'gold' },
+      { text: 'SSEF Gold', color: 'gold' },
+      { text: 'SChO Gold', color: 'gold' },
+      { text: 'IEF Gold', color: 'gold' },
+      { text: 'SSEF Silver', color: 'silver' },
+      { text: 'TKKYIA Silver', color: 'silver' },
+      { text: 'SJBO Gold', color: 'gold' },
     ];
-
-    // Create boxes for each text
-    const boxes = texts.map((text, index) => createTextBox(400, 200 + (index * 100), text));
-
-    // Create a floor
+    const width = render.options.width;
+    const height = render.options.height;
+    const x1 = width / 4;
+    const x2 = width / 3;
+    const y = height / 5;
+    const boxes = texts.map((item, index) => {
+      const { text, color } = item;
+      return createTextBox(
+      ((Math.floor(2*(index)/5))%2==0)?x1+x1*((((index)%5+1)-3*Math.floor(((index)%5)/3))-1):x2+x2*((((index)%5+1)-3*Math.floor(((index)%5)/3))-1),
+      y+y*Math.floor(2*(index)/5), 
+      text,
+      color
+      );
+    });
     const boxFloor = Bodies.rectangle(canvasWidth / 2, canvasHeight - 4, canvasWidth, 3, { render: { fillStyle: '#000000' }, label: 'Floor' });
     boxFloor.isStatic = true;
-
-    // Add the boxes and borders to the world
     Composite.add(engine.world, [...boxes, boxFloor, ...borders]);
 
-    // Create mouse control
+    // Mouse
     const mouse = Mouse.create(render.canvas);
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse: mouse,
@@ -66,10 +72,7 @@ const Awards = () => {
         }
       }
     });
-
     Composite.add(engine.world, mouseConstraint);
-
-    // Keep the mouse in sync with rendering
     render.mouse = mouse;
 
     // Gravity start
@@ -77,7 +80,7 @@ const Awards = () => {
       engine.gravity.y = 1;
     });
 
-    // Run the engine
+    // Run
     Render.run(render);
     const runner = Runner.create();
     Runner.run(runner, engine);
@@ -89,8 +92,6 @@ const Awards = () => {
         // Handle collisions here
       });
     });
-
-    // Function to apply a slight bounce in a random direction
     const applyBounce = (body) => {
       const forceMagnitude = 100; // Adjust as needed
       const angle = Math.random() * Math.PI * 2; // Random angle
@@ -101,7 +102,6 @@ const Awards = () => {
       Body.applyForce(body, body.position, force);
     };
 
-    // Clean up on component unmount
     return () => {
       Render.stop(render);
       Engine.clear(engine);
