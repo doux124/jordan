@@ -78,16 +78,19 @@ const Compile = () => {
                         Jordan's Lore
                     </h1>
                     <Timeline />
-                    <h1 id='heading' className="section-heading text-center md:mb-6">
-                        Don't mind me flexing here
-                    </h1>
-                    <Awards />
                 </div>
                 <div className="screen-max-width">
                     <h1 id='heading' className="section-heading text-center mt-4">
                         Game Area
                     </h1>
-                    <Model />
+                    <h1 className="section-subheading text-center">
+                        Don't mind me flexing here
+                    </h1>
+                    <Awards />
+                    <h1 id='heading' className="section-subheading text-center mt-7">
+                        Click on the arcade machine's screen
+                    </h1>
+                    <Model />    
                 </div>
             </section>
         </div>

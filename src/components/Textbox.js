@@ -5,8 +5,9 @@ const createTextBox = (x, y, text, color) => {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   context.font = `${fontSize}px "Playpen Sans"`;
-  const textWidth = context.measureText(text).width + 20;
-  const textHeight = fontSize + 10;
+  const padding = window.innerWidth < 760 ? 3 : 10
+  const textWidth = context.measureText(text).width + 2 * padding;
+  const textHeight = fontSize + padding;
   const scale = window.innerWidth < 760 ? 0.2 : 0.7
 
   const box = Matter.Bodies.rectangle(x, y, textWidth, textHeight, {
