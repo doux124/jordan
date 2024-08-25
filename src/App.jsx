@@ -11,6 +11,8 @@ import Hobbies from './Hobbies/Hobbies';
 import Origami from './Hobbies/Origami';
 import Embroidery from './Hobbies/Embroidery';
 import Sports from './Hobbies/Sports';
+import BirthdayCard from './bday/BirthdayCard';
+
 
 const App = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
         <Route path='hobbies/origami' element={<Origami />} />
         <Route path='hobbies/string' element={<Embroidery />} />
         <Route path='hobbies/sports' element={<Sports />} />
+
+        <Route path="HappyBirthday/:name" element={<BirthdayCard />} />
       </Routes>
     </main>
   )

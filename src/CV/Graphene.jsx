@@ -40,11 +40,23 @@ const Graphene = () => {
             was used to clean the copper substrate surface of contaminants. 
             Methane gas was then flowed in, chemisorbing onto the copper surface and 
             initiating the growth of graphene. The process is self-limiting due to graphene's minimal solubility in copper.
-            <img src="/jordan/images/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
-            <br />
+            
             To transfer the graphene layer onto glass slides, polymethyl methacrylate (PMMA) was 
             spin-coated on top of the graphene-copper stack. To isolate the graphene, it was baked 
             in an oven, floated in Iron Chloride (III) solution and soaked in acetone.
+          </p>
+        </section>
+
+        <section className="sectionAnimate">
+          <h2 className="subHeader">Building the Sensor</h2>
+          <p className="flex-1 text-justify mt-2">
+            <img src="/jordan/images/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
+            <br />
+            
+            <img src="/jordan/images/gbb.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
+            The figure above shows our biosensor at its most fundamental level. 2 silver ink 
+            droplets with Cu wires attached were used as metal contacts. The graphene surface 
+            was then immobilised with 1mg/dl GOx solution            
           </p>
         </section>
 
