@@ -11,10 +11,9 @@ const CardForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Redirect to the personalized URL
-    navigate(`/HappyBirthday/${name}`, {
-      state: { name, message },
-    });
+    // Redirect to the personalized URL with name and message as query parameters
+    const encodedMessage = encodeURIComponent(message);
+    navigate(`/HappyBirthday/${name}?message=${encodedMessage}`);
   };
 
   return (

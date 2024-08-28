@@ -4,8 +4,9 @@ import './Card.css';
 
 const BirthdayCard = () => {
   const { name } = useParams();
-  const location = useLocation();
-  const { message } = location.state || {};
+
+  const queryParams = new URLSearchParams(useLocation().search);
+  const message = queryParams.get("message");
 
   if (!message) {
     return <div>No card data found. Please generate a card first.</div>;
