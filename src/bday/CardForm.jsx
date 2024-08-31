@@ -5,7 +5,6 @@ import './Card.css';
 const CardForm = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [shareableLink, setShareableLink] = useState("");
 
   const navigate = useNavigate();
 
@@ -17,7 +16,6 @@ const CardForm = () => {
 
     // Generate the URL with the name in the path and the message as a query parameter
     const url = `${window.location.origin}/HappyBirthday/${name}?message=${encodedMessage}`;
-    setShareableLink(url);
 
     // Navigate to the card page using the generated URL
     navigate(`/HappyBirthday/${name}?message=${encodedMessage}`);
@@ -47,23 +45,6 @@ const CardForm = () => {
         </div>
         <button type="submit" className="form-button">Generate Card</button>
       </form>
-
-      <div className="shareable-link-container mt-5">
-        {shareableLink ? (
-          <>
-            <p>Your card has been created! Share this link:</p>
-            <input
-              type="text"
-              value={shareableLink}
-              readOnly
-              className="shareable-link-input"
-              onClick={(e) => e.target.select()}
-            />
-          </>
-        ) : (
-          <p>Generate a card to get a shareable link.</p>
-        )}
-      </div>
     </div>
   );
 };
