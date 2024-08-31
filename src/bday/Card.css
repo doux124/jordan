@@ -59,23 +59,42 @@
 
 .card-container {
   border: 2px solid #007bff;
-  padding: 20px;
-  max-width: 400px;
-  margin: 20px auto;
+  padding: 15px;
   text-align: center;
   background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: -130px;
 }
 
 .card-header {
-  font-size: 24px;
+  font-size: 32px;
   color: #007bff;
+}
+
+.card-background {
+  background-image: url('/images/bday/background.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.birthday-box {
+  align-items: center;
+  justify-content: center;
 }
 
 .birthdayCard {
   position: relative;
-  left:41%;
   width: 250px;
   height: 350px;
   cursor: pointer;
@@ -85,9 +104,29 @@
 }
 
 .birthdayCard:hover {
-  transform: perspective(2500px) rotate(5deg) translateX(120px);
+  transform: perspective(2500px) rotate(5deg) translateX(107px);
   box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
     0 10px 100px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Queries for mobile */
+@media (max-width: 760px) {
+  .birthdayCard {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 1s;
+    margin-right: 22px;
+  }
+
+  .birthdayCard:hover {
+    transform: perspective(2500px) rotate(5deg);
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+      0 10px 100px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .birthdayCard:hover .cardFront {
@@ -112,10 +151,11 @@
 
 .happy {
   text-align: center;
-  margin: 30px;
+  margin: 20px;
   transition: 0.1s;
   backface-visibility: visible;
   color: black;
+  font-size: 24px;
 }
 
 .balloons {
@@ -210,27 +250,10 @@
 }
 
 .back {
-  font-family: Tahoma, sans-serif;
   color: #333;
   text-align: center;
   margin: 30px;
   outline-color: #333;
   outline-style: dotted;
+  font-size: 26px;
 }
-
-.shareable-link-container {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.shareable-link-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-}
-
-

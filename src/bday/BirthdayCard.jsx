@@ -1,39 +1,64 @@
-import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import './Card.css';
+import Confetti from 'react-confetti';
+import { useState, useEffect } from 'react';
 
 const BirthdayCard = () => {
-  const { name } = useParams(); // Get the name from the URL path
-
-  // Use useLocation to get the message from query parameters
+  // Take name and message from url
+  const { name } = useParams();
   const queryParams = new URLSearchParams(useLocation().search);
   const message = queryParams.get("message");
 
-  if (!message) {
-    return <div>No card data found. Please generate a card first.</div>;
-  }
+  const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const handleResize = () => {
+    setDimensions({ width: window.innerWidth, height: window.innerHeight });
+  };
+
+  useEffect(() => {
+    // Dynamic confetti
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
 
   return (
-    <div>
-      <div className="card-container">
+    <div className="card-background">
+      <Confetti
+        width={dimensions.width}
+        height={dimensions.height}
+        numberOfPieces={3000}
+        gravity={0.2}
+        recycle={false}
+      />
+      <div className="card-container mr-5 md:mr-0">
         <h2 className="card-header">Happy Birthday {name}!</h2>
       </div>
 
-      <div className="birthdayCard mt-20">
-        <div className="cardFront">
-          <h3 className="happy">HAPPY BIRTHDAY POOKS</h3>
-          <div className="balloons">
-            <div className="balloonOne" />
-            <div className="balloonTwo" />
-            <div className="balloonThree" />
-            <div className="balloonFour" />
+      <div className="birthday-box">
+        <div className="birthdayCard mt-20">
+          <div className="cardFront">
+            <h3 className="happy mt-10">{name}'s Birthday</h3>
+            <div className="balloons">
+              <div className="balloonOne" />
+              <div className="balloonTwo" />
+              <div className="balloonThree" />
+              <div className="balloonFour" />
+            </div>
           </div>
-        </div>
-        <div className="cardInside">
-          <h3 className="back">MWAH</h3>
-          <p className="mx-5">
-            To the bestest and cutest domestic abuser: {message}
-          </p>
+          <div className="cardInside">
+            <h3 className="back">HAPPY BDAY</h3>
+            <p className="mx-5">
+              To: {name}
+            </p>
+            <p className="mx-7 my-2">
+              {message}
+            </p>
+            <p className="text-right mx-10">
+              By: Jordan
+            </p>
+          </div>
         </div>
       </div>
     </div>
