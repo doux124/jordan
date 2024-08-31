@@ -17,10 +17,10 @@ import BirthdayCard from './bday/BirthdayCard';
 const App = () => {
   return (
     <main className="bg-black">
-      <Routes>
+      <Routes basename="/jordan">
         <Route path='/' element={<Compile />} />
         <Route path='achievements' element={<Achievements />} />
-        <Route path='jordan/achievements/research' element={<Research />} />
+        <Route path='achievements/research' element={<Research />} />
         <Route path='achievements/research/annuloplasty' element={<AnnuloplastyMore />} />
         <Route path='achievements/research/annuloplasty/procedure' element={<Procedure />} />
         <Route path='achievements/research/annuloplasty/results' element={<Results />} />
