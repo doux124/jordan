@@ -22,6 +22,9 @@ const Intro = () => {
         if (1250 < x && x < 1800 && 600 < y && y < 940) {
             navigate('/hobbies');
         }
+        if (1400 < x && x < 1560 && 205 < y && y < 370) {
+            navigate('/hidden');
+        }
     };
 
     useEffect(() => {

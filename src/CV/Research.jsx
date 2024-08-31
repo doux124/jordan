@@ -4,7 +4,6 @@ import EEG from './EEG';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
-import CardForm from '../bday/CardForm';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +73,6 @@ const Research = () => {
         <div id="graphene" style={styles.section}>
           <Graphene />
         </div>
-        <CardForm />
       </main>
     </div>
   );

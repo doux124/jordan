@@ -39,7 +39,7 @@ const BirthdayCard = () => {
       <div className="birthday-box">
         <div className="birthdayCard mt-20">
           <div className="cardFront">
-            <h3 className="happy mt-10">{name}'s Birthday</h3>
+            <h3 className="happy mt-10">For {name}:</h3>
             <div className="balloons">
               <div className="balloonOne" />
               <div className="balloonTwo" />
@@ -49,14 +49,11 @@ const BirthdayCard = () => {
           </div>
           <div className="cardInside">
             <h3 className="back">HAPPY BDAY</h3>
-            <p className="mx-5">
-              To: {name}
-            </p>
-            <p className="mx-7 my-2">
+            <p className="mx-7 mb-2">
               {message}
             </p>
             <p className="text-right mx-10">
-              By: Jordan
+              From: Jordan
             </p>
           </div>
         </div>
