@@ -32,7 +32,7 @@ const BirthdayCard = () => {
         gravity={0.2}
         recycle={false}
       />
-      <div className="card-container mr-5 md:mr-0">
+      <div className="card-container">
         <h2 className="card-header">Happy Birthday {name}!</h2>
       </div>
 
