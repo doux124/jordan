@@ -3,19 +3,38 @@ import { ClimbingBoxLoader } from "react-spinners";
 
 const Loader = ({ loading }) => {
   const adj = [
-    "jiggling", 
-    "polishing", 
     "illuminated", 
+    "unstable", 
+    "insatiable",
+    "gruntled",
+    "fragrant",
+    "malleable",
+    "lucid",
+    "capitalistic",
+    "crustaceous",
+    "bombastic",
+    "demure and mindful",
+    "lustrous",
+    "voluptuous",
   ];
   const noun = [
-    "jellyfish",
-    "potatoes",
+    "howling",
+    "whimpering",
+    "murmurs",
+    "whispers",
+    "echoes",
     "sobbing",
+    "cries",
+    "moans",
+    "wailing",
+    "prayers",
+    "loading",
   ];
-  const [text, setText] = useState("illuminated sobbing...");
+  const [text, setText] = useState("");
 
   useEffect(() => {
     let intervalId;
+    setText(adj[Math.floor(Math.random() * adj.length)] + " loading...");
     if (loading) {
       intervalId = setInterval(() => {
         displayRandomText();
