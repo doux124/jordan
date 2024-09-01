@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 import { ClimbingBoxLoader } from "react-spinners";
 
 const Loader = ({ loading }) => {
-  const texts = [
-    "jiggling jellyfish...", 
-    "polishing potatoes...", 
-    "illuminated sobbing...", 
+  const adj = [
+    "jiggling", 
+    "polishing", 
+    "illuminated", 
   ];
-  const [text, setText] = useState(texts[Math.floor(Math.random() * texts.length)]);
-  const [index, setIndex] = useState("");
+  const noun = [
+    "jellyfish",
+    "potatoes",
+    "sobbing",
+  ];
+  const [text, setText] = useState("illuminated sobbing...");
 
   useEffect(() => {
     let intervalId;
@@ -24,12 +28,8 @@ const Loader = ({ loading }) => {
   }, [loading]);
 
   const displayRandomText = () => {
-    let newIndex = Math.floor(Math.random() * texts.length);
-    while (newIndex == index) {
-      newIndex = Math.floor(Math.random() * texts.length);
-    }
-    setIndex(newIndex);
-    setText(texts[newIndex]);
+    let adjective = adj[Math.floor(Math.random() * adj.length)]
+    setText(adjective + " " + noun[Math.floor(Math.random() * noun.length)] + "...");
   };
 
   return (
