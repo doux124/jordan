@@ -1,15 +1,23 @@
 import { useEffect, useRef } from 'react';
 
-const Music = () => {
+const songLibrary = {
+  spiderDance: "/jordan/audio/undertale.mp3",
+  firefly: "/jordan/audio/firefly.mp3",
+  rachel: "/jordan/audio/rachel.mp3",
+};
+
+const Music = ({ songName }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current.play();
-  }, []);
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }, [songName]);
 
   return (
     <audio ref={audioRef} loop>
-      <source src="/jordan/audio/firefly.mp3" type="audio/mpeg" />
+      <source src={songLibrary[songName]} type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
   );

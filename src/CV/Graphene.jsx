@@ -52,11 +52,29 @@ const Graphene = () => {
           <p className="flex-1 text-justify mt-2">
             <img src="/jordan/images/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
             <br />
+            The graphene is subjected to RF Plasma.
+            <br />
             
             <img src="/jordan/images/gbb.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
+            <br />
             The figure above shows our biosensor at its most fundamental level. 2 silver ink 
             droplets with Cu wires attached were used as metal contacts. The graphene surface 
-            was then immobilised with 1mg/dl GOx solution            
+            was then immobilised with 1mg/dl GOx solution.            
+          </p>
+        </section>
+
+        <section className="sectionAnimate">
+          <h2 className="subHeader">Results</h2>
+          <p className="flex-1 text-justify mt-2">
+            <img src="/jordan/images/glucose_results.png" className="image w-[75vh] h-auto mx-auto mt-5 center"/>
+            <br />
+            Initial resistance increases with more plasma exposure while change in resistance against glucose 
+            concentration decreases. Above 15mins of exposure causes GOx to be unable to bind effectively.
+            <br />
+            <br />
+            From our results, we can see that by exposing the biosensor to 5-10mins of RF plasma, the effective 
+            sensing range increases. This has applications in improving the feasbility of wearable biosensors. 
+            Through this method, an effective wearable and resuable diabetes monitoring sensor can be made.      
           </p>
         </section>
 
