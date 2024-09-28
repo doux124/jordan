@@ -21,6 +21,15 @@ const EEG = () => {
         </section>
 
         <section className="section" style={styles.section}>
+          <h2 className="subHeader">Keywords</h2>
+          <p className="flex-1 text-justify mt-2">
+            1. Electroencephalogram (EEG), Brain Computer Interface (BCI), Motor Imagery (MI)
+            <br />
+            2. Machine Learning (ML), Support Vector Machine (SVM), PsychoPy
+          </p>
+        </section>
+
+        <section className="section" style={styles.section}>
           <h2 className="subHeader">The Brain Computer Interface</h2>
           <p className="flex-1 text-justify mt-2">
             Every action made by a person produces signals in the brain. These signals can be picked up by 

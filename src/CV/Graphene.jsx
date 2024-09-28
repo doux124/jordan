@@ -9,10 +9,17 @@ const Graphene = () => {
         </section>
 
         <section className="section">
+          <h2 className="subHeader">Keywords</h2>
+          <p className="flex-1 text-justify mt-2">
+            Glucose Biosensor, Graphene, Chemical Vapor Deposition (CVD), RF Plasma
+          </p>
+        </section>
+
+        <section className="section">
           <h2 className="subHeader">Introduction</h2>
           <p className="flex-1 text-justify mt-2">
-            We improved glucose biosensors by increasing the range of glucose sensing. 
-            By exposing graphene to low power RF plasma, defects are introduced on its 
+            We successfully made biosensors with a wider range of glucose sensing. 
+            By exposing graphene to low power RF plasma, we introduce defects onto its 
             surface, increasing glucose oxidase adsorption. The new sensors were evaulated 
             through Raman spectroscopy and an accessment of their electrical properties.
             <img src="/jordan/images/raman.png" className="image w-[100vh] h-auto mx-auto mt-5 center"/>
@@ -38,9 +45,10 @@ const Graphene = () => {
           <p className="flex-1 text-justify mt-2">
             <img src="/jordan/images/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
             <br />
-            The graphene is subjected to RF Plasma.
+            The graphene is subjected to RF Plasma to introduce defects. This allows for a greater surface area 
+            for glucose oxidase (GOx) adsorption, which reacts with glucose to alter the biosensor's electrical properties. 
+            Our sensor works by measuring the change in resistance, which is mapped to the blood glucose concentration.
             <br />
-            
             <img src="/jordan/images/gbb.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
             <br />
             The figure above shows our biosensor at its most fundamental level. 2 silver ink 
@@ -54,13 +62,9 @@ const Graphene = () => {
           <p className="flex-1 text-justify mt-2">
             <img src="/jordan/images/glucose_results.png" className="image w-[75vh] h-auto mx-auto mt-5 center"/>
             <br />
-            Initial resistance increases with more plasma exposure while change in resistance against glucose 
-            concentration decreases. Above 15mins of exposure causes GOx to be unable to bind effectively.
-            <br />
-            <br />
-            From our results, we can see that by exposing the biosensor to 5-10mins of RF plasma, the effective 
-            sensing range increases. This has applications in improving the feasbility of wearable biosensors. 
-            Through this method, an effective wearable and resuable diabetes monitoring sensor can be made.      
+            Our results demonstrate that over 15mins of exposure affects the quality of GOx binding. However, 
+            5-10mins of RF plasma exposure causes the effective sensing range of our biosensor to increase. 
+            Through this method, a more effective wearable and resuable diabetes monitoring sensor can be made.      
           </p>
         </section>
 

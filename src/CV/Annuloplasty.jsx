@@ -53,6 +53,15 @@ const Annuloplasty = () => {
         <section className="sectionAnimate">
           <h1 className="header">Minimally Invasive Annuloplasty using Shape Memory Materials</h1>
         </section>
+
+        <section className="sectionAnimate">
+          <h2 className="subHeader">Keywords</h2>
+          <p className="flex-1 text-justify mt-2">
+            1. Annuloplasty, Minimally Invasive Surgery, Mitral Valve
+            <br />
+            2. Shape Memory Materials, Nitinol, MMA-PEGDMA
+          </p>
+        </section>
   
         <section className="sectionAnimate">
           <h2 className="subHeader">Mitral Valve Regurgitation and Annuloplasties</h2>
@@ -63,7 +72,7 @@ const Annuloplasty = () => {
               </div>
               <p className="flex-1 text-justify">
                   <br />
-                  Mitral valve regurgitation is the backflow of blood through the bicuspid/mitral valve.
+                  Mitral valve regurgitation is the backflow of blood through the mitral valve.
                   It is treated by suturing an annuloplasty ring onto the annulus to tighten the valve. 
                   However, the procedure involves splitting the sternum, causing the procedure to be 
                   surgically taxing.
