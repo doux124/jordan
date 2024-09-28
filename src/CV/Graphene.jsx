@@ -1,28 +1,14 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import "./styles.css";
 
 const Graphene = () => {
-  useGSAP(() => {
-    gsap.fromTo('.sectionAnimate', {
-      opacity: 0,
-      y:20
-    }, {
-      opacity: 1,
-      y: 0,
-      delay: 1,
-      stagger: 0.2
-    })
-  }, [])
-
   return (
     <div className="pageContainer">
       <div className="projectContainer">
-        <section className="sectionAnimate">
+        <section className="section">
           <h1 className="header">Plasma-based Defect Engineering of Graphene for Biosensing Applications</h1>
         </section>
 
-        <section className="sectionAnimate">
+        <section className="section">
           <h2 className="subHeader">Introduction</h2>
           <p className="flex-1 text-justify mt-2">
             We improved glucose biosensors by increasing the range of glucose sensing. 
@@ -33,7 +19,7 @@ const Graphene = () => {
           </p>
         </section>
 
-        <section className="sectionAnimate">
+        <section className="section">
           <h2 className="subHeader">Graphene Synthesis</h2>
           <p className="flex-1 text-justify mt-2">
             We grew our graphene using Chemical Vapor Deposition (CVD). Hydrogen gas 
@@ -47,7 +33,7 @@ const Graphene = () => {
           </p>
         </section>
 
-        <section className="sectionAnimate">
+        <section className="section">
           <h2 className="subHeader">Building the Sensor</h2>
           <p className="flex-1 text-justify mt-2">
             <img src="/jordan/images/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
@@ -63,7 +49,7 @@ const Graphene = () => {
           </p>
         </section>
 
-        <section className="sectionAnimate">
+        <section className="section">
           <h2 className="subHeader">Results</h2>
           <p className="flex-1 text-justify mt-2">
             <img src="/jordan/images/glucose_results.png" className="image w-[75vh] h-auto mx-auto mt-5 center"/>

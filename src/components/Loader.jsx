@@ -14,18 +14,14 @@ const Loader = ({ loading }) => {
     "crustaceous",
     "bombastic",
     "demure and mindful",
-    "lustrous",
-    "voluptuous",
   ];
   const noun = [
     "howling",
-    "whimpering",
     "murmurs",
     "whispers",
     "echoes",
     "sobbing",
     "cries",
-    "moans",
     "wailing",
     "prayers",
     "loading",

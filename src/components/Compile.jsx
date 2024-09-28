@@ -1,11 +1,12 @@
 import gsap from "gsap";
-import Model from "./Model";
-import Timeline from "./Timeline";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
-import Awards from "./Awards";
+import Synopsis from "./Synopsis";
+// import Awards from "./Awards";
+// import Model from "./Model";
+// import Timeline from "./Timeline";
 
 const Compile = () => {
     const [loading, setLoading] = useState(false);
@@ -74,12 +75,18 @@ const Compile = () => {
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     <Intro />
+
                     <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
+                        About Me
+                    </h1>
+                    <Synopsis />
+
+                    {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
                         Jordan's Lore
                     </h1>
-                    <Timeline />
+                    <Timeline /> */}
                 </div>
-                <div className="screen-max-width">
+                {/* <div className="screen-max-width">
                     <h1 id='heading' className="section-heading text-center mt-4">
                         Game Area
                     </h1>
@@ -91,7 +98,7 @@ const Compile = () => {
                         Click on the arcade machine's screen
                     </h1>
                     <Model />    
-                </div>
+                </div> */}
             </section>
         </div>
     );
