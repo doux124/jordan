@@ -59,7 +59,7 @@ const Intro = () => {
         video.pause();
         const timeout = setTimeout(() => {
             video.play();
-        }, 5000);
+        }, 0);
 
         return () => {
             clearTimeout(timeout);

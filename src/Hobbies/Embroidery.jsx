@@ -9,12 +9,12 @@ const Embroidery = () => {
         <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/embroidery/jellyfish.jpg" alt="Steak" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Isn't this jellyfish cute</h3>
-            <p className="text-sm text-[#483C32]">made by @potato not me</p>
+            <p className="text-sm text-[#483C32]"></p>
           </div>
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/embroidery/jellyfish2.jpg" alt="Steak" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">More jellyfish</h3>
-            <p className="text-sm text-[#483C32]">made by me</p>
+            <p className="text-sm text-[#483C32]"></p>
           </div>
         </div>
 

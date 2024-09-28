@@ -2,8 +2,8 @@ import gsap from "gsap";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import { useState, useEffect } from "react";
-import Loader from "./Loader";
 import Synopsis from "./Synopsis";
+// import Loader from "./Loader";
 // import Awards from "./Awards";
 // import Model from "./Model";
 // import Timeline from "./Timeline";
@@ -16,7 +16,7 @@ const Compile = () => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 5000)
+        }, 0)
 
         let hideTimeout;
         const hideAfterDelay = () => {
@@ -70,7 +70,7 @@ const Compile = () => {
 
     return (
         <div>
-            <Loader loading={loading} />
+            {/* <Loader loading={loading} /> */}
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>

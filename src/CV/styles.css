@@ -1,69 +1,113 @@
 .pageContainer {
-    padding: 40px;
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
-    color: #000000;
-  }
-  
-  .projectContainer {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-  }
-  
-  .header {
-    text-align: center;
-    color: #004d99;
-    font-weight: bold;
-    font-size: large;
-  }
-  
-  .section {
-    margin-top: 20px;
-    padding: 20px;
-    background: #FCF3E0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #000000;
+}
 
-  .sectionAnimate {
-    margin-top: 20px;
-    padding: 20px;
-    background: #FCF3E0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .subHeader {
-    color: #0066cc;
-    border-bottom: 2px solid #004d99;
-    padding-bottom: 5px;
-  }
-  
-  .list {
-    padding-left: 20px;
-  }
-  
-  .link {
-    color: #004d99;
-    text-decoration: none;
-  }
-  
-  .flexContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .flexItem {
-    flex: 1 1 45%;
-    min-width: 300px;
-    position: relative;
-  }
+.projectContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.header {
+  text-align: center;
+  color: #004d99;
+  font-weight: bold;
+  font-size: large;
+}
+
+.section {
+  margin-top: 20px;
+  padding: 20px;
+  background: #FCF3E0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sectionAnimate {
+  margin-top: 20px;
+  padding: 20px;
+  background: #FCF3E0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.subHeader {
+  color: #0066cc;
+  border-bottom: 2px solid #004d99;
+  padding-bottom: 5px;
+}
+
+.list {
+  padding-left: 20px;
+}
+
+.link {
+  color: #004d99;
+  text-decoration: none;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.flexItem {
+  flex: 1 1 45%;
+  min-width: 300px;
+  position: relative;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.navLink {
+  margin: 0 15px;
+  color: gray;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative; /* Required for the pseudo-element */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navLink::after {
+  content: ''; /* Create a pseudo-element */
+  display: block;
+  width: 100%; /* Full width for the underline */
+  height: 2px; /* Height of the underline */
+  background: white; /* Underline color */
+  position: absolute; /* Position it absolutely */
+  left: 0;
+  bottom: -5px; /* Position it below the text */
+  transform: scaleX(0); /* Start with no width */
+  transition: transform 0.3s ease; /* Animation effect */
+}
+
+.navLink:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
+}
+
+
+.navLinkActive {
+  color: white
+}
+
 
   

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const hobbies = [
   { id: 1, name: 'Origami', image: '/jordan/images/hobbies/origami/origami.jpg', backgroundImage: '/jordan/images/hobbies/origami_bg.png' },
   { id: 2, name: 'String', image: '/jordan/images/hobbies/embroidery/embroidery.jpg', backgroundImage: '/jordan/images/hobbies/embroidery_bg.png' },
-  { id: 3, name: 'Sports', image: '/jordan/images/hobbies/embroidery/embroidery.jpg', backgroundImage: '/jordan/images/hobbies/swimming_bg.png' },
+  { id: 3, name: 'Sports', image: '/jordan/images/hobbies/working.jpg', backgroundImage: '/jordan/images/hobbies/swimming_bg.png' },
   { id: 4, name: 'Volunteering', image: '/jordan/images/hobbies/volunteering/carwash.jpg', backgroundImage: '/jordan/images/hobbies/volunteer_bg.png' },
 ]
 
