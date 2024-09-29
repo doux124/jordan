@@ -13,13 +13,29 @@ const Embroidery = () => {
           </div>
 
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
-            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
-            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Hi!</h3>
-            <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
+            <img src="/jordan/images/hobbies/volunteering/tassel.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Elderly Engagement with Lions Befrienders</h3>
+            <p className="text-sm text-[#483C32]">I partnered with Lions Befrienders and started a project where we taught the elderly how to make tassels for their friends and family.</p>
           </div>
-        </div>
+          
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/volunteering/ash.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">All Saints Home @ Jurong East</h3>
+            <p className="text-sm text-[#483C32]">As a volunteer at All Saints Home, I document stories of residents there and craft them into a book for their loved ones to read.</p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Reading Odyssey under SHINE Children & Youth Services</h3>
+            <p className="text-sm text-[#483C32]">We help underprivileged children catch up with their peers through reading.</p>
+          </div>
+
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/volunteering/lkh.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Ling Kwang Home</h3>
+            <p className="text-sm text-[#483C32]">I am the Overall in Charge for planning and executing Resident's Day 2022 at Ling Kwang Home.</p>
+          </div>
+
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Hi!</h3>
