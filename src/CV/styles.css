@@ -15,6 +15,17 @@
   margin-bottom: 40px;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 0;
+  }
+
+  .projectContainer {
+    margin: 0;
+  }
+}
+
 .header {
   text-align: center;
   color: #004d99;

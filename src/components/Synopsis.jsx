@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Synopsis = () => {
   return (
     <div style={styles.container}>
-      <p style={styles.paragraph}>
+      <p style={styles.paragraph} className="text-base md:text-2xl">
         Hi! I'm Jordan Low, a <u>biomedical engineering student</u> at NUS with a passion for research and 
         innovation. Learn more about my research or volunteer work using the "Academics" and "Hobbies" buttons 
         above or through the game below.
@@ -39,12 +39,9 @@ const Synopsis = () => {
 
 const styles = {
   container: {
-    margin: 'auto',
-    padding: '40px',
     textAlign: 'center',
   },
   paragraph: {
-    fontSize: '20px',
     lineHeight: '1.6',
     color: 'white',           
     padding: '20px',         

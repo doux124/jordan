@@ -76,7 +76,7 @@ const Compile = () => {
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     <Intro />
 
-                    <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
+                    <h1 id='heading' className="section-heading text-center mt-4 md:mb-10 md:mt-0">
                         About Me
                     </h1>
                     <Synopsis />

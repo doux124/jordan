@@ -4,23 +4,34 @@ import EEG from './EEG';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
-import "./styles.css"
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import "./styles.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Research = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [activeSection, setActiveSection] = useState('annuloplasty');
+  const navigate = useNavigate();
+  const scrollRef = useRef(null);
+
+  const updateIsMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    section.scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(id); // Set active section on scroll
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(id);
+    }
   };
-
-  const scrollRef = useRef(null);
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
+
     const handleScroll = () => {
       const sections = scrollRef.current.children;
       const scrollPosition = window.scrollY + window.innerHeight / 2;
@@ -36,6 +47,7 @@ const Research = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateIsMobile);
 
     if (scrollRef.current) {
       const sections = scrollRef.current.children;
@@ -54,6 +66,7 @@ const Research = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateIsMobile);
     };
   }, []);
 
@@ -64,21 +77,28 @@ const Research = () => {
           className={`navLink ${activeSection === 'annuloplasty' ? 'navLinkActive' : ''}`} 
           onClick={() => scrollToSection('annuloplasty')}
         >
-          Annuloplasty
+          {isMobile ? 'Annuloplasty' : 'Novel Biomedical Device'}
         </a>
         <a 
           className={`navLink ${activeSection === 'eeg' ? 'navLinkActive' : ''}`} 
           onClick={() => scrollToSection('eeg')}
         >
-          EEG
+          {isMobile ? 'BCI' : 'Brain Computer Interface'}
         </a>
         <a 
           className={`navLink ${activeSection === 'graphene' ? 'navLinkActive' : ''}`} 
           onClick={() => scrollToSection('graphene')}
         >
-          Graphene
+          {isMobile ? 'Biosensor' : 'Glucose Biosensor'}
+        </a>
+        <a 
+          className="navLink"
+          onClick={() => navigate('/')}
+        >
+          <FontAwesomeIcon icon={faHome} />
         </a>
       </nav>
+
       <main ref={scrollRef}>
         <div id="annuloplasty" className="section" style={styles.section}>
           <Annuloplasty />
