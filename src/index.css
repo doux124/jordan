@@ -92,6 +92,46 @@ canvas {
     @apply text-gray lg:text-5xl md:text-4xl text-2xl lg:mb-0 mb-5 font-medium translate-y-20
   }
 
+  .contact-section {
+    margin: 20px auto 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 750px;
+  }
+
+  .contact-heading {
+      color: #333;
+      margin-bottom: 20px;
+  }
+
+  .contact-details {
+      color: #555;
+      margin-bottom: 20px;
+  }
+
+  .contact-list {
+      color: black;
+      list-style: none;
+      padding: 0;
+  }
+
+  .contact-list li {
+      margin-bottom: 10px;
+  }
+
+  .contact-list a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s;
+  }
+
+  .contact-list a:hover {
+      color: #0056b3;
+  }
+
   .physics-container {
     display: flex;
     align-items: center;
