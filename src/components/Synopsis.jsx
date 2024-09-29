@@ -26,9 +26,9 @@ const Synopsis = () => {
         <br />
         I've also gained practical experience through <u>internships</u> at labs like NUS's E6 Nanofab and 
         NIE's Plasma Engineering Lab, as well as hands-on training in cardiothoracic and vascular 
-        surgery at NUH. Beyond academics, I volunteer in nursing homes and hospices across Singapore, 
-        and am the Overall In Charge for Project IMPAC, where we lead overseas humanitarian relief 
-        efforts for underprivileged communities.
+        surgery at NUH. Beyond academics, I <u>actively volunteer</u> in nursing homes and hospices across Singapore, 
+        and am the Overall In Charge for Project IMPAC, where we lead <u>overseas humanitarian relief</u> efforts  
+        for underprivileged communities.
       </p>
       <Link to='/achievements'>
         <button style={styles.button}>Enter Game</button>

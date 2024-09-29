@@ -6,10 +6,24 @@ const Embroidery = () => {
       <div className="background-image"></div>
       <div className="hobbies-container p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
-            <img src="/jordan/images/hobbies/volunteering/carwash.jpg" alt="Steak" className="w-full rounded-lg mb-2" />
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/volunteering/carwash.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Overall in Charge of Project IMPAC</h3>
             <p className="text-sm text-[#483C32]">TDLR we raised funds to teach underprivileged Cambodian students how to make and sell masks during COVID.</p>
+          </div>
+
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Hi!</h3>
+            <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Hi!</h3>
+            <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
           </div>
         </div>
 
