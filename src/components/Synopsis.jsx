@@ -6,7 +6,7 @@ const Synopsis = () => {
     <div style={styles.container}>
       <p style={styles.paragraph} className="text-base md:text-2xl">
         Hi! I'm Jordan Low, a <u>biomedical engineering student</u> at NUS with a passion for research and 
-        innovation. Learn more about my research or volunteer work using the "Academics" and "Hobbies" buttons 
+        innovation. Learn more about my research or volunteer work using the "Work & Research" and "Extracurriculars" buttons 
         above or through the game below.
         <br />
         <br />
