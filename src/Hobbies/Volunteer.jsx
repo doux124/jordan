@@ -37,13 +37,13 @@ const Embroidery = () => {
           </div>
           
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
-            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <img src="/jordan/images/hobbies/volunteering/aaa.png" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Active Aging Advocates</h3>
             <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
           </div>
 
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
-            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <img src="/jordan/images/hobbies/volunteering/fob.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Friends of Biodiversity</h3>
             <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
           </div>
