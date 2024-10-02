@@ -28,10 +28,10 @@ const Intro = () => {
         console.log(`Clicked at normalized coordinates: (${x}, ${y})`);
 
         if (mobile) {
-            if (90 < x && x < 450 && 560 < y && y < 760) {
+            if (110 < x && x < 480 && 435 < y && y < 675) {
                 navigate('/achievements/research');
             }
-            if (370 < x && x < 730 && 820 < y && y < 1040) {
+            if (380 < x && x < 760 && 745 < y && y < 970) {
                 navigate('/hobbies');
             }
             if (480 < x && x < 600 && 255 < y && y < 365) {
