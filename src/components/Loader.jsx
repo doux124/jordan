@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ClimbingBoxLoader } from "react-spinners";
+import { ClimbingBoxLoader } from "react-spinners/ClimbingBoxLoader";
 
 const Loader = ({ loading }) => {
   const adj = [

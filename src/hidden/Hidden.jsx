@@ -1,17 +1,26 @@
-import CardForm from "./CardForm"
+import ToggleSection from "./ToggleSection";
+import CardForm from "./CardForm";
 
 const Hidden = () => {
   return (
     <div>
-      <h1 id='heading' className="section-heading text-center" style={{ opacity: 1 }}>
-        Card
-      </h1>
-      <div className="mt-40">
-        <CardForm />
+      <div className="section-heading text-center" style={{ opacity: 1 }}>
+        Tools
+      </div>
+
+      <div className="w-full flex mt-10">
+        <div className="w-1/2">
+          <ToggleSection title="Birthday Card">
+            <CardForm />
+          </ToggleSection>
+        </div>
+
+        <div className="w-1/2">
+          {/* Right Half */}
+        </div>
       </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Hidden
+export default Hidden;

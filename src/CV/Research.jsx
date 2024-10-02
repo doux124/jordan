@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import "./styles.css";
 
 gsap.registerPlugin(ScrollTrigger);
