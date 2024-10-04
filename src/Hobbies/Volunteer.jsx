@@ -45,7 +45,7 @@ const Embroidery = () => {
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/volunteering/fob.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Friends of Biodiversity</h3>
-            <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
+            <p className="text-sm text-[#483C32]">We were featured on Straits Times: https://www.straitstimes.com/singapore/boost-for-native-flora-and-fauna-restocked-wild-population-revised-guidelines-for-developers </p>
           </div>
 
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
