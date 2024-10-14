@@ -1,6 +1,6 @@
-import Annuloplasty from './Annuloplasty';
-import Graphene from './Graphene';
-import EEG from './EEG';
+import Annuloplasty from './ARP/Annuloplasty';
+import Graphene from './SMP/Graphene';
+import EEG from './EEG/EEG';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';

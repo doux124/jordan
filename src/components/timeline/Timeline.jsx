@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { eruditionVid, huntVid, eruditionVidSmall, huntVidSmall, harmonyVidSmall } from '../utils/';
+import { eruditionVid, huntVid, eruditionVidSmall, huntVidSmall, harmonyVidSmall } from '../../utils';
 
 gsap.registerPlugin(ScrollTrigger);
 

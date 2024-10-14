@@ -1,12 +1,11 @@
 import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 
 import * as THREE from 'three'
-import Lights from '../components/Lights';
-import Loader from '../components/Loader';
-import RingModel from './RingModel';
+import Lights from '../Lights';
+import Raycaster from './Raycaster';
 import { Suspense } from "react";
 
-const RingView = ({ index, groupRef, gsapType, controlRef, setRotationState, size, item }) => {
+const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, size, item }) => {
   return (
     <View
       index={index}
@@ -23,21 +22,20 @@ const RingView = ({ index, groupRef, gsapType, controlRef, setRotationState, siz
       <OrbitControls 
         makeDefault
         ref={controlRef}
-        enableZoom={true}
-        enablePan={true}
+        enableZoom={false}
+        enablePan={false}
         rotateSpeed={0.4}
         target={new THREE.Vector3(0, 0 ,0)}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       /> 
 
-      {/* Adjust the rotation of the group element */}
-      <group ref={groupRef} name={`${index === 1 ? 'small' : 'large'}`} position={[0, -0.5, 0]} rotation={[Math.PI/2, Math.PI, 0]}>
-        <Suspense fallback={<Loader />}>
-          <RingModel />
+      <group ref={groupRef} name={`${index === 1} ? 'small' : 'large`} position={[0, -0.5, 0]} rotation={[0, Math.PI, 0]}>
+        <Suspense>
+          <Raycaster />
         </Suspense>
       </group>
     </View>
   )
 }
 
-export default RingView;
+export default ModelView

@@ -2,7 +2,7 @@ import { useState } from "react";
 import gsap from "gsap";
 import Ring from "./Ring";
 import { useGSAP } from "@gsap/react";
-import "./styles.css";
+import "../styles.css";
 import { Link } from 'react-router-dom';
 
 const Annuloplasty = () => {

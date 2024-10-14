@@ -1,4 +1,4 @@
-import { mainVid, mainVidSmall } from "../utils";
+import { mainVid, mainVidSmall } from "../../utils";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from "react";
 

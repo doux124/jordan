@@ -1,11 +1,11 @@
-import Compile from './components/Compile'
+import Compile from './components/intro/Compile'
 import { Route, Routes } from 'react-router-dom';
 import Achievements from './redirect/Achievements';
 import Research from "./CV/Research";
-import Volunteer from "./Hobbies/Volunteer";
-import AnnuloplastyMore from './CV/AnnuloplastyMore';
-import Procedure from './CV/Procedure';
-import Results from './CV/Results';
+import Volunteer from "./hobbies/Volunteer";
+import AnnuloplastyMore from './CV/ARP/AnnuloplastyMore';
+import Procedure from './CV/ARP/Procedure';
+import Results from './CV/ARP/Results';
 import Pet from './CV/Pet';
 import Hobbies from './Hobbies/Hobbies';
 import Origami from './Hobbies/Origami';
