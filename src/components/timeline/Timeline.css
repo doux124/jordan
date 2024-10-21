@@ -1,8 +1,14 @@
+.group {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-top: 250px;
+}
+
 .timeline-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   overflow-x: hidden; /* Prevent horizontal scroll initially */
   transition: all 0.3s ease;
 }

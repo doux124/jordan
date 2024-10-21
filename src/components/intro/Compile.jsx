@@ -64,7 +64,6 @@ const Compile = () => {
     useEffect(() => {
         if (!loading) {
             document.body.style.overflowY = 'auto';
-            gsap.to("#heading", { y: 0, opacity: 1 });
         } else {
             document.body.style.overflowY = 'hidden';
         }

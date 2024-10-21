@@ -10,16 +10,16 @@ const Timeline = () => {
   const length = 2200;
 
   const events = [
-    { year: '2021', title: 'Event One', description: 'Description for event one.' },
-    { year: '2022', title: 'Event Two', description: 'Description for event two.' },
-    { year: '2023', title: 'Event Three', description: 'Description for event three.' },
-    { year: '2024', title: 'Event Four', description: 'Description for event four.' },
-    { year: '2025', title: 'Event Five', description: 'Description for event five.' },
-    { year: '1', title: 'Event One', description: 'Description for event one.' },
-    { year: '2', title: 'Event Two', description: 'Description for event two.' },
-    { year: '3', title: 'Event Three', description: 'Description for event three.' },
-    { year: '4', title: 'Event Four', description: 'Description for event four.' },
-    { year: '5', title: 'Event Five', description: 'Description for event five.' },
+    { year: "2017", title: "", description: "Humble beginnings at NUSH" },
+    { year: "2019", title: "", description: "Started my first research project" },
+    { year: "2019", title: "", description: "My first olympiad gold medal" },
+    { year: "2020", title: "", description: "My first research publication" },
+    { year: "2020", title: "", description: "Interned at NTU's Computational Intelligence Lab" },
+    { year: "2021", title: "", description: "Interned at MD6 under NUH" },
+    { year: "2021", title: "", description: "My first international gold medal" },
+    { year: "2022", title: "", description: "Graduated NUSH" },
+    { year: "2023", title: "", description: "Worked as Combat Medic in NS" },
+    { year: "2024", title: "", description: "Interning at MDesign" },
   ];
 
   const smoothScrollTo = (targetY) => {
@@ -70,17 +70,22 @@ const Timeline = () => {
   }, [isHorizontalScroll]);
 
   return (
-    <div className={`timeline-wrapper ${isHorizontalScroll ? 'horizontal-scroll' : ''}`}>
-      <div className="timeline-container" ref={timelineRef}>
-        {events.map((event, index) => (
-          <div key={index} className="timeline-event">
-            <div className="timeline-year">{event.year}</div>
-            <div className="timeline-details">
-              <h3>{event.title}</h3>
-              <p>{event.description}</p>
+    <div className = "group">
+      <h1 className="section-heading text-center mt-4 md:mb-10 md:mt-0">
+          Timeline
+      </h1>
+      <div className={`timeline-wrapper ${isHorizontalScroll ? 'horizontal-scroll' : ''}`}>
+        <div className="timeline-container" ref={timelineRef}>
+          {events.map((event, index) => (
+            <div key={index} className="timeline-event">
+              <div className="timeline-year">{event.year}</div>
+              <div className="timeline-details">
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
