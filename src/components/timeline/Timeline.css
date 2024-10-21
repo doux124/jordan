@@ -1,0 +1,31 @@
+.timeline-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll initially */
+  transition: all 0.3s ease;
+}
+
+.timeline-wrapper.horizontal-scroll {
+  overflow-x: auto; /* Enable horizontal scroll once past Y position */
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: row; /* Change direction to horizontal */
+}
+
+.timeline-event {
+  min-width: 300px; /* Ensure each event takes up enough width for horizontal scroll */
+  margin: 20px;
+}
+
+.timeline-year {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.timeline-details h3 {
+  margin: 10px 0;
+}

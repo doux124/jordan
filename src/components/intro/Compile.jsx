@@ -4,6 +4,7 @@ import Intro from "./Intro";
 import { useState, useEffect } from "react";
 import Synopsis from "./Synopsis";
 import ResearchSypnosis from "./ResearchSypnosis";
+import Timeline2 from "../timeline/Timeline2";
 // import Loader from "./Loader";
 // import Awards from "./Awards";
 // import Model from "./Model";
@@ -81,6 +82,7 @@ const Compile = () => {
                         About Me
                     </h1>
                     <Synopsis />
+                    <Timeline2 />
                     <ResearchSypnosis />
 
                     {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
