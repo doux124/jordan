@@ -4,9 +4,7 @@ import './Timeline.css';
 const Timeline = () => {
   const [isHorizontalScroll, setIsHorizontalScroll] = useState(false);
   const timelineRef = useRef(null);
-  const start = 1900;
-  const end = 2100;
-  const snapPosition = 2000;
+  const containerRef = useRef(null);
   const length = 2200;
 
   const events = [
@@ -27,31 +25,55 @@ const Timeline = () => {
       top: targetY,
       behavior: 'smooth',
     });
-  };  
+  };
 
-  // Function to handle scroll
+  const getScrollBounds = () => {
+    if (!containerRef.current) return {};
+    const containerTop = containerRef.current.getBoundingClientRect().top + window.scrollY;
+    const offset = window.innerHeight * 0.45;
+    const start = containerTop - window.innerHeight / 2 + offset;
+    const end = containerTop + containerRef.current.clientHeight - window.innerHeight / 2 - offset;
+    return { start, end, snapPosition: containerTop };
+  };
+  
+
   const handleScroll = () => {
+    const { start, end, snapPosition } = getScrollBounds();
     const scrollY = window.scrollY;
 
-    // Check if the scroll position is within the lock range
     if (scrollY >= start && scrollY <= end) {
       smoothScrollTo(snapPosition);
       setIsHorizontalScroll(true);
-      document.body.style.overflowY = 'hidden'; // Disable vertical scrolling
+      document.body.style.overflowY = 'hidden';
     } else {
       setIsHorizontalScroll(false);
-      document.body.style.overflowY = 'auto'; // Enable vertical scrolling
+      document.body.style.overflowY = 'auto';
     }
   };
 
-  // Function to convert vertical scroll to horizontal scroll
   const handleWheel = (event) => {
+    const { start, end } = getScrollBounds();
     if (isHorizontalScroll && timelineRef.current) {
-      event.preventDefault(); // Prevent the default vertical scroll
-      const scroll = event.deltaY
-      timelineRef.current.scrollLeft += scroll
+      event.preventDefault();
+      const scroll = event.deltaY;
+      timelineRef.current.scrollLeft += scroll;
 
-      if (timelineRef.current.scrollLeft == 0 && scroll < 0) {
+      if (timelineRef.current.scrollLeft === 0 && scroll < 0) {
+        window.scrollTo(0, start - 1);
+      } else if (timelineRef.current.scrollLeft >= length && scroll > 0) {
+        window.scrollTo(0, end + 1);
+      }
+    }
+  };
+
+  const handleTouchMove = (event) => {
+    const { start, end } = getScrollBounds();
+    if (isHorizontalScroll && timelineRef.current) {
+      const touch = event.touches[0];
+      const scroll = touch.clientY;
+      timelineRef.current.scrollLeft += scroll;
+
+      if (timelineRef.current.scrollLeft === 0 && scroll < 0) {
         window.scrollTo(0, start - 1);
       } else if (timelineRef.current.scrollLeft >= length && scroll > 0) {
         window.scrollTo(0, end + 1);
@@ -62,17 +84,20 @@ const Timeline = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchmove', handleTouchMove);
       document.body.style.overflowY = 'auto';
     };
   }, [isHorizontalScroll]);
 
   return (
-    <div className = "group">
+    <div className="group" ref={containerRef}>
       <h1 className="section-heading text-center mt-4 md:mb-10 md:mt-0">
-          Timeline
+        Timeline
       </h1>
       <div className={`timeline-wrapper ${isHorizontalScroll ? 'horizontal-scroll' : ''}`}>
         <div className="timeline-container" ref={timelineRef}>

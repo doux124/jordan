@@ -68,31 +68,33 @@ const Intro = () => {
     }, []);
 
     return (
-        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-            <video
-                key={videoSrc}
-                id="mainVideo"
-                ref={videoRef}
-                autoPlay
-                muted
-                playsInline
-                style={{ width: '100%', height: '100%' }}
-            >
-                <source src={videoSrc} type="video/mp4" />
-            </video>
-            <div
-                style={{
-                    position: 'absolute',
-                    top: '0',
-                    left: '0',
-                    width: '100%',
-                    height: '100%',
-                    zIndex: 10,
-                    cursor: 'pointer',
-                    backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent background
-                }}
-                onClick={handleClick}
-            />
+        <div className="h-dvh">
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <video
+                    key={videoSrc}
+                    id="mainVideo"
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    playsInline
+                    style={{ width: '100%', height: '100%' }}
+                >
+                    <source src={videoSrc} type="video/mp4" />
+                </video>
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 10,
+                        cursor: 'pointer',
+                        backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent background
+                    }}
+                    onClick={handleClick}
+                />
+            </div>
         </div>
     );
 };
