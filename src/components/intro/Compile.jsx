@@ -82,7 +82,7 @@ const Compile = () => {
                     </h1>
                     <Synopsis />
                     <Timeline2 />
-                    <ResearchSypnosis />
+                    {/* <ResearchSypnosis /> */}
 
                     {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
                         Jordan's Lore
