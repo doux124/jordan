@@ -76,7 +76,6 @@ const Timeline = () => {
   const handleTouchMove = (event) => {
     const { start, end } = getScrollBounds();
     if (isHorizontalScroll && timelineRef.current && touchStartY !== null) {
-      event.preventDefault(); // Prevent native vertical scrolling
 
       const touch = event.touches[0];
       const deltaY = touchStartY - touch.clientY; // Calculate vertical scroll amount
