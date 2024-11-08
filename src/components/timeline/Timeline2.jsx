@@ -6,7 +6,7 @@ const Timeline = () => {
   const timelineRef = useRef(null);
   const containerRef = useRef(null);
   const length = 2200;
-
+  
   const events = [
     { year: "2017", title: "", description: "Humble beginnings at NUSH" },
     { year: "2019", title: "", description: "Started my first research project" },
@@ -20,12 +20,7 @@ const Timeline = () => {
     { year: "2024", title: "", description: "Interning at MDesign" },
   ];
 
-  const smoothScrollTo = (targetY) => {
-    window.scrollTo({
-      top: targetY,
-      behavior: 'smooth',
-    });
-  };
+  const [touchStartY, setTouchStartY] = useState(null); // Track initial Y position for touch
 
   const getScrollBounds = () => {
     if (!containerRef.current) return {};
@@ -35,7 +30,13 @@ const Timeline = () => {
     const end = containerTop + containerRef.current.clientHeight - window.innerHeight / 2 - offset;
     return { start, end, snapPosition: containerTop };
   };
-  
+
+  const smoothScrollTo = (targetY) => {
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth',
+    });
+  };
 
   const handleScroll = () => {
     const { start, end, snapPosition } = getScrollBounds();
@@ -55,8 +56,8 @@ const Timeline = () => {
     const { start, end } = getScrollBounds();
     if (isHorizontalScroll && timelineRef.current) {
       event.preventDefault();
-      const scroll = event.deltaY;
-      timelineRef.current.scrollLeft += scroll;
+      const scroll = event.deltaY; // Vertical scroll amount
+      timelineRef.current.scrollLeft += scroll; // Apply to horizontal scroll
 
       if (timelineRef.current.scrollLeft === 0 && scroll < 0) {
         window.scrollTo(0, start - 1);
@@ -66,30 +67,48 @@ const Timeline = () => {
     }
   };
 
+  const handleTouchStart = (event) => {
+    // Capture the initial Y position for touch scrolling
+    const touch = event.touches[0];
+    setTouchStartY(touch.clientY);
+  };
+
   const handleTouchMove = (event) => {
     const { start, end } = getScrollBounds();
-    if (isHorizontalScroll && timelineRef.current) {
-      const touch = event.touches[0];
-      const scroll = touch.clientY;
-      timelineRef.current.scrollLeft += scroll;
+    if (isHorizontalScroll && timelineRef.current && touchStartY !== null) {
+      event.preventDefault(); // Prevent native vertical scrolling
 
-      if (timelineRef.current.scrollLeft === 0 && scroll < 0) {
+      const touch = event.touches[0];
+      const deltaY = touchStartY - touch.clientY; // Calculate vertical scroll amount
+      timelineRef.current.scrollLeft += deltaY; // Apply to horizontal scroll
+
+      setTouchStartY(touch.clientY); // Update start position for next movement
+
+      if (timelineRef.current.scrollLeft === 0 && deltaY < 0) {
         window.scrollTo(0, start - 1);
-      } else if (timelineRef.current.scrollLeft >= length && scroll > 0) {
+      } else if (timelineRef.current.scrollLeft >= length && deltaY > 0) {
         window.scrollTo(0, end + 1);
       }
     }
+  };
+
+  const handleTouchEnd = () => {
+    setTouchStartY(null); // Reset touch start position
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
       document.body.style.overflowY = 'auto';
     };
   }, [isHorizontalScroll]);
