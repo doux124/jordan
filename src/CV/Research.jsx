@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import "./styles.css";
-import Annuloplasty from './ARP/Annuloplasty';
 
+const Annuloplasty = lazy(() => import('./ARP/Annuloplasty'));
 const Graphene = lazy(() => import('./SMP/Graphene'));
 const EEG = lazy(() => import('./EEG/EEG'));
 
@@ -103,7 +103,9 @@ const Research = () => {
 
       <main ref={scrollRef}>
         <div id="annuloplasty" className="section" style={styles.section}>
-          <Annuloplasty />
+          <Suspense fallback={<Loader loading={true} />}>
+            <Annuloplasty />
+          </Suspense>
         </div>
         <div id="eeg" className="section" style={styles.section}>
           <Suspense fallback={<Loader loading={true} />}>
