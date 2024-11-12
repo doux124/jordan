@@ -1,11 +1,13 @@
-import gsap from "gsap";
+import React, { useState, useEffect, Suspense } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
-import { useState, useEffect } from "react";
 import Synopsis from "./Synopsis";
-import ResearchSypnosis from "./ResearchSypnosis";
-import Timeline2 from "../timeline/Timeline2";
-// import Loader from "./Loader";
+
+import Loader from "../Loader";
+const Timeline2 = React.lazy(() => import("../timeline/Timeline2"));
+
+// import ResearchSypnosis from "./ResearchSypnosis";
+
 // import Awards from "./Awards";
 // import Model from "./Model";
 // import Timeline from "./Timeline";
@@ -81,7 +83,11 @@ const Compile = () => {
                         About Me
                     </h1>
                     <Synopsis />
-                    <Timeline2 />
+                    
+                    <Suspense fallback={<Loader loading={true} />}>
+                        <Timeline2 />
+                    </Suspense>
+
                     {/* <ResearchSypnosis /> */}
 
                     {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">

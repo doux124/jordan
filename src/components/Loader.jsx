@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ClimbingBoxLoader } from "react-spinners/ClimbingBoxLoader";
+import { ClimbingBoxLoader } from "react-spinners";
 
 const Loader = ({ loading }) => {
   const adj = [
@@ -43,7 +43,7 @@ const Loader = ({ loading }) => {
   }, [loading]);
 
   const displayRandomText = () => {
-    let adjective = adj[Math.floor(Math.random() * adj.length)]
+    let adjective = adj[Math.floor(Math.random() * adj.length)];
     setText(adjective + " " + noun[Math.floor(Math.random() * noun.length)] + "...");
   };
 
