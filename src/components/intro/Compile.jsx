@@ -2,12 +2,9 @@ import { useState, useEffect, Suspense, lazy } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
-
-import Loader from "../Loader";
-const Timeline2 = lazy(() => import("../timeline/Timeline2"));
+import Timeline2 from "../timeline/Timeline2";
 
 // import ResearchSypnosis from "./ResearchSypnosis";
-
 // import Awards from "./Awards";
 // import Model from "./Model";
 // import Timeline from "./Timeline";
@@ -83,10 +80,7 @@ const Compile = () => {
                         About Me
                     </h1>
                     <Synopsis />
-                    
-                    <Suspense fallback={<Loader loading={true} />}>
-                        <Timeline2 />
-                    </Suspense>
+                    <Timeline2 />
 
                     {/* <ResearchSypnosis /> */}
 
