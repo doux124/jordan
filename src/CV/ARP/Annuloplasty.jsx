@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, Suspense, lazy } from "react";
 import gsap from "gsap";
-import Ring from "./Ring";
 import { useGSAP } from "@gsap/react";
 import "../styles.css";
 import { Link } from 'react-router-dom';
+import Loader from '../../components/Loader';
+
+const Ring = lazy(() => import("./Ring"));
 
 const Annuloplasty = () => {
   const [modelClicked, setModelClicked] = useState(false);
+
   const styles = {
     rotateText: {
       position: 'absolute',
@@ -22,6 +25,7 @@ const Annuloplasty = () => {
       pointerEvents: 'none',
     },
   };
+
   const handleModelMouseDown = () => {
     setModelClicked(true);
   };
@@ -38,7 +42,7 @@ const Annuloplasty = () => {
   useGSAP(() => {
     gsap.fromTo('.sectionAnimate', {
       opacity: 0,
-      y:20
+      y: 20
     }, {
       opacity: 1,
       y: 0,
@@ -67,16 +71,15 @@ const Annuloplasty = () => {
           <h2 className="subHeader">Mitral Valve Regurgitation and Annuloplasties</h2>
 
           <div className="flex flex-col md:flex-row items-start">
-              <div className="inline-flex mb-4 md:mr-4">
-                  <img src="/jordan/images/arp/backflow.png" className="w-[45vh] h-auto"/>
-              </div>
-              <p className="flex-1 text-justify">
-                  <br />
-                  Mitral valve regurgitation is the backflow of blood through the mitral valve.
-                  It is treated by suturing an annuloplasty ring onto the annulus to tighten the valve. 
-                  However, the procedure involves splitting the sternum, causing the procedure to be 
-                  surgically taxing.
-              </p>
+            <div className="inline-flex mb-4 md:mr-4">
+              <img src="/jordan/images/arp/backflow.png" className="w-[45vh] h-auto"/>
+            </div>
+            <p className="flex-1 text-justify">
+              Mitral valve regurgitation is the backflow of blood through the mitral valve.
+              It is treated by suturing an annuloplasty ring onto the annulus to tighten the valve. 
+              However, the procedure involves splitting the sternum, causing the procedure to be 
+              surgically taxing.
+            </p>
           </div>
 
           <div className="flex flex-col md:flex-row items-start">        
@@ -117,7 +120,9 @@ const Annuloplasty = () => {
           </section>
   
           <section className="section flexItem" onMouseDown={handleModelMouseDown}>
-            <Ring />
+            <Suspense fallback={<Loader loading={true} />}>
+              <Ring />
+            </Suspense>
             <div style={styles.rotateText}>
               Click to Rotate Model
             </div>
