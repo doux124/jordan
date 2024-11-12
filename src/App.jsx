@@ -1,21 +1,21 @@
-import React, { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader';
 import Compile from './components/intro/Compile';
 
-const Achievements = React.lazy(() => import('./redirect/Achievements'));
-const Research = React.lazy(() => import("./CV/Research"));
-const Volunteer = React.lazy(() => import("./hobbies/Volunteer"));
-const AnnuloplastyMore = React.lazy(() => import('./CV/ARP/AnnuloplastyMore'));
-const Procedure = React.lazy(() => import('./CV/ARP/Procedure'));
-const Results = React.lazy(() => import('./CV/ARP/Results'));
-const Pet = React.lazy(() => import('./CV/Pet'));
-const Hobbies = React.lazy(() => import('./Hobbies/Hobbies'));
-const Origami = React.lazy(() => import('./Hobbies/Origami'));
-const Embroidery = React.lazy(() => import('./Hobbies/Embroidery'));
-const Sports = React.lazy(() => import('./Hobbies/Sports'));
-const BirthdayCard = React.lazy(() => import('./hidden/BirthdayCard'));
-const Hidden = React.lazy(() => import('./hidden/Hidden'));
+const Achievements = lazy(() => import('./redirect/Achievements'));
+const Research = lazy(() => import("./CV/Research"));
+const Volunteer = lazy(() => import("./hobbies/Volunteer"));
+const AnnuloplastyMore = lazy(() => import('./CV/ARP/AnnuloplastyMore'));
+const Procedure = lazy(() => import('./CV/ARP/Procedure'));
+const Results = lazy(() => import('./CV/ARP/Results'));
+const Pet = lazy(() => import('./CV/Pet'));
+const Hobbies = lazy(() => import('./Hobbies/Hobbies'));
+const Origami = lazy(() => import('./Hobbies/Origami'));
+const Embroidery = lazy(() => import('./Hobbies/Embroidery'));
+const Sports = lazy(() => import('./Hobbies/Sports'));
+const BirthdayCard = lazy(() => import('./hidden/BirthdayCard'));
+const Hidden = lazy(() => import('./hidden/Hidden'));
 
 const App = () => {
   return (

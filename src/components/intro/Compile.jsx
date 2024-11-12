@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
 
 import Loader from "../Loader";
-const Timeline2 = React.lazy(() => import("../timeline/Timeline2"));
+const Timeline2 = lazy(() => import("../timeline/Timeline2"));
 
 // import ResearchSypnosis from "./ResearchSypnosis";
 

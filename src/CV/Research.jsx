@@ -1,13 +1,15 @@
-import Annuloplasty from './ARP/Annuloplasty';
-import Graphene from './SMP/Graphene';
-import EEG from './EEG/EEG';
+import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
+import Loader from '../components/Loader';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
-import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import "./styles.css";
+import Annuloplasty from './ARP/Annuloplasty';
+
+const Graphene = lazy(() => import('./SMP/Graphene'));
+const EEG = lazy(() => import('./EEG/EEG'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,10 +106,14 @@ const Research = () => {
           <Annuloplasty />
         </div>
         <div id="eeg" className="section" style={styles.section}>
-          <EEG />
+          <Suspense fallback={<Loader loading={true} />}>
+            <EEG />
+          </Suspense>
         </div>
         <div id="graphene" className="section" style={styles.section}>
-          <Graphene />
+          <Suspense fallback={<Loader loading={true} />}>
+            <Graphene />
+          </Suspense>
         </div>
       </main>
     </div>
