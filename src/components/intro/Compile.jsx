@@ -3,8 +3,8 @@ import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
 import Timeline2 from "../timeline/Timeline2";
+import ResearchSypnosis from "./ResearchSypnosis";
 
-// import ResearchSypnosis from "./ResearchSypnosis";
 // import Awards from "./Awards";
 // import Model from "./Model";
 // import Timeline from "./Timeline";
@@ -81,8 +81,7 @@ const Compile = () => {
                     </h1>
                     <Synopsis />
                     <Timeline2 />
-
-                    {/* <ResearchSypnosis /> */}
+                    <ResearchSypnosis />
 
                     {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
                         Jordan's Lore

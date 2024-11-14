@@ -1,5 +1,6 @@
 import ToggleSection from "./ToggleSection";
-import CardForm from "./CardForm";
+import CardForm from "./birthday/CardForm";
+import RGBWordInput from "./rbgword/RGBWordInput";
 
 const Hidden = () => {
   return (
@@ -9,9 +10,15 @@ const Hidden = () => {
       </div>
 
       <div className="w-full flex mt-10">
-        <div className="w-1/2">
+      <div className="w-1/2">
           <ToggleSection title="Birthday Card">
             <CardForm />
+          </ToggleSection>
+        </div>
+
+        <div className="w-1/2">
+          <ToggleSection title="RBG Words">
+            <RGBWordInput />
           </ToggleSection>
         </div>
 
