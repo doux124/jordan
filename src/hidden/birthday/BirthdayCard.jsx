@@ -2,6 +2,7 @@ import { useParams, useLocation } from "react-router-dom";
 import './Card.css';
 import Confetti from 'react-confetti';
 import { useState, useEffect } from 'react';
+import RGBWord from '../rbgword/RGBWord';
 
 const BirthdayCard = () => {
   // Take name and message from url
@@ -33,7 +34,10 @@ const BirthdayCard = () => {
         recycle={false}
       />
       <div className="card-container">
-        <h2 className="card-header">Happy Birthday {name}!</h2>
+        <h2 className="card-header pb-4">
+          <RGBWord text={ "Happy Birthday" } color="purple" />
+          <RGBWord text={ name + "!" } color="purple" />
+        </h2>
       </div>
 
       <div className="birthday-box">
