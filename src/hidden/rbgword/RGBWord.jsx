@@ -1,15 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
 
 const RGBWord = ({ text, interval = 100 }) => {
-    const unicodeSet = [33, 35, 36, 37, 38, 42, 64];
-    const getRandomCharacter = () => String.fromCharCode(unicodeSet[Math.floor(Math.random() * unicodeSet.length)]);
+    const specialChars = ['!', '#', '$', '%', '&', '*', '@', '█'];
+    const getRandomCharacter = () => specialChars[Math.floor(Math.random() * specialChars.length)];
+    
     const getRandomColor = () => `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-
+    
     const [colors, setColors] = useState(Array(text.length).fill("rgb(255, 255, 255)"));
     const [glitchedText, setGlitchedText] = useState(Array(text.length).fill(''));
     const [visibleChars, setVisibleChars] = useState(0);
     const currentVisibleChar = useRef(0);
-
+    
     useEffect(() => {
         let colorInterval;
         let revealTimeout;
@@ -19,7 +20,7 @@ const RGBWord = ({ text, interval = 100 }) => {
         setGlitchedText(Array(text.length).fill(''));
         setVisibleChars(0);
         currentVisibleChar.current = 0;
-
+        
         // Reveal each character one at a time
         revealTimeout = setInterval(() => {
             setVisibleChars((prev) => {
@@ -31,7 +32,7 @@ const RGBWord = ({ text, interval = 100 }) => {
                 return prev;
             });
         }, interval);
-
+        
         // Apply color and glitch effects for each visible character
         colorInterval = setInterval(() => {
             const currentIndex = currentVisibleChar.current - 1;
@@ -52,23 +53,23 @@ const RGBWord = ({ text, interval = 100 }) => {
                     newText[currentIndex-1] = text.split('')[currentIndex-1];
                 }
                 return newText;
-                });
+            });
         }, interval);
-
+        
         // Clear intervals and reset after all characters are revealed
         const timeoutId = setTimeout(() => {
             clearInterval(colorInterval);
             setColors(Array(text.length).fill("rgb(255, 255, 255)"));
             setGlitchedText(text.split(''));
         }, interval * text.length);
-
+        
         return () => {
             clearInterval(revealTimeout);
             clearInterval(colorInterval);
             clearTimeout(timeoutId);
         };
     }, [text, interval]);
-
+    
     return (
         <div className="flex-center mt-5 text-3xl">
             {glitchedText.map((char, index) => (

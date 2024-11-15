@@ -20,7 +20,7 @@ const Timeline = () => {
     { year: "2024", title: "", description: "Interning at MDesign" },
   ];
 
-  const [touchStartY, setTouchStartY] = useState(null); // Track initial Y position for touch
+  const touchStartYRef = useRef(null);
 
   const getScrollBounds = () => {
     if (!containerRef.current) return {};
@@ -68,20 +68,20 @@ const Timeline = () => {
   };
 
   const handleTouchStart = (event) => {
-    // Capture the initial Y position for touch scrolling
     const touch = event.touches[0];
-    setTouchStartY(touch.clientY);
+    touchStartYRef.current = touch.clientY;
   };
-
+  const handleTouchEnd = () => {
+    touchStartYRef.current = null;
+  };
   const handleTouchMove = (event) => {
     const { start, end } = getScrollBounds();
-    if (isHorizontalScroll && timelineRef.current && touchStartY !== null) {
 
+    if (isHorizontalScroll && timelineRef.current && touchStartYRef !== null) {
       const touch = event.touches[0];
-      const deltaY = touchStartY - touch.clientY; // Calculate vertical scroll amount
+      const deltaY = touchStartYRef.current - touch.clientY; // Calculate vertical scroll amount
       timelineRef.current.scrollLeft += deltaY; // Apply to horizontal scroll
-
-      setTouchStartY(touch.clientY); // Update start position for next movement
+      touchStartYRef.current = touch.clientY;
 
       if (timelineRef.current.scrollLeft === 0 && deltaY < 0) {
         window.scrollTo(0, start - 1);
@@ -89,10 +89,6 @@ const Timeline = () => {
         window.scrollTo(0, end + 1);
       }
     }
-  };
-
-  const handleTouchEnd = () => {
-    setTouchStartY(null); // Reset touch start position
   };
 
   useEffect(() => {
