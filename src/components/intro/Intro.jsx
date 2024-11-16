@@ -34,7 +34,7 @@ const Intro = () => {
             if (380 < x && x < 760 && 745 < y && y < 970) {
                 navigate('/hobbies');
             }
-            if (480 < x && x < 600 && 255 < y && y < 365) {
+            if (500 < x && x < 600 && 400 < y && y < 450) {
                 navigate('/hidden');
             }
         } else {
