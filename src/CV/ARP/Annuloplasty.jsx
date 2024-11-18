@@ -4,8 +4,7 @@ import { useGSAP } from "@gsap/react";
 import "../styles.css";
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader';
-
-const Ring = lazy(() => import("./Ring"));
+import Ring from "./Ring";
 
 const Annuloplasty = () => {
   const [modelClicked, setModelClicked] = useState(false);
