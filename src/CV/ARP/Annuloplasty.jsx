@@ -119,9 +119,7 @@ const Annuloplasty = () => {
           </section>
   
           <section className="section flexItem" onMouseDown={handleModelMouseDown}>
-            <Suspense fallback={<Loader loading={true} />}>
-              <Ring />
-            </Suspense>
+            <Ring />
             <div style={styles.rotateText}>
               Click to Rotate Model
             </div>
