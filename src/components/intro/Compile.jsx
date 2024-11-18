@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import { useState, useEffect } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
@@ -70,12 +70,11 @@ const Compile = () => {
 
     return (
         <div>
-            {/* <Loader loading={loading} /> */}
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     <Intro />
-
+                    
                     <h1 id='heading' className="section-heading text-center mt-4 md:mb-10 md:mt-0">
                         About Me
                     </h1>

@@ -1,9 +1,8 @@
-import { useState, Suspense, lazy } from "react";
+import { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "../styles.css";
 import { Link } from 'react-router-dom';
-import Loader from '../../components/Loader';
 import Ring from "./Ring";
 
 const Annuloplasty = () => {

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import "./styles.css";
 
-const Annuloplasty = lazy(() => import('./ARP/Annuloplasty'));
+import Annuloplasty from './ARP/Annuloplasty';
 const Graphene = lazy(() => import('./SMP/Graphene'));
 const EEG = lazy(() => import('./EEG/EEG'));
 
@@ -103,9 +103,7 @@ const Research = () => {
 
       <main ref={scrollRef}>
         <div id="annuloplasty" className="section" style={styles.section}>
-          <Suspense fallback={<Loader loading={true} />}>
-            <Annuloplasty />
-          </Suspense>
+          <Annuloplasty />
         </div>
         <div id="eeg" className="section" style={styles.section}>
           <Suspense fallback={<Loader loading={true} />}>

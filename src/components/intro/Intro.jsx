@@ -31,7 +31,7 @@ const Intro = () => {
             if (110 < x && x < 480 && 435 < y && y < 675) {
                 navigate('/achievements/research');
             }
-            if (380 < x && x < 760 && 745 < y && y < 970) {
+            if (380 < x && x < 760 && 645 < y && y < 820) {
                 navigate('/hobbies');
             }
             if (500 < x && x < 600 && 400 < y && y < 450) {
@@ -68,7 +68,7 @@ const Intro = () => {
     }, []);
 
     return (
-        <div className="h-dvh">
+        <div className="h-[750px] md:h-dvh -mt-10">
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <video
                     key={videoSrc}
