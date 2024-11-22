@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "../styles.css";
 import { Link } from 'react-router-dom';
-import Ring from "./Ring";
+
+const Ring = lazy(() => import('./Ring'));
 
 const Annuloplasty = () => {
   const [modelClicked, setModelClicked] = useState(false);
@@ -118,7 +119,7 @@ const Annuloplasty = () => {
           </section>
   
           <section className="section flexItem" onMouseDown={handleModelMouseDown}>
-            <Ring />
+            <Ring />  
             <div style={styles.rotateText}>
               Click to Rotate Model
             </div>

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import "./styles.css";
 
-import Annuloplasty from './ARP/Annuloplasty';
+const Annuloplasty = lazy(() => import('./ARP/Annuloplasty'));
 const Graphene = lazy(() => import('./SMP/Graphene'));
 const EEG = lazy(() => import('./EEG/EEG'));
 

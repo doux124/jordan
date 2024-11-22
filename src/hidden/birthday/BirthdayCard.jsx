@@ -41,15 +41,9 @@ const BirthdayCard = () => {
       </div>
 
       <div className="birthday-box">
-        <div className="birthdayCard mt-20">
+        <div className="birthdayCard md:mt-20">
           <div className="cardFront">
-            <h3 className="happy mt-10">For {name}:</h3>
-            <div className="balloons">
-              <div className="balloonOne" />
-              <div className="balloonTwo" />
-              <div className="balloonThree" />
-              <div className="balloonFour" />
-            </div>
+            <img src="/jordan/images/bday/card.png" alt="Card Front" className="card-front-image" />
           </div>
           <div className="cardInside">
             <h3 className="back">HAPPY BDAY</h3>
