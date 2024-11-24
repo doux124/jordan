@@ -17,7 +17,7 @@ const Music = ({ songName }) => {
   }, [songName]);
 
   return (
-    <audio ref={audioRef} loop>
+    <audio ref={audioRef} loop={songName !== 'reow'}>
       <source src={songLibrary[songName]} type="audio/mpeg" />
     </audio>
   );

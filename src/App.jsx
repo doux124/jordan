@@ -2,10 +2,12 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader';
 import Compile from './components/intro/Compile';
+import BirthdayButton from './hidden/birthday/BirthdayButton';
 import BirthdayCard from './hidden/birthday/BirthdayCard';
 import Research from './CV/Research';
 import Hobbies from './Hobbies/Hobbies';
 
+const Achievements = lazy(() => import('./redirect/Achievements'));
 const Volunteer = lazy(() => import("./hobbies/Volunteer"));
 const AnnuloplastyMore = lazy(() => import('./CV/ARP/AnnuloplastyMore'));
 const Procedure = lazy(() => import('./CV/ARP/Procedure'));
@@ -37,6 +39,7 @@ const App = () => {
 
           <Route path="hidden" element={<Hidden />} />
           <Route path="HappyBirthday/:name" element={<BirthdayCard />} />
+          <Route path="Surprise/:name" element={<BirthdayButton />} />
         </Routes>
       </Suspense>
     </main>
