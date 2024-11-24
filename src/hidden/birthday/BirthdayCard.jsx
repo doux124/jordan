@@ -11,10 +11,6 @@ const BirthdayCard = () => {
   const queryParams = new URLSearchParams(useLocation().search);
   const message = queryParams.get("message");
 
-  const backgroundImage =
-    name === "pookeroni"
-      ? "url('/jordan/images/bday/background-pookeroni.png')"
-      : "url('/jordan/images/bday/background.jpg')";
   const imageSrc =
     name === "pookeroni"
       ? "/jordan/images/bday/card-pookeroni.png"
@@ -37,7 +33,12 @@ const BirthdayCard = () => {
   return (
     <div className="card-backing">
       {name === "pookeroni" ? (
-        <video className="background-video" preload="auto" autoPlay muted loop>
+        <video
+          className="background-video"
+          key={bluePetalsVid}
+          autoPlay
+          muted
+        >
           <source src={bluePetalsVid} type="video/mp4" />
         </video>
       ) : (

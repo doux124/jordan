@@ -14,7 +14,8 @@ const Hobbies = lazy(() => import('./Hobbies/Hobbies'));
 const Origami = lazy(() => import('./Hobbies/Origami'));
 const Embroidery = lazy(() => import('./Hobbies/Embroidery'));
 const Sports = lazy(() => import('./Hobbies/Sports'));
-const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
+import BirthdayCard from './hidden/birthday/BirthdayCard';
+//const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
 const Hidden = lazy(() => import('./hidden/Hidden'));
 
 const App = () => {
