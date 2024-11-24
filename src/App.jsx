@@ -6,7 +6,6 @@ import BirthdayCard from './hidden/birthday/BirthdayCard';
 import Research from './CV/Research';
 import Hobbies from './Hobbies/Hobbies';
 
-const Research = lazy(() => import("./CV/Research"));
 const Volunteer = lazy(() => import("./hobbies/Volunteer"));
 const AnnuloplastyMore = lazy(() => import('./CV/ARP/AnnuloplastyMore'));
 const Procedure = lazy(() => import('./CV/ARP/Procedure'));
