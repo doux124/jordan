@@ -4,6 +4,7 @@ import Confetti from 'react-confetti';
 import { useState, useEffect } from 'react';
 import RGBWord from '../rbgword/RGBWord';
 import { bluePetalsVid } from '../../utils';
+import Music from "../../components/Music";
 
 const BirthdayCard = () => {
   // Take name and message from url
@@ -33,14 +34,17 @@ const BirthdayCard = () => {
   return (
     <div className="card-backing">
       {name === "pookeroni" ? (
-        <video
-          className="background-video"
-          key={bluePetalsVid}
-          autoPlay
-          muted
-        >
-          <source src={bluePetalsVid} type="video/mp4" />
-        </video>
+        <div>
+          <Music songName={"reow"} />
+          <video
+            className="background-video"
+            key={bluePetalsVid}
+            autoPlay
+            muted
+          >
+            <source src={bluePetalsVid} type="video/mp4" />
+          </video>
+        </div>
       ) : (
         <div className="background-image"></div>
       )}

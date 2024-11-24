@@ -4,6 +4,7 @@ const songLibrary = {
   spiderDance: "/jordan/audio/undertale.mp3",
   firefly: "/jordan/audio/firefly.mp3",
   rachel: "/jordan/audio/rachel.mp3",
+  reow: "/jordan/audio/reow.mp3",
 };
 
 const Music = ({ songName }) => {
@@ -16,9 +17,8 @@ const Music = ({ songName }) => {
   }, [songName]);
 
   return (
-    <audio ref={audioRef} loop>
+    <audio ref={audioRef} loop={songName !== 'reow'}>
       <source src={songLibrary[songName]} type="audio/mpeg" />
-      Your browser does not support the audio element.
     </audio>
   );
 };
