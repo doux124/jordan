@@ -3,12 +3,22 @@ import './Card.css';
 import Confetti from 'react-confetti';
 import { useState, useEffect } from 'react';
 import RGBWord from '../rbgword/RGBWord';
+import { bluePetalsVid } from '../../utils';
 
 const BirthdayCard = () => {
   // Take name and message from url
   const { name } = useParams();
   const queryParams = new URLSearchParams(useLocation().search);
   const message = queryParams.get("message");
+
+  const backgroundImage =
+    name === "pookeroni"
+      ? "url('/jordan/images/bday/background-pookeroni.png')"
+      : "url('/jordan/images/bday/background.jpg')";
+  const imageSrc =
+    name === "pookeroni"
+      ? "/jordan/images/bday/card-pookeroni.png"
+      : "/jordan/images/bday/card.png";
 
   const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
   const handleResize = () => {
@@ -25,34 +35,44 @@ const BirthdayCard = () => {
   }, []);
 
   return (
-    <div className="card-background">
-      <Confetti
-        width={dimensions.width}
-        height={dimensions.height}
-        numberOfPieces={3000}
-        gravity={0.2}
-        recycle={false}
-      />
-      <div className="card-container">
-        <h2 className="card-header pb-4">
-          <RGBWord text={ "Happy Birthday" } color="purple" />
-          <RGBWord text={ name + "!" } color="purple" />
-        </h2>
-      </div>
+    <div className="card-backing">
+      {name === "pookeroni" ? (
+        <video className="background-video" preload="auto" autoPlay muted loop>
+          <source src={bluePetalsVid} type="video/mp4" />
+        </video>
+      ) : (
+        <div className="background-image"></div>
+      )}
 
-      <div className="birthday-box">
-        <div className="birthdayCard md:mt-20">
-          <div className="cardFront">
-            <img src="/jordan/images/bday/card.png" alt="Card Front" className="card-front-image" />
-          </div>
-          <div className="cardInside">
-            <h3 className="back">HAPPY BDAY</h3>
-            <p className="mx-7 mb-2">
-              {message}
-            </p>
-            <p className="text-right mx-10">
-              From: Jordan
-            </p>
+      <div className="foreground-content">
+        <Confetti
+          width={dimensions.width}
+          height={dimensions.height}
+          numberOfPieces={3000}
+          gravity={0.2}
+          recycle={false}
+        />
+        <div className="card-container">
+          <h2 className="card-header pb-4">
+            <RGBWord text={ "Happy Birthday" } color="purple" />
+            <RGBWord text={ name + "!" } color="purple" />
+          </h2>
+        </div>
+
+        <div className="birthday-box">
+          <div className="birthdayCard md:mt-20">
+            <div className="cardFront">
+              <img src={imageSrc} alt="Card Front" className="card-front-image" />
+            </div>
+            <div className="cardInside">
+              <h3 className="back">HAPPY BDAY</h3>
+              <p className="mx-7 mb-2">
+                {message}
+              </p>
+              <p className="text-right mx-10">
+                From: Jordan
+              </p>
+            </div>
           </div>
         </div>
       </div>
