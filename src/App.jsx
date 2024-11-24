@@ -2,20 +2,19 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader';
 import Compile from './components/intro/Compile';
+import BirthdayCard from './hidden/birthday/BirthdayCard';
+import Research from './CV/Research';
+import Hobbies from './Hobbies/Hobbies';
 
-const Achievements = lazy(() => import('./redirect/Achievements'));
 const Research = lazy(() => import("./CV/Research"));
 const Volunteer = lazy(() => import("./hobbies/Volunteer"));
 const AnnuloplastyMore = lazy(() => import('./CV/ARP/AnnuloplastyMore'));
 const Procedure = lazy(() => import('./CV/ARP/Procedure'));
 const Results = lazy(() => import('./CV/ARP/Results'));
 const Pet = lazy(() => import('./CV/Pet'));
-const Hobbies = lazy(() => import('./Hobbies/Hobbies'));
 const Origami = lazy(() => import('./Hobbies/Origami'));
 const Embroidery = lazy(() => import('./Hobbies/Embroidery'));
 const Sports = lazy(() => import('./Hobbies/Sports'));
-import BirthdayCard from './hidden/birthday/BirthdayCard';
-//const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
 const Hidden = lazy(() => import('./hidden/Hidden'));
 
 const App = () => {
