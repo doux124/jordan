@@ -2,11 +2,11 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader';
 import Compile from './components/intro/Compile';
-import BirthdayButton from './hidden/birthday/BirthdayButton';
-import BirthdayCard from './hidden/birthday/BirthdayCard';
-import Research from './CV/Research';
-import Hobbies from './Hobbies/Hobbies';
 
+const Hobbies = lazy(() => import('./Hobbies/Hobbies'));
+const Research = lazy(() => import('./CV/Research'));
+const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
+const BirthdayButton = lazy(() => import('./hidden/birthday/BirthdayButton'));
 const Achievements = lazy(() => import('./redirect/Achievements'));
 const Volunteer = lazy(() => import("./hobbies/Volunteer"));
 const AnnuloplastyMore = lazy(() => import('./CV/ARP/AnnuloplastyMore'));

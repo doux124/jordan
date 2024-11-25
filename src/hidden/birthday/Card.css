@@ -91,7 +91,7 @@
   object-fit: cover;
 }
 
-.background-image {
+.background-pic {
   background-image: url('/images/bday/background.jpg');
   position: absolute;
   top: 0;
@@ -100,7 +100,6 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: -1;
 }
 
 .foreground-content {
@@ -240,4 +239,15 @@
 
 .birthday-button:active {
   transform: scale(0.98);
+}
+
+.button-page {
+  background-image: url('/images/bday/button.jpg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }

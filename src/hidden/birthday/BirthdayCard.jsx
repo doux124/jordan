@@ -46,7 +46,7 @@ const BirthdayCard = () => {
           </video>
         </div>
       ) : (
-        <div className="background-image"></div>
+        <div className="background-pic"></div>
       )}
 
       <div className="foreground-content">

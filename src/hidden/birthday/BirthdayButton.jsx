@@ -14,7 +14,7 @@ const BirthdayButton = () => {
         };
   
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="button-page flex items-center justify-center md:min-h-screen">
             <button className="birthday-button" onClick={handleClick}>Click Here</button>
         </div>
     );
