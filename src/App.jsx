@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader';
 import Compile from './components/intro/Compile';
+import Visualiser from './hidden/audiovisualiser/Visualiser';
 
 const Hobbies = lazy(() => import('./Hobbies/Hobbies'));
 const Research = lazy(() => import('./CV/Research'));
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="hidden" element={<Hidden />} />
           <Route path="HappyBirthday/:name" element={<BirthdayCard />} />
           <Route path="Surprise/:name" element={<BirthdayButton />} />
+          <Route path="vis" element={<Visualiser />} />
         </Routes>
       </Suspense>
     </main>
