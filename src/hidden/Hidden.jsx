@@ -1,9 +1,9 @@
 import { Suspense, lazy } from "react";
 import ToggleSection from "./ToggleSection";
-import Visualizer from "./audiovisualiser/Visualiser";
 
 const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
+const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
 
 const Hidden = () => {
   return (
@@ -12,8 +12,8 @@ const Hidden = () => {
         Tools
       </div>
 
-      <div className="w-full flex -mt-20 md:mt-0">
-        <div className="w-1/2">
+      <div className="w-full flex flex-col md:flex-row -mt-20 md:mt-0">
+        <div className="w-full md:w-1/2">
           <ToggleSection title="Birthday Card">
             <Suspense fallback={<div>Loading...</div>}>
               <CardForm />
@@ -21,7 +21,7 @@ const Hidden = () => {
           </ToggleSection>
         </div>
 
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           <ToggleSection title="RBG Words">
             <Suspense fallback={<div>Loading...</div>}>
               <RGBWordInput />
@@ -30,14 +30,16 @@ const Hidden = () => {
         </div>
       </div>
 
-      <div className="w-full flex">
-        <div className="w-1/2">
-          <ToggleSection title="Blank">
-            <Visualizer />
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2">
+          <ToggleSection title="Music Visualiser">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Visualizer />
+            </Suspense>
           </ToggleSection>
         </div>
 
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           <ToggleSection title="Blank">
           </ToggleSection>
         </div>
