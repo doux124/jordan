@@ -1,1 +1,0 @@
-import{r as a,j as t}from"./index-Do8z81Ju.js";import{R as n}from"./RGBWord-DwBR0ZlE.js";const p=()=>{const[e,r]=a.useState(""),s=o=>{r(o.target.value)};return t.jsxs("div",{children:[t.jsx("input",{type:"text",placeholder:"Enter text",value:e,onChange:s,style:{color:"black"}}),t.jsx(n,{text:e})]})};export{p as default};
