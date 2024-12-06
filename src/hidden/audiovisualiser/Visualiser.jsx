@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Player, Analyser } from 'tone';
-import p5 from 'p5';
 
 const setupAudio = (audioFile) => {
   const player = new Player(audioFile).toDestination();
