@@ -1,6 +1,5 @@
 import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 
-import * as THREE from 'three'
 import Lights from '../Lights';
 import Raycaster from './Raycaster';
 import { Suspense } from "react";
