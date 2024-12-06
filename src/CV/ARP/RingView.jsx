@@ -2,7 +2,9 @@ import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 
 import * as THREE from 'three'
 import Lights from '../../components/Lights';
+import RingLoader from './RingLoader';
 import RingModel from './RingModel';
+import { Suspense } from "react";
 
 const RingView = ({ index, groupRef, gsapType, controlRef, setRotationState, size, item }) => {
   return (
@@ -30,7 +32,9 @@ const RingView = ({ index, groupRef, gsapType, controlRef, setRotationState, siz
 
       {/* Adjust the rotation of the group element */}
       <group ref={groupRef} name={`${index === 1 ? 'small' : 'large'}`} position={[0, -0.5, 0]} rotation={[Math.PI/2, Math.PI, 0]}>
-        <RingModel />
+        <Suspense fallback={<RingLoader />}>
+          <RingModel />
+        </Suspense>
       </group>
     </View>
   )
