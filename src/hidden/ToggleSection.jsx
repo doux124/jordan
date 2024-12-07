@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Hidden.css';
+import '../components/buttons.css'
 const ToggleSection = ({ title, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -9,7 +10,7 @@ const ToggleSection = ({ title, children }) => {
 
   return (
     <div className="toggle-section">
-      <button className="btn" onClick={toggleExpand}>
+      <button className="button-78" onClick={toggleExpand}>
         {isExpanded ? `Hide ${title}` : `${title}`}
       </button>
 

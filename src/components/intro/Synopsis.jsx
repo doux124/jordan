@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../buttons.css';
 
 const Synopsis = () => {
   return (
@@ -32,7 +33,7 @@ const Synopsis = () => {
       </p>
 
       <Link to='/achievements'>
-        <button style={styles.button}>Enter Game</button>
+        <button className="button-85 text-2xl">Enter Game</button>
       </Link>
 
       <div className="contact-section">
@@ -62,15 +63,6 @@ const styles = {
     borderRadius: '30px',  
     marginBottom: '20px',
     textAlign: 'left',
-  },
-  button: {
-    padding: '10px 20px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '25px',
-    cursor: 'pointer',
   },
 };
 

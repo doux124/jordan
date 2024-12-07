@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Player, Analyser } from 'tone';
+import '../../components/buttons.css'
 
 const setupAudio = (audioFile) => {
   const player = new Player(audioFile).toDestination();
@@ -133,7 +134,7 @@ const Visualizer = () => {
   return (
     <div className="h-screen">
       <input type="file" accept="audio/*" onChange={handleFileChange} />
-      <button onClick={() => setIsPlaying(!isPlaying)}>
+      <button className='button-89' onClick={() => setIsPlaying(!isPlaying)}>
         {isPlaying ? 'Stop' : 'Play'}
       </button>
       <div className="h-full" ref={p5WrapperRef} /> {/* Container for p5.js */}

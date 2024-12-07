@@ -1,4 +1,4 @@
-import { useState, lazy } from "react";
+import { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "../styles.css";
