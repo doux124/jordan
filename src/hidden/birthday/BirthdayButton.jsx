@@ -1,5 +1,6 @@
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import './Card.css';
+import '../../components/buttons.css'
 
 const BirthdayButton = () => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const BirthdayButton = () => {
   
     return (
         <div className="button-page flex items-center justify-center md:min-h-screen">
-            <button className="birthday-button" onClick={handleClick}>Click Here</button>
+            <button className="button-49" onClick={handleClick}>Click Here</button>
         </div>
     );
 };

@@ -223,20 +223,6 @@
   font-size: 26px;
 }
 
-.birthday-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 60px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.birthday-button:hover {
-  background-color: #45a049;
-}
-
 .birthday-button:active {
   transform: scale(0.98);
 }
