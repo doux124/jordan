@@ -4,6 +4,7 @@ import ToggleSection from "./ToggleSection";
 const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
 const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
+const PoliticianButton = lazy(() => import("./trading/PoliticianButton"));
 
 const Hidden = () => {
   return (
@@ -40,7 +41,10 @@ const Hidden = () => {
         </div>
 
         <div className="w-full md:w-1/2">
-          <ToggleSection title="Blank">
+        <ToggleSection title="Trading">
+            <Suspense fallback={<div>Loading...</div>}>
+              <PoliticianButton />
+            </Suspense>
           </ToggleSection>
         </div>
       </div>

@@ -12,11 +12,11 @@ const BirthdayButton = () => {
         const encodedMessage = encodeURIComponent(message);
         const url = `${window.location.origin}/HappyBirthday/${name}?message=${encodedMessage}`;
         navigate(`/HappyBirthday/${name}?message=${encodedMessage}`);
-        };
+    };
   
     return (
-        <div className="button-page flex items-center justify-center md:min-h-screen">
-            <button className="button-49" onClick={handleClick}>Click Here</button>
+        <div className="button-page flex-center md:min-h-screen">
+            <button className="button-49 text-2xl" onClick={handleClick}>Click Here</button>
         </div>
     );
 };

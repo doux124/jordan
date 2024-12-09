@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import '../../components/table.css'
 
 const Politicians = () => {
   const [trades, setTrades] = useState([]);
@@ -54,7 +55,6 @@ const Politicians = () => {
 
         // Parsing
         const parsedTradeData = JSON.parse(cleanedTradeData);
-        console.log(parsedTradeData[1]);
 
         // Map the tradeData to a more readable structure
         const formattedTrades = parsedTradeData.map((trade) => ({
@@ -64,11 +64,11 @@ const Politicians = () => {
           tradeDate: formatDate(trade[3]),
           description: trade[4],
           type: trade[9],
-          priceRange: trade[10],
+          amount: trade[10],
           sector: trade[13],
-          profit: trade[5],
+          profit: trade[5] !== null ? Number(trade[5]).toPrecision(3) : null,
         }));
-        setTrades(formattedTrades);
+        setTrades(formattedTrades.slice(0, 10));
       } catch (error) {
         console.error("Error fetching or parsing data:", error);
       }
@@ -79,48 +79,52 @@ const Politicians = () => {
 
   return (
     <div>
-      <h1 className='flex-center'>Nancy Pelosi Stock Trades</h1>
-      <h1 className='flex-center'>
+      <h1 className='flex-center text-3xl mt-20'>Nancy Pelosi Stock Trades</h1>
+      <h1 className='flex-center mt-10'>
+        Request temporary access to CORS Anywhere's demo server at&nbsp;
         <a href="https://cors-anywhere.herokuapp.com/" target="_blank" rel="noopener noreferrer">
           https://cors-anywhere.herokuapp.com/
         </a>
       </h1>
       <h1 className='flex-center'>
+        Retrieved from:&nbsp;
         <a href="https://www.quiverquant.com/congresstrading/politician/Nancy%20Pelosi-P000197" target="_blank" rel="noopener noreferrer">
           https://www.quiverquant.com/congresstrading/politician/Nancy%20Pelosi-P000197
         </a>
       </h1>
 
-      <table className='mt-20' style={{textAlign: "center", borderCollapse: "collapse" }}>
-        <thead>
-          <tr>
-            <th style={{ width: "150px" }}>Symbol</th>
-            <th style={{ width: "150px" }}>Transaction Type</th>
-            <th style={{ width: "150px" }}>Filed Date</th>
-            <th style={{ width: "150px" }}>Trade Date</th>
-            <th style={{ width: "150px" }}>Description</th>
-            <th style={{ width: "150px" }}>Type</th>
-            <th style={{ width: "150px" }}>Price Range</th>
-            <th style={{ width: "150px" }}>Profit</th>
-            <th style={{ width: "150px" }}>Sector</th>
-          </tr>
-        </thead>
-        <tbody>
-          {trades.map((trade, index) => (
-            <tr key={index}>
-              <td>{trade.symbol}</td>
-              <td>{trade.transactionType}</td>
-              <td>{trade.fileDate}</td>
-              <td>{trade.tradeDate}</td>
-              <td>{trade.description}</td>
-              <td>{trade.type}</td>
-              <td>{trade.priceRange}</td>
-              <td>{trade.profit}</td>
-              <td>{trade.sector}</td>
+      <div className='flex-center'>
+        <table className='mt-10'>
+          <thead>
+            <tr>
+              <th style={{ width: "150px" }}>Symbol</th>
+              <th style={{ width: "150px" }}>Filed Date</th>
+              <th style={{ width: "150px" }}>Trade Date</th>
+              <th style={{ width: "150px" }}>Transaction Type</th>
+              <th style={{ width: "150px" }}>Amount</th>
+              <th style={{ width: "150px" }}>Profit (%)</th>
+              <th style={{ width: "150px" }}>Type</th>
+              <th style={{ width: "150px" }}>Sector</th>
+              <th style={{ width: "150px" }}>Description</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {trades.map((trade, index) => (
+              <tr key={index}>
+                <td>{trade.symbol}</td>
+                <td>{trade.fileDate}</td>
+                <td>{trade.tradeDate}</td>
+                <td>{trade.transactionType}</td>
+                <td>{trade.amount}</td>
+                <td>{trade.profit}</td>
+                <td>{trade.type}</td>
+                <td>{trade.sector}</td>
+                <td>{trade.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

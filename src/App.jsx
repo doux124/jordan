@@ -3,8 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import Loader from './components/Loader';
 import Compile from './components/intro/Compile';
 
-import Politicians from './hidden/trading/Politicians';
-
 const Research = lazy(() => import('./CV/Research'));
 const Achievements = lazy(() => import('./redirect/Achievements'));
 const Volunteer = lazy(() => import("./hobbies/Volunteer"));
@@ -22,6 +20,7 @@ const Sports = lazy(() => import('./Hobbies/Sports'));
 const Hidden = lazy(() => import('./hidden/Hidden'));
 const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
 const BirthdayButton = lazy(() => import('./hidden/birthday/BirthdayButton'));
+const Politicians = lazy(() => import('./hidden/trading/Politicians'));
 
 const App = () => {
   return (
@@ -45,7 +44,7 @@ const App = () => {
           <Route path="hidden" element={<Hidden />} />
           <Route path="HappyBirthday/:name" element={<BirthdayCard />} />
           <Route path="Surprise/:name" element={<BirthdayButton />} />
-          <Route path="pol" element={<Politicians />} />
+          <Route path="trading" element={<Politicians />} />
         </Routes>
       </Suspense>
     </main>
