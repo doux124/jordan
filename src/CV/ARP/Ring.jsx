@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import * as THREE from "three";
+import { Group } from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import RingView from "./RingView";
@@ -9,7 +9,7 @@ const Ring = () => {
     const cameraControl = useRef();
 
     // Model Tracking
-    const track = useRef(new THREE.Group());
+    const track = useRef(new Group());
 
     // Rotation
     const [rotation, setRotation] = useState(0);

@@ -1,6 +1,5 @@
 import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
-
-import * as THREE from 'three'
+import { Vector3 } from 'three';
 import Lights from '../../components/Lights';
 import RingLoader from '../../components/ThreeLoader';
 import RingModel from './RingModel';
@@ -26,7 +25,7 @@ const RingView = ({ index, groupRef, gsapType, controlRef, setRotationState, siz
         enableZoom={true}
         enablePan={true}
         rotateSpeed={0.4}
-        target={new THREE.Vector3(0, 0 ,0)}
+        target={new Vector3(0, 0 ,0)}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       /> 
 
