@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
-import Loader from '../components/Loader';
+import Loader from '../standards/Loader';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { useNavigate } from 'react-router-dom';

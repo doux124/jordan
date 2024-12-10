@@ -97,9 +97,9 @@ const Annuloplasty = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Project Idea</h2>
           <p className="flex-1 text-justify mt-2">
-            We used <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>shape memory materials</Link> to
-            design the novel annuloplasty rings. <br /> <br /> We made 2 versions, one using <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>Nitinol</Link>
-            , and one using <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>MMA-PEGDMA</Link>.
+            We used <Link to="/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>shape memory materials</Link> to
+            design the novel annuloplasty rings. <br /> <br /> We made 2 versions, one using <Link to="/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>Nitinol</Link>
+            , and one using <Link to="/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>MMA-PEGDMA</Link>.
             This allowed the rings to be shaped into thin rods for insertion between the ribs. As such, the sternum does not need to be split, reducing the invasiveness of the surgery.
           </p>
           <img src="/jordan/images/arp/rings.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
@@ -108,7 +108,7 @@ const Annuloplasty = () => {
         <div className="flexContainer">
           <section className="section flexItem">
             <h2 className="subHeader">
-              Making the rings (<Link to="/achievements/research/annuloplasty/procedure" style={{ color: '#004d99', textDecoration: 'underline' }}>More details</Link>)
+              Making the rings (<Link to="/research/annuloplasty/procedure" style={{ color: '#004d99', textDecoration: 'underline' }}>More details</Link>)
             </h2>
             <p className="flex-1 text-justify mt-2">  
               For Nitinol rings, Nitinol wire is cut, bent and wrapped in bovine myocardium. 
@@ -130,7 +130,7 @@ const Annuloplasty = () => {
         <section className="section">
           <h2 className="subHeader">Results</h2>
           <p className="flex-1 text-justify mt-2">
-            Our <Link to="/achievements/research/annuloplasty/results" style={{ color: '#004d99', textDecoration: 'underline' }}>experimental results</Link> verified 
+            Our <Link to="/research/annuloplasty/results" style={{ color: '#004d99', textDecoration: 'underline' }}>experimental results</Link> verified 
             the Nitinol and MMA-PEGDMA designs' 
             efficacy in reducing mitral valve regurgitation, as well as their 
             ability to undergo the shape memory effect. Our novel research has great 

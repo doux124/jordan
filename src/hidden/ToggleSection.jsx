@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './Hidden.css';
-import '../components/buttons.css'
+import '../standards/buttons.css'
 const ToggleSection = ({ title, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 

@@ -1,6 +1,6 @@
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import './Card.css';
-import '../../components/buttons.css'
+import '../../standards/buttons.css'
 
 const BirthdayButton = () => {
     const navigate = useNavigate();

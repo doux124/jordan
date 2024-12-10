@@ -28,7 +28,7 @@ const Raycaster = () => {
                 const mouseY = (event.clientY - rect.top) / docHeight;
                 console.log(mouseY)
                 if (object === "mesh3" && mouseY > .8) {
-                    navigate('/achievements');
+                    navigate('/game');
                 }
             });
         }

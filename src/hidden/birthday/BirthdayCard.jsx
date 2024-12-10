@@ -4,7 +4,7 @@ import Confetti from 'react-confetti';
 import { useState, useEffect } from 'react';
 import RGBWord from '../rbgword/RGBWord';
 import { bluePetalsVid } from '../../utils';
-import Music from "../../components/Music";
+import Music from "../../standards/Music";
 
 const BirthdayCard = () => {
   // Take name and message from url

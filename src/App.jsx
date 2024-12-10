@@ -1,10 +1,10 @@
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Loader from './components/Loader';
+import Loader from './standards/Loader';
 import Compile from './components/intro/Compile';
 
 const Research = lazy(() => import('./CV/Research'));
-const Achievements = lazy(() => import('./redirect/Achievements'));
+const GameMain = lazy(() => import('./game/GameMain'));
 const Volunteer = lazy(() => import("./hobbies/Volunteer"));
 const AnnuloplastyMore = lazy(() => import('./CV/ARP/AnnuloplastyMore'));
 const Procedure = lazy(() => import('./CV/ARP/Procedure'));
@@ -28,12 +28,12 @@ const App = () => {
       <Suspense fallback={<Loader loading={true} />}>
         <Routes basename="/jordan">
           <Route path='/' element={<Compile />} />
-          <Route path='achievements' element={<Achievements />} />
-          <Route path='achievements/research' element={<Research />} />
-          <Route path='achievements/research/annuloplasty' element={<AnnuloplastyMore />} />
-          <Route path='achievements/research/annuloplasty/procedure' element={<Procedure />} />
-          <Route path='achievements/research/annuloplasty/results' element={<Results />} />
-          <Route path='achievements/pet' element={<Pet />} />
+          <Route path='game' element={<GameMain />} />
+          <Route path='research' element={<Research />} />
+          <Route path='research/annuloplasty' element={<AnnuloplastyMore />} />
+          <Route path='research/annuloplasty/procedure' element={<Procedure />} />
+          <Route path='research/annuloplasty/results' element={<Results />} />
+          <Route path='pet' element={<Pet />} />
 
           <Route path='hobbies' element={<Hobbies />} />
           <Route path='hobbies/volunteering' element={<Volunteer />} />

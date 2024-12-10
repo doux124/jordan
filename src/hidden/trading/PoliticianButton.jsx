@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../../components/buttons.css'
+import '../../standards/buttons.css'
 
 const PoliticianButton = () => {
     const navigate = useNavigate();

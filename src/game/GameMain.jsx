@@ -1,9 +1,9 @@
 import Game from "./Game";
 
-const Achievements = () => {
+const GameMain = () => {
   return (
     <Game />
   )
 }
 
-export default Achievements
+export default GameMain

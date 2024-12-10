@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../buttons.css';
+import '../../standards/buttons.css';
 
 const Synopsis = () => {
   return (
@@ -32,7 +32,7 @@ const Synopsis = () => {
         for underprivileged communities.
       </p>
 
-      <Link to='/achievements'>
+      <Link to='/game'>
         <button className="button-85 text-2xl">Enter Game</button>
       </Link>
 

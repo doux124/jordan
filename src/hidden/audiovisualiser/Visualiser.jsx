@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Player, Analyser } from 'tone';
-import '../../components/buttons.css'
+import '../../standards/buttons.css'
 
 const setupAudio = (audioFile) => {
   const player = new Player(audioFile).toDestination();

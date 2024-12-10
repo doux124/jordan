@@ -4,7 +4,7 @@ import Camera from './Camera.js';
 import rooms from './Rooms.js';
 import { Input } from "./Input.js";
 import { Walls } from "./Walls.js";
-import Music from '../components/Music';
+import Music from '../standards/Music.jsx';
 import { resources }  from "./Resource.js";
 import { Sprite } from "./Sprite.js";
 import { EnhancedSprite } from './EnhancedSprite.js';
@@ -177,7 +177,7 @@ const Game = () => {
                 let x = (pos.x < 2100 && pos.x > 1700) ? true : false;
                 let y = (pos.y < 400 && pos.y > 200) ? true : false;
                 if (x && y) {
-                    navigate('/achievements/research');
+                    navigate('/research');
                 }
 
                 // Fireplace
@@ -210,7 +210,7 @@ const Game = () => {
                     x = (pos.x < 850 && pos.x > 600) ? true : false;
                     y = (pos.y < 840 && pos.y > 800) ? true : false;
                     if (x && y) {
-                        navigate('/achievements/research');
+                        navigate('/research');
                     }
 
                     // Heart
@@ -224,7 +224,7 @@ const Game = () => {
                     x = (pos.x < 2300 && pos.x > 2130) ? true : false;
                     y = (pos.y < 840 && pos.y > 800) ? true : false;
                     if (x && y) {
-                        if (plant) { feedPop = true; } else { navigate('/achievements/pet'); }
+                        if (plant) { feedPop = true; } else { navigate('/pet'); }
                         plant = false;
                         setPlant(plant);
                     }

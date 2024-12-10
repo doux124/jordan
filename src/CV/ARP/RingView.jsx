@@ -1,7 +1,7 @@
 import { OrbitControls, PerspectiveCamera, View } from "@react-three/drei"
 import { Vector3 } from 'three';
-import Lights from '../../components/Lights';
-import RingLoader from '../../components/ThreeLoader';
+import Lights from '../../standards/Lights';
+import RingLoader from '../../standards/ThreeLoader';
 import RingModel from './RingModel';
 import { Suspense } from "react";
 

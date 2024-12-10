@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import '../../components/table.css';
+import '../../standards/table.css';
 
 const Politicians = () => {
   const [trades, setTrades] = useState([]);
@@ -87,12 +87,12 @@ const Politicians = () => {
         <h2 className="subHeader flex-center text-3xl my-5 md:my-10">Nancy Pelosi Stock Trades</h2>
         <span className="text-sm md:text-lg">
           Request temporary access to CORS Anywhere's demo server at&nbsp;
-          <a href="https://cors-anywhere.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://cors-anywhere.herokuapp.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: '#87CEEB' }}>
             CORS Anywhere
           </a>
           <br />
           Retrieved from:&nbsp;
-          <a href="https://www.quiverquant.com/congresstrading/politician/Nancy%20Pelosi-P000197" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.quiverquant.com/congresstrading/politician/Nancy%20Pelosi-P000197" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: '#87CEEB' }}>
             Quiver Quantitative
           </a>
         </span>    

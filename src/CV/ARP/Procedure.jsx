@@ -39,7 +39,7 @@ const Procedure = () => {
             1. A sizer is used to measure the size of the annulus.
             <img src="/jordan/images/arp/sizer.png" className="image w-[20vh] h-auto"/>
             <br />
-            2. The correctly sized <Link to="/achievements/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>ring</Link> is made.
+            2. The correctly sized <Link to="/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>ring</Link> is made.
             <img src="/jordan/images/arp/steps.png" className="image w-[100vh] h-auto mt-2"/>
             <br />
             2.5. For MMA-PEGDMA rings, the copolymer has to be prepared before letting it set in our molds. 

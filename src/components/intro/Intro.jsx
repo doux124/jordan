@@ -29,7 +29,7 @@ const Intro = () => {
 
         if (mobile) {
             if (110 < x && x < 480 && 435 < y && y < 675) {
-                navigate('/achievements/research');
+                navigate('/research');
             }
             if (380 < x && x < 760 && 645 < y && y < 820) {
                 navigate('/hobbies');
@@ -39,7 +39,7 @@ const Intro = () => {
             }
         } else {
             if (630 < x && x < 1180 && 600 < y && y < 940) {
-                navigate('/achievements/research');
+                navigate('/research');
             }
             if (1250 < x && x < 1800 && 600 < y && y < 940) {
                 navigate('/hobbies');
