@@ -1,4 +1,6 @@
 table {
+    width: 100%;
+    border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -9,42 +11,47 @@ td {
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     text-align: center;
+    width: 150px;
 }
 
-thead {
-    th {
-        background-color: #55608f;
-    }
+thead th {
+    background-color: #55608f;
 }
 
-tbody {
-    tr {
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-    }
-    td {
-        position: relative;
-        &.highlighted {
-            background-color: rgba(255, 255, 255, 0.5);
-            z-index: 1;
-        }
-        &:hover {
-            &::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: -9999px;
-                bottom: -9999px;
-                background-color: rgba(255, 255, 255, 0.2);
-                z-index: -1;
-            }
-        }
-    }
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-td:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+.mobile-table {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
 }
+
+.mobile-table tbody tr {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-table td {
+    display: flex;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    justify-content: center; 
+    align-items: center;
+}
+
+.mobile-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #fff;
+}
+
+.mobile-table tbody tr:last-child {
+    border-bottom: none;
+}
+  

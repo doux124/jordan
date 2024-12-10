@@ -74,6 +74,7 @@ const Annuloplasty = () => {
               <img src="/jordan/images/arp/backflow.png" className="w-[45vh] h-auto"/>
             </div>
             <p className="flex-1 text-justify">
+              <br />
               Mitral valve regurgitation is the backflow of blood through the mitral valve.
               It is treated by suturing an annuloplasty ring onto the annulus to tighten the valve. 
               However, the procedure involves splitting the sternum, causing the procedure to be 
