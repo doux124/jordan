@@ -21,6 +21,8 @@ const Hidden = lazy(() => import('./hidden/Hidden'));
 const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
 const BirthdayButton = lazy(() => import('./hidden/birthday/BirthdayButton'));
 const Politicians = lazy(() => import('./hidden/trading/Politicians'));
+const VirtualPet = lazy(() => import('./hidden/virtualpet/VirtualPet'));
+const PianoPractice = lazy(() => import('./hidden/piano/PianoPractice'));
 
 const App = () => {
   return (
@@ -45,6 +47,8 @@ const App = () => {
           <Route path="HappyBirthday/:name" element={<BirthdayCard />} />
           <Route path="Surprise/:name" element={<BirthdayButton />} />
           <Route path="trading" element={<Politicians />} />
+          <Route path="virtualpet" element={<VirtualPet />} />
+          <Route path="piano" element={<PianoPractice />} />
         </Routes>
       </Suspense>
     </main>

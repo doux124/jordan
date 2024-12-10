@@ -5,6 +5,7 @@ const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
 const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
 const PoliticianButton = lazy(() => import("./trading/PoliticianButton"));
+const KeyboardButton = lazy(() => import("./piano/KeyboardButton"));
 
 const Hidden = () => {
   return (
@@ -44,6 +45,16 @@ const Hidden = () => {
         <ToggleSection title="Trading">
             <Suspense fallback={<div>Loading...</div>}>
               <PoliticianButton />
+            </Suspense>
+          </ToggleSection>
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2">
+          <ToggleSection title="Piano">
+            <Suspense fallback={<div>Loading...</div>}>
+              <KeyboardButton />
             </Suspense>
           </ToggleSection>
         </div>
