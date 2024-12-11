@@ -1,17 +1,15 @@
 .piano-note-label.sharp-note {
-    color: black;
+    color: #555555;
 }
   
 .piano-note-label.non-sharp-note {
-    color: white;
+    color: #F6F5F3;
 }
 
 .piano-note-label.sharp-note.highlighted {
-    font-weight: bold;
     color: white;
 }
 
 .piano-note-label.non-sharp-note.highlighted {
-    font-weight: bold;
     color: black; 
 }
