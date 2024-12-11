@@ -1,0 +1,17 @@
+.piano-note-label.sharp-note {
+    color: black;
+}
+  
+.piano-note-label.non-sharp-note {
+    color: white;
+}
+
+.piano-note-label.sharp-note.highlighted {
+    font-weight: bold;
+    color: white;
+}
+
+.piano-note-label.non-sharp-note.highlighted {
+    font-weight: bold;
+    color: black; 
+}
