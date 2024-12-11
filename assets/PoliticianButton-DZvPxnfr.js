@@ -1,1 +1,0 @@
-import{u as a,j as t}from"./index-DbG7sqSy.js";const i=()=>{const e=a(),n=()=>{e("/trading")};return t.jsx("div",{className:"flex-center",children:t.jsx("button",{className:"button-49 text-2xl",onClick:n,children:"Click Here"})})};export{i as default};
