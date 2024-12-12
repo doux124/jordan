@@ -1,0 +1,1 @@
+import{u as n,j as t}from"./index-BAFaIpAZ.js";const o=()=>{const e=n(),a=()=>{e("/piano")};return t.jsx("div",{className:"flex-center",children:t.jsx("button",{className:"button-49 text-2xl",onClick:a,children:"Click Here"})})};export{o as default};
