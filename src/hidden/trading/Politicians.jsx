@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import '../../standards/table.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { useNavigate } from 'react-router-dom';
 
 const Politicians = () => {
   const [trades, setTrades] = useState([]);
   const [mobile, setMobile] = useState(window.innerWidth < 760);
+  const navigate = useNavigate();
 
   const handleVideoSrcSet = () => {
     setMobile(window.innerWidth < 760);
@@ -83,6 +87,14 @@ const Politicians = () => {
 
   return (
     <div>
+      <nav className="mt-10 mr-10 text-2xl flex justify-end">
+        <a 
+          className="navLink"
+          onClick={() => navigate('/hidden')}
+        >
+          <FontAwesomeIcon icon={faHome} />
+        </a>
+      </nav>
       <div className="w-full px-4 text-center">
         <h2 className="subHeader flex-center text-3xl my-5 md:my-10">Nancy Pelosi Stock Trades</h2>
         <span className="text-sm md:text-lg">

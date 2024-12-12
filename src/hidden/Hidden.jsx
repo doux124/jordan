@@ -1,5 +1,8 @@
 import { Suspense, lazy } from "react";
 import ToggleSection from "./ToggleSection";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { useNavigate } from 'react-router-dom';
 
 const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
@@ -8,9 +11,18 @@ const PoliticianButton = lazy(() => import("./trading/PoliticianButton"));
 const KeyboardButton = lazy(() => import("./piano/KeyboardButton"));
 
 const Hidden = () => {
+  const navigate = useNavigate();
   return (
     <div>
-      <div className="section-heading text-center mt-10" style={{ opacity: 1 }}>
+      <nav className="mt-10 mr-10 text-2xl flex justify-end">
+        <a 
+          className="navLink"
+          onClick={() => navigate('/')}
+        >
+          <FontAwesomeIcon icon={faHome} />
+        </a>
+      </nav>
+      <div className="section-heading text-center">
         Tools
       </div>
 
