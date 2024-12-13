@@ -57,6 +57,7 @@ const BirthdayCard = () => {
           gravity={0.2}
           recycle={false}
         />
+
         <div className="card-container">
           <h2 className="card-header pb-4">
             <RGBWord text={ "Happy Birthday" } color="purple" />
@@ -70,13 +71,21 @@ const BirthdayCard = () => {
               <img src={imageSrc} alt="Card Front" className="card-front-image" />
             </div>
             <div className="cardInside">
-              <h3 className="back">HAPPY BDAY</h3>
-              <p className="mx-7 mb-2">
+              {name != "pookeroni" &&
+                <h3 className="back">HAPPY BDAY</h3>
+              }
+              <p className="mx-7 my-5">
                 {message}
               </p>
-              <p className="text-right mx-10">
-                From: Jordan
-              </p>
+              {name === "pookeroni" ? (
+                <p className="text-right mr-10">
+                  happy birthday cutie~
+                </p>
+              ) : (
+                <p className="text-right mx-10">
+                  From: Jordan
+                </p>
+              )}
             </div>
           </div>
         </div>
