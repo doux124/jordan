@@ -7,6 +7,9 @@ import huntMobile from "/videos/huntMobile.mp4";
 import main from "/videos/main.mp4"
 import mainSmall from "/videos/main_mobile.mp4"
 
+import timeline from "/videos/timeline.mp4"
+import timelineMobile from "/videos/timelineMobile.mp4"
+
 import bluePetals from "/videos/blue_petals.mp4"
 
 export const eruditionVid = erudition;
@@ -17,5 +20,8 @@ export const harmonyVidSmall = harmony;
 
 export const mainVid = main;
 export const mainVidSmall = mainSmall;
+
+export const timelineVid = timeline;
+export const timelineVidSmall = timelineMobile;
 
 export const bluePetalsVid = bluePetals;
