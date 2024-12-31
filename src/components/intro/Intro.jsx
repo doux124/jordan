@@ -72,7 +72,6 @@ const Intro = () => {
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <video
                     key={videoSrc}
-                    id="mainVideo"
                     ref={videoRef}
                     autoPlay
                     muted

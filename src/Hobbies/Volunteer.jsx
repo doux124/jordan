@@ -50,6 +50,24 @@ const Embroidery = () => {
 
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Food drive</h3>
+            <p className="text-sm text-[#483C32]">We distributed non-perishable foods to lower income rental HDB blocks in Clementi</p>
+          </div>
+
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Project Pen for Change</h3>
+            <p className="text-sm text-[#483C32]">We collected used pens and refilled them through a fundraiser, then donated them to children in need through SHINE's Children Services. https://shine.give.asia/campaign/nus-high-pen-upcycling-drive-d#/story</p>
+          </div>
+
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
+            <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Feiyue Crafting Futures | Trading Places</h3>
+            <p className="text-sm text-[#483C32]">We organsied various activities for the youth and elderly with similar passions to come together to learn more about each other.</p>
+          </div>
+
+          <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
+            <img src="/jordan/images/hobbies/working.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Hi!</h3>
             <p className="text-sm text-[#483C32]">This page is still being coded, it will be up soon!</p>
           </div>

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { useNavigate } from 'react-router-dom';
 
+import DynamicBackground from "../standards/DynamicBackground";
+
 const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
 const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
@@ -15,6 +17,7 @@ const Hidden = () => {
   const navigate = useNavigate();
   return (
     <div>
+      <DynamicBackground image={"/jordan/images/latte.png"}/>
       <nav className="mt-10 mr-10 text-2xl flex justify-end">
         <a 
           className="navLink"

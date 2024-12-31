@@ -1,3 +1,6 @@
-# This webpage is built by Jordan Low Jun Yi in React + Vite
+# By Jordan Low Jun Yi
 
-This site acts as a personal webpage.
+This is a personal webpage built in Vite + React.
+
+git ls-files | grep -E '\.(jsx?|html|css)$' | xargs wc -l
+
