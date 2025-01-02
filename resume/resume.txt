@@ -1,0 +1,3 @@
+A highly motivated software engineer with 5+ years of experience in full-stack development.
+Skilled in JavaScript, React, Node.js, and SQL.
+Passionate about building scalable, efficient, and user-friendly applications.
