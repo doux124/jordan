@@ -1,0 +1,1 @@
+import{u as n,j as t}from"./index-BHrEngWI.js";const i=()=>{const e=n(),s=()=>{e("/resume")};return t.jsx("div",{className:"flex-center",children:t.jsx("button",{className:"button-49 text-2xl",onClick:s,children:"Click Here"})})};export{i as default};
