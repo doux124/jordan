@@ -9,9 +9,7 @@ import DynamicBackground from "../standards/DynamicBackground";
 const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
 const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
-const PoliticianButton = lazy(() => import("./trading/PoliticianButton"));
-const KeyboardButton = lazy(() => import("./piano/KeyboardButton"));
-const ResumeButton = lazy(() => import("../CV/ResumeGenerator/ResumeButton"));
+const NavigationButton = lazy(() => import("../standards/NavigationButton"));
 const VirtualPet = lazy(() => import("./virtualpet/VirtualPet"));
 
 const Hidden = () => {
@@ -61,7 +59,7 @@ const Hidden = () => {
         <div className="w-full md:w-1/2">
         <ToggleSection title="Trading">
             <Suspense fallback={<div>Loading...</div>}>
-              <PoliticianButton />
+              <NavigationButton route="/trading" buttonText="Click Here"/>
             </Suspense>
           </ToggleSection>
         </div>
@@ -71,7 +69,7 @@ const Hidden = () => {
         <div className="w-full md:w-1/2">
           <ToggleSection title="Piano">
             <Suspense fallback={<div>Loading...</div>}>
-              <KeyboardButton />
+              <NavigationButton route="/piano" buttonText="Click Here"/>
             </Suspense>
           </ToggleSection>
         </div>
@@ -89,7 +87,7 @@ const Hidden = () => {
         <div className="w-full md:w-1/2">
           <ToggleSection title="Resume Generator">
             <Suspense fallback={<div>Loading...</div>}>
-              <ResumeButton />
+              <NavigationButton route="/resume" buttonText="Click Here"/>
             </Suspense>
           </ToggleSection>
         </div>

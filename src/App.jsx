@@ -27,7 +27,7 @@ const Resume = lazy(() => import('./CV/ResumeGenerator/Resume'));
 
 const App = () => {
   return (
-    <main className="bg-black">
+    <main>
       <Suspense fallback={<Loader loading={true} />}>
         <Routes basename="/jordan">
           <Route path='/' element={<Compile />} />

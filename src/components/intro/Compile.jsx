@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
+import CallToAction from "./CallToAction"
 //import Timeline3 from "../timeline/Timeline3";
 // import ResearchSypnosis from "./ResearchSypnosis";
 
@@ -69,6 +70,7 @@ const Compile = () => {
 
     return (
         <div>
+            <CallToAction />
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
