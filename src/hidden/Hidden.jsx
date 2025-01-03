@@ -59,7 +59,9 @@ const Hidden = () => {
         <div className="w-full md:w-1/2">
         <ToggleSection title="Trading">
             <Suspense fallback={<div>Loading...</div>}>
-              <NavigationButton route="/trading" buttonText="Click Here"/>
+              <div className="flex-center">
+                  <button className="button-49 text-2xl" onClick={() => navigate('/trading')}>Click Here</button>
+              </div>
             </Suspense>
           </ToggleSection>
         </div>
@@ -69,7 +71,9 @@ const Hidden = () => {
         <div className="w-full md:w-1/2">
           <ToggleSection title="Piano">
             <Suspense fallback={<div>Loading...</div>}>
-              <NavigationButton route="/piano" buttonText="Click Here"/>
+              <div className="flex-center">
+                  <button className="button-49 text-2xl" onClick={() => navigate('/piano')}>Click Here</button>
+              </div>
             </Suspense>
           </ToggleSection>
         </div>
@@ -87,7 +91,9 @@ const Hidden = () => {
         <div className="w-full md:w-1/2">
           <ToggleSection title="Resume Generator">
             <Suspense fallback={<div>Loading...</div>}>
-              <NavigationButton route="/resume" buttonText="Click Here"/>
+              <div className="flex-center">
+                  <button className="button-49 text-2xl" onClick={() => navigate('/resume')}>Click Here</button>
+              </div>
             </Suspense>
           </ToggleSection>
         </div>

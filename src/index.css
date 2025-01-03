@@ -89,7 +89,7 @@ canvas {
   }
 
   .section-subheading {
-    @apply text-gray lg:text-5xl md:text-4xl text-2xl lg:mb-0 mb-5 font-medium
+    @apply text-white lg:text-5xl md:text-4xl text-2xl lg:mb-0 mb-5 font-medium
   }
 
   .contact-section {

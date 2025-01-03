@@ -3,7 +3,7 @@ import Menu from './Menu';
 import { gsap } from 'gsap';
 import './action.css';
 
-const CallToAction = () => {
+const CallToAction = ({ scrollToAboutMe }) => {
   const [isNightMode, setIsNightMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -44,6 +44,7 @@ const CallToAction = () => {
         isMenuOpen={isMenuOpen}
         toggleNightMode={toggleNightMode}
         isNightMode={isNightMode}
+        scrollToAboutMe={scrollToAboutMe}
       />
     </div>
   );

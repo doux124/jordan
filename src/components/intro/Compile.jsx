@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
@@ -12,6 +12,13 @@ import CallToAction from "./CallToAction"
 const Compile = () => {
     const [loading, setLoading] = useState(false);
     const [showSecret, setShowSecret] = useState(false);
+    const aboutMeRef = useRef(null); 
+
+    const scrollToAboutMe = () => {
+        if (aboutMeRef.current) {
+            aboutMeRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     useEffect(() => {
         setLoading(true)
@@ -70,13 +77,13 @@ const Compile = () => {
 
     return (
         <div>
-            <CallToAction />
+            <CallToAction scrollToAboutMe={scrollToAboutMe} />
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     <Intro />
                     
-                    <h1 id='heading' className="section-heading text-center mt-4 md:mb-10 md:mt-0">
+                    <h1 ref={aboutMeRef} id='heading' className="section-heading text-center mt-4 md:mb-10 md:mt-0">
                         About Me
                     </h1>
                     <Synopsis />
