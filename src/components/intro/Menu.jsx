@@ -23,14 +23,14 @@ const Menu = ({ isMenuOpen, toggleNightMode, isNightMode, scrollToAboutMe }) => 
 
   return (
     <div className="menu" ref={menuRef} style={{ transform: 'translateX(100%)', opacity: 0 }}>
-        <h2 className="flex-center section-subheading py-5">
+        <h2 className="flex-center section-subheading pt-5 md:pb-5">
             Menu Page
         </h2>
         <div className="flex flex-col items-center justify-center space-y-4">
-            <button className="button-57 w-[300px]" data-content="Research" onClick={() => navigate('/research')}>Research Work</button>
-            <button className="button-57 w-[300px]" data-content="Hobbies" onClick={() => navigate('/hobbies')}>Hobbies</button>
-            <button className="button-57 w-[300px]" data-content="Enter" onClick={() => navigate('/game')}>Game</button>
-            <button className="button-57 w-[300px]" data-content="Scroll" onClick={scrollToAboutMe}>About Me</button>
+            <button className="button-57 w-[200px] md:w-[300px]" data-content="Research" onClick={() => navigate('/research')}>Research Work</button>
+            <button className="button-57 w-[200px] md:w-[300px]" data-content="Hobbies" onClick={() => navigate('/hobbies')}>Hobbies</button>
+            <button className="button-57 w-[200px] md:w-[300px]" data-content="Enter" onClick={() => navigate('/game')}>Game</button>
+            <button className="button-57 w-[200px] md:w-[300px]" data-content="Scroll" onClick={scrollToAboutMe}>About Me</button>
         </div>
 
         {/* <div className="social-link" onClick={toggleNightMode}>

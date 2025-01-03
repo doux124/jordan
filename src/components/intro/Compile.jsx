@@ -82,7 +82,6 @@ const Compile = () => {
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     <Intro />
-                    
                     <h1 ref={aboutMeRef} id='heading' className="section-heading text-center mt-4 md:mb-10 md:mt-0">
                         About Me
                     </h1>

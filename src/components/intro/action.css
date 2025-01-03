@@ -94,3 +94,13 @@
 .toggle-icon.flipped {
   transform: rotateY(180deg);
 }
+
+@media (max-width: 768px) {
+  .menu {
+    width: 300px;
+  }
+  .social-container {
+    top: 4%;
+    right:5px;
+  }
+}
