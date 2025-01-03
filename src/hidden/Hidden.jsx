@@ -9,7 +9,6 @@ import DynamicBackground from "../standards/DynamicBackground";
 const CardForm = lazy(() => import("./birthday/CardForm"));
 const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
 const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
-const NavigationButton = lazy(() => import("../standards/NavigationButton"));
 const VirtualPet = lazy(() => import("./virtualpet/VirtualPet"));
 
 const Hidden = () => {
