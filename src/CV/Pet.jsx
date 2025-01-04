@@ -29,11 +29,11 @@ const Pet = () => {
     <div className="pageContainer">
       <div className="projectContainer">
         <section className="sectionAnimate">
-          <h1 className="header">Latte the Guniea Pig</h1>
+          <h1 className="header">Latte the Guinea Pig</h1>
         </section>
   
         <section className="sectionAnimate">
-          <h2 className="subHeader">This is my guniea pig</h2>
+          <h2 className="subHeader">This is my guinea pig</h2>
           <br />
           <img src="/jordan/images/latte.png" className="w-[100vh] h-auto"/>
         </section>
