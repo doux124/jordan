@@ -3,8 +3,8 @@ import '../../standards/buttons.css';
 
 const Synopsis = () => {
   return (
-    <div style={styles.container}>
-      <p style={styles.paragraph} className="text-base md:text-2xl">
+    <div style={styles.container} className='bg-[#fcf3e0] dark:bg-black'>
+      <p style={styles.paragraph} className="text-base md:text-2xl text-black dark:text-white">
         Hi! I'm Jordan Low, a <u>biomedical engineering student</u> at NUS with a passion for research and 
         innovation. Learn more about my research or volunteer work using the "Work & Research" and "Extracurriculars" buttons 
         above or through the game below.
@@ -55,8 +55,7 @@ const styles = {
     textAlign: 'center',
   },
   paragraph: {
-    lineHeight: '1.6',
-    color: 'white',           
+    lineHeight: '1.6',  
     padding: '20px',         
     border: '2px solid #4CAF50',
     borderRadius: '30px',  

@@ -1,8 +1,65 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100vh;
+  background-image: url('/images/menu-day.jpg');
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dark .menu {
+  background-image: url('/images/menu-night.jpg');
+}
+
+.page__style {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.animate_content {
+  animation: animate 3s ease;
+}
+
+@keyframes animate {
+  10% {
+    transform: scale(1, 0.002);
+  }
+  35% {
+    transform: scale(0.2, 0.002);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+  }
+  85% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 .social-container {
   position: fixed;
   top: 5%;
   right: 20px;
-  background-color: #fff;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -33,8 +90,14 @@
   transition: all 0.3s ease;
 }
 
-.hamburger-icon .line {
+.dark .hamburger-icon .line {
   fill: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-icon .line {
+  fill:black;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: center;
 }
@@ -49,26 +112,9 @@
   height: 12px;
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 100vh;
-  background-color: #727575;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  gap: 15px;
-  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transform: translateX(100%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
 .social-link {
-  background-color: #000;
-  color: white;
+  background-color: white;
+  color: black;
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
@@ -83,7 +129,9 @@
 }
 
 .social-link:hover {
-  background-color: #4b4c4d;
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .toggle-icon {

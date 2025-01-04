@@ -1,18 +1,30 @@
-import { mainVid, mainVidSmall } from "../../utils";
+import {
+    mainVid,
+    mainVidSmall,
+    mainVidLight,
+    mainVidSmallLight
+} from "../../utils";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from "react";
 
 const Intro = () => {
     const navigate = useNavigate();
     const videoRef = useRef(null);
-    const [videoSrc, setVideoSrc] = useState(window.innerWidth < 760 ? mainVidSmall : mainVid);
+
+    const getVideoSource = (width, isDarkMode) => {
+        if (width < 760) {
+            return isDarkMode ? mainVidSmall : mainVidSmallLight;
+        }
+        return isDarkMode ? mainVid : mainVidLight;
+    };
+
+    const [videoSrc, setVideoSrc] = useState(() =>
+        getVideoSource(window.innerWidth, document.documentElement.classList.contains('dark'))
+    );
 
     const handleVideoSrcSet = () => {
-        if(window.innerWidth < 760) {
-            setVideoSrc(mainVidSmall);
-        } else {
-            setVideoSrc(mainVid);
-        }
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        setVideoSrc(getVideoSource(window.innerWidth, isDarkMode));
     };
 
     const handleClick = (event) => {
@@ -24,7 +36,8 @@ const Intro = () => {
         const scaleY = videoElement.videoHeight / rect.height;
         const x = (event.clientX - rect.left) * scaleX;
         const y = (event.clientY - rect.top) * scaleY;
-        const mobile = (window.innerWidth < 760) ? true : false
+        const mobile = window.innerWidth < 760;
+
         console.log(`Clicked at normalized coordinates: (${x}, ${y})`);
 
         if (mobile) {
@@ -51,6 +64,14 @@ const Intro = () => {
     };
 
     useEffect(() => {
+        const handleThemeChange = () => {
+            handleVideoSrcSet();
+        };
+
+        // Observe changes to the 'dark' class on the html element
+        const observer = new MutationObserver(handleThemeChange);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
         // Dynamic video
         window.addEventListener('resize', handleVideoSrcSet);
 
@@ -64,6 +85,7 @@ const Intro = () => {
         return () => {
             clearTimeout(timeout);
             window.removeEventListener('resize', handleVideoSrcSet);
+            observer.disconnect();
         };
     }, []);
 

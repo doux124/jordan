@@ -4,14 +4,8 @@ import { gsap } from 'gsap';
 import './action.css';
 
 const CallToAction = ({ scrollToAboutMe }) => {
-  const [isNightMode, setIsNightMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
-
-  const toggleNightMode = () => {
-    setIsNightMode(!isNightMode);
-    document.body.classList.toggle('night-mode', !isNightMode);
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,8 +22,8 @@ const CallToAction = ({ scrollToAboutMe }) => {
   };
 
   return (
-    <div className="social-container">
-      <div className="social-link" onClick={toggleMenu}>
+    <div className="social-container bg-black dark:bg-white">
+      <div className="social-link dark:text-white dark:bg-black" onClick={toggleMenu}>
         <svg
           className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`}
           viewBox="0 0 100 100"
@@ -42,8 +36,6 @@ const CallToAction = ({ scrollToAboutMe }) => {
       </div>
       <Menu
         isMenuOpen={isMenuOpen}
-        toggleNightMode={toggleNightMode}
-        isNightMode={isNightMode}
         scrollToAboutMe={scrollToAboutMe}
       />
     </div>

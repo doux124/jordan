@@ -13,13 +13,18 @@ html, body {
 }
 
 body {
-  color: white;
+  color: black;
   width: 100dvw;
   overflow-x: hidden;
   height: 100%;
-  background: #000;
+  background: #fcf3e0;
   border-color: #3b3b3b;
   user-select: none;
+}
+
+html.dark body {
+  background: black;
+  color: white;
 }
 
 canvas {
@@ -85,11 +90,11 @@ canvas {
   }
 
   .section-heading {
-    @apply text-white lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium
+    @apply lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium
   }
 
   .section-subheading {
-    @apply text-white lg:text-5xl md:text-4xl text-2xl lg:mb-0 mb-5 font-medium
+    @apply lg:text-5xl md:text-4xl text-2xl lg:mb-0 mb-5 font-medium
   }
 
   .contact-section {
@@ -173,18 +178,25 @@ canvas {
   .secret-drawings {
     position: fixed;
     top: -300px; /* Place it above the viewport */
-    left: 0;
     width: 100%;
-    background: black; /* bg color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 300px;
     transition: top 0.3s ease;
   }
 
   .secret-drawings.show {
       top: 0;
-      color: white; /* text color */
+  }
+
+  .image-container {
+    background-image: url('/images/secret_drawing/hollow_knight_lightmode.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dark .image-container {
+    background-image: url('/images/secret_drawing/hollow_knight.png');
   }
 
   .timeline-container {
@@ -311,15 +323,8 @@ canvas {
     }
 
     .secret-drawings {
-      position: fixed;
+      height: 150px;
       top: -150px; /* Place it above the viewport */
-      left: 0;
-      width: 100%;
-      background: black; /* bg color */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: top 0.3s ease;
     }
 
     .secret-drawings.show {
