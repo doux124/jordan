@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 const Intro = () => {
     const navigate = useNavigate();
     const videoRef = useRef(null);
+    let isDarkMode = document.documentElement.classList.contains('dark');
 
     const getVideoSource = (width, isDarkMode) => {
         if (width < 760) {
@@ -23,7 +24,7 @@ const Intro = () => {
     );
 
     const handleVideoSrcSet = () => {
-        const isDarkMode = document.documentElement.classList.contains('dark');
+        isDarkMode = document.documentElement.classList.contains('dark');
         setVideoSrc(getVideoSource(window.innerWidth, isDarkMode));
     };
 
@@ -40,7 +41,7 @@ const Intro = () => {
 
         console.log(`Clicked at normalized coordinates: (${x}, ${y})`);
 
-        if (mobile) {
+        if (mobile & isDarkMode) {
             if (110 < x && x < 480 && 435 < y && y < 675) {
                 navigate('/research');
             }
@@ -50,17 +51,37 @@ const Intro = () => {
             if (500 < x && x < 600 && 400 < y && y < 450) {
                 navigate('/hidden');
             }
-        } else {
-            if (630 < x && x < 1180 && 600 < y && y < 940) {
+        } else if (mobile) {
+            if (250 < x && x < 950 && 950 < y && y < 1250) {
                 navigate('/research');
             }
-            if (1250 < x && x < 1800 && 600 < y && y < 940) {
+            if (750 < x && x < 1450 && 1300 < y && y < 1600) {
                 navigate('/hobbies');
             }
-            if (1400 < x && x < 1560 && 205 < y && y < 370) {
+            if (1050 < x && x < 1250 && 750 < y && y < 875) {
                 navigate('/hidden');
             }
+        } else if (!isDarkMode) {
+            if (1270 < x && x < 2300 && 1130 < y && y < 1830) {
+                navigate('/research');
+            }
+            if (2450 < x && x < 3450 && 1150 < y && y < 1850) {
+                navigate('/hobbies');
+            }
+            if (2850 < x && x < 3050 && 510 < y && y < 710) {
+                navigate('/hidden');
+            }
+        } else {
+        if (630 < x && x < 1180 && 600 < y && y < 940) {
+            navigate('/research');
         }
+        if (1250 < x && x < 1800 && 600 < y && y < 940) {
+            navigate('/hobbies');
+        }
+        if (1400 < x && x < 1560 && 205 < y && y < 370) {
+            navigate('/hidden');
+        }
+    }
     };
 
     useEffect(() => {
