@@ -17,6 +17,7 @@ const Origami = lazy(() => import('./Hobbies/Origami'));
 const Embroidery = lazy(() => import('./Hobbies/Embroidery'));
 const Sports = lazy(() => import('./Hobbies/Sports'));
 
+const Tools = lazy(() => import('./hidden/Tools'));
 const Hidden = lazy(() => import('./hidden/Hidden'));
 const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
 const BirthdayButton = lazy(() => import('./hidden/birthday/BirthdayButton'));
@@ -44,6 +45,7 @@ const App = () => {
           <Route path='hobbies/string' element={<Embroidery />} />
           <Route path='hobbies/sports' element={<Sports />} />
 
+          <Route path="tools" element={<Tools />} />
           <Route path="hidden" element={<Hidden />} />
           <Route path="HappyBirthday/:name" element={<BirthdayCard />} />
           <Route path="Surprise/:name" element={<BirthdayButton />} />

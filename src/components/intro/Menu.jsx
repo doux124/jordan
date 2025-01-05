@@ -22,7 +22,7 @@ const Menu = ({ isMenuOpen, scrollToAboutMe }) => {
         document.documentElement.classList.add('dark');
       }
       setIsNightMode(!isNightMode);
-  }, animate ? 2000 : 0);
+  }, animate ? 850 : 0);
   };
 
   const triggerAnimation = () => {
@@ -68,14 +68,27 @@ const Menu = ({ isMenuOpen, scrollToAboutMe }) => {
                 Menu Page
             </h2>
             <div className="flex flex-col items-center justify-center space-y-4">
-                <button className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" data-content="Research" onClick={() => navigate('/research')}>Research Work</button>
-                <button className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" data-content="Hobbies" onClick={() => navigate('/hobbies')}>Hobbies</button>
-                <button className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" data-content="Enter" onClick={() => navigate('/game')}>Game</button>
-                <button className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" data-content="Scroll" onClick={scrollToAboutMe}>About Me</button>
-                <button className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" data-content={animate ? "Currently On" : "Currently Off"} onClick={() => setAnimate(!animate)}>{animate ? "Off Animation" : "On Animation"}</button>
+                <button 
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content="Click to Scroll" onClick={scrollToAboutMe}>About Me</button>
+                <button 
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content="Click to Enter" onClick={() => navigate('/research')}>Research Work</button>
+                <button
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content="Click to Enter" onClick={() => navigate('/hobbies')}>Hobbies</button>
+                <button 
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content="Click to Enter" onClick={() => navigate('/tools')}>Tools</button>
+                <button 
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content="Click to Enter" onClick={() => navigate('/game')}>Game</button>
+                <button 
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content={animate ? "Currently On" : "Currently Off"} onClick={() => setAnimate(!animate)}>{animate ? "Off Animation" : "On Animation"}</button>
             </div>
 
-            <div className="social-link dark:text-white dark:bg-black absolute top-[40px] left-[20px] md:top-[100px] md:right-[30px]" onClick={toggleNightMode}>
+            <div className="social-link dark:text-white dark:bg-black absolute top-[40px] left-[20px] md:top-[100px] md:left-[430px]" onClick={toggleNightMode}>
                 <div className={`toggle-icon ${isNightMode ? 'flipped' : ''}`} onClick={triggerAnimation}>
                 {isNightMode ? <FaMoon size={20} /> : <FaSun size={20} />}
                 </div>
