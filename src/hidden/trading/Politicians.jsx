@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import '../../standards/table.css';
+import '../../CV/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { useNavigate } from 'react-router-dom';
@@ -90,9 +91,9 @@ const Politicians = () => {
       <nav className="mt-10 mr-10 text-2xl flex justify-end">
         <a 
           className="navLink"
-          onClick={() => navigate('/hidden')}
+          onClick={() => navigate('/tools')}
         >
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faHome} style={{ fontSize: '30px' }} />
         </a>
       </nav>
       <div className="w-full px-4 text-center">

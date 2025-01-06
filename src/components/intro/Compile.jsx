@@ -4,7 +4,7 @@ import Intro from "./Intro";
 import Synopsis from "./Synopsis";
 import CallToAction from "./CallToAction"
 //import Timeline3 from "../timeline/Timeline3";
-// import ResearchSypnosis from "./ResearchSypnosis";
+//import ResearchSypnosis from "./ResearchSypnosis";
 
 // import Awards from "./Awards";
 // import Model from "./Model";
@@ -87,7 +87,7 @@ const Compile = () => {
                     </h1>
                     <Synopsis />
 
-                    {/* <ResearchSypnosis /> */}
+
 
                     {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
                         Jordan's Lore

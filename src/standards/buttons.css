@@ -361,7 +361,7 @@
 .button-89 {
   --b: 3px;   /* border thickness */
   --s: .45em; /* size of the corner */
-  --color: white;
+  --color: black;
   
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
   color: var(--color);
@@ -378,6 +378,10 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.dark .button-89 {
+  --color: white;
 }
 
 .button-89:hover,

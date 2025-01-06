@@ -7,12 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import DynamicBackground from "../standards/DynamicBackground";
 
 const CardForm = lazy(() => import("./birthday/CardForm"));
-const RGBWordInput = lazy(() => import("./rbgword/RGBWordInput"));
-const Visualizer = lazy(() => import("./audiovisualiser/Visualiser"));
-const VirtualPet = lazy(() => import("./virtualpet/VirtualPet"));
 
 const Hidden = () => {
   const navigate = useNavigate();
+
   return (
     <div>
       <DynamicBackground image={"/jordan/images/latte.png"}/>
@@ -21,7 +19,7 @@ const Hidden = () => {
           className="navLink"
           onClick={() => navigate('/')}
         >
-          <FontAwesomeIcon icon={faHome} />
+          <FontAwesomeIcon icon={faHome} style={{ fontSize: '30px' }} />
         </a>
       </nav>
       <div className="section-heading text-center">

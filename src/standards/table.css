@@ -9,9 +9,13 @@ th,
 td {
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: black;
     text-align: center;
     width: 150px;
+}
+
+html.dark td {
+    color: white;
 }
 
 thead th {
