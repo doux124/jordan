@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './standards/Loader';
 import Compile from './components/intro/Compile';
@@ -27,6 +27,16 @@ const PianoPractice = lazy(() => import('./hidden/piano/PianoPractice'));
 const Resume = lazy(() => import('./CV/ResumeGenerator/Resume'));
 
 const App = () => {
+  const isNightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  useEffect(() => {
+    if (!isNightMode) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
   return (
     <main>
       <Suspense fallback={<Loader loading={true} />}>

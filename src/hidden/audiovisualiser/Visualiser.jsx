@@ -133,8 +133,8 @@ const Visualizer = () => {
 
   return (
     <div className="h-screen">
-      <input type="file" accept="audio/*" onChange={handleFileChange} />
-      <button className='button-89' onClick={() => setIsPlaying(!isPlaying)}>
+      <input className='ml-40 md:ml-0'type="file" accept="audio/*" onChange={handleFileChange} />
+      <button className='button-89 my-5 ml-60 md:ml-0' onClick={() => setIsPlaying(!isPlaying)}>
         {isPlaying ? 'Stop' : 'Play'}
       </button>
       <div className="h-full" ref={p5WrapperRef} /> {/* Container for p5.js */}

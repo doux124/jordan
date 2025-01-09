@@ -27,7 +27,7 @@ function PianoPractice() {
         </a>
       </nav>
       <RandomNote setHighlightedNote={setHighlightedNote} />
-      <button className='button-89 mb-5' onClick={handleButtonClick}>Send Note to Keyboard</button>
+      <button className='button-89 mb-5 mt-3' onClick={handleButtonClick}>Send Note to Keyboard</button>
       <Keyboard highlightedNote={sendNoteToKeyboard ? highlightedNote : null} />
     </div>
   );

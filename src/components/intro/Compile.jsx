@@ -2,17 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import SecretDrawings from "./SecretDrawings";
 import Intro from "./Intro";
 import Synopsis from "./Synopsis";
-import CallToAction from "./CallToAction"
-//import Timeline3 from "../timeline/Timeline3";
-//import ResearchSypnosis from "./ResearchSypnosis";
-
-// import Awards from "./Awards";
-// import Model from "./Model";
+import CallToAction from "./CallToAction";
+import Showcase from "./Showcase";
 
 const Compile = () => {
     const [loading, setLoading] = useState(false);
     const [showSecret, setShowSecret] = useState(false);
-    const aboutMeRef = useRef(null); 
+    const [showContent, setShowContent] = useState(false);
+    const aboutMeRef = useRef(null);
 
     const scrollToAboutMe = () => {
         if (aboutMeRef.current) {
@@ -21,10 +18,10 @@ const Compile = () => {
     };
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true);
         setTimeout(() => {
-            setLoading(false)
-        }, 0)
+            setLoading(false);
+        }, 0);
 
         let hideTimeout;
         const hideAfterDelay = () => {
@@ -33,7 +30,7 @@ const Compile = () => {
                 setShowSecret(false);
             }, 500);
             window.scrollTo({ top: 10, behavior: 'smooth' });
-        }
+        };
 
         // Scrolling on pc
         const handleScroll = () => {
@@ -63,7 +60,6 @@ const Compile = () => {
             window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('touchstart', handleTouchStart);
             clearTimeout(hideTimeout);
-
         };
     }, []);
 
@@ -75,41 +71,29 @@ const Compile = () => {
         }
     }, [loading]);
 
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setShowContent(true);
+        }, 1);
+        return () => clearTimeout(timeoutId);
+    }, []);
+
     return (
         <div>
-            <CallToAction scrollToAboutMe={scrollToAboutMe} />
+            {showContent && <CallToAction scrollToAboutMe={scrollToAboutMe} />}
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
-                    <Intro />
-                    <h1 ref={aboutMeRef} id='heading' className="section-heading text-center mt-4 md:mb-10 md:mt-0 text-black dark:text-white">
+                    {showContent && <Intro />}
+                    <h1 ref={aboutMeRef} id="heading" className="section-heading text-center mt-4 md:mb-10 md:mt-0 text-black dark:text-white">
                         About Me
                     </h1>
                     <Synopsis />
-
-
-
-                    {/* <h1 id='heading' className="section-heading text-center mt-6 md:my-0">
-                        Jordan's Lore
-                    </h1>
-                    <Timeline /> */}
+                    <Showcase />
                 </div>
-                {/* <div className="screen-max-width">
-                    <h1 id='heading' className="section-heading text-center mt-4">
-                        Game Area
-                    </h1>
-                    <h1 className="section-subheading text-center">
-                        Don't mind me flexing here
-                    </h1>
-                    <Awards />
-                    <h1 id='heading' className="section-subheading text-center mt-7">
-                        Click on the arcade machine's screen
-                    </h1>
-                    <Model />    
-                </div> */}
             </section>
         </div>
     );
-}
+};
 
 export default Compile;

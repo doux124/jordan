@@ -52,7 +52,11 @@ tbody tr:hover {
 .mobile-table td:before {
     content: attr(data-label);
     font-weight: bold;
-    color: #fff;
+    color: black;
+}
+
+.dark .mobile-table td:before {
+    color: white;
 }
 
 .mobile-table tbody tr:last-child {

@@ -10,18 +10,16 @@ const Menu = ({ isMenuOpen, scrollToAboutMe }) => {
   const navigate = useNavigate();
   const [animating, setAnimating] = useState(false);
   const [animate, setAnimate] = useState(true);
-  const [isNightMode, setIsNightMode] = useState(
-    document.documentElement.classList.contains('dark')
-  );
+  const [isNightMode, setIsNightMode] = useState(document.documentElement.classList.contains('dark'));
 
   const toggleNightMode = () => {
     setTimeout(() => {
+      setIsNightMode(!isNightMode);
       if (isNightMode) {
         document.documentElement.classList.remove('dark');
       } else {
         document.documentElement.classList.add('dark');
       }
-      setIsNightMode(!isNightMode);
   }, animate ? 850 : 0);
   };
 
@@ -50,6 +48,12 @@ const Menu = ({ isMenuOpen, scrollToAboutMe }) => {
   };
 
   useEffect(() => {
+    if (!isNightMode) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+
     if (isMenuOpen) {
       gsap.fromTo(
         menuRef.current,
