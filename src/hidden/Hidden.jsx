@@ -34,15 +34,6 @@ const Hidden = () => {
             </Suspense>
           </ToggleSection>
         </div>
-        <div className="w-full md:w-1/2">
-          <ToggleSection title="Resume Generator">
-            <Suspense fallback={<div>Loading...</div>}>
-              <div className="flex-center">
-                  <button className="button-49 text-2xl" onClick={() => navigate('/resume')}>Click Here</button>
-              </div>
-            </Suspense>
-          </ToggleSection>
-        </div>
       </div>
     </div>
   );

@@ -7,12 +7,12 @@ const Showcase = () => {
       },
       {
         image: "/jordan/images/featured_works/polymer_ring.png",
-        title: "Project 2",
+        title: "Thermosensitive Rings",
         description: "I came up with the idea to make annuloplasty rings out of shape memory materials. Two versions made of out different materials were made, which demonstrated promise in allowing for minimally invasive annuloplasty surgeries as well as pediatric applications for mitral valve regurgitation in patients.",
       },
       {
         image: "/jordan/images/featured_works/eeg_cap.jpg",
-        title: "Project 3",
+        title: "Electroencephalogram and Machine Learning",
         description: "I conducted experimental trials using multimodal methods in order to find more accurate methods of training SVM models on EEG data. I was able to improve the training accuracy of these ML models, which could be applied in rehabilitation as well as prosthetics.",
       },
     ];
