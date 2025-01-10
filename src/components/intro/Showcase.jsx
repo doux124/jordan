@@ -21,11 +21,11 @@ const Showcase = () => {
       <div className="flex flex-col gap-12 mt-8">
         <h2 className="section-heading flex-center">Project Showcase</h2>
         {projects.map((project, index) => (
-          <div key={index} className={`flex-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
-            <img src={project.image} alt={project.title} className="w-2/5 rounded-lg object-cover" />
-            <div className="w-2/5">
+          <div key={index} className={`flex-center flex-col gap-8 md:gap-0 -mt-8 md:-mt-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+            <img src={project.image} alt={project.title} className="w-full md:w-2/5 rounded-lg object-cover" />
+            <div className="w-full md:w-2/5">
                 <h2 className="text-2xl font-bold mb-4 flex-center">{project.title}</h2>
-                <p className="text-lg text-gray-600 flex-center px-5">{project.description}</p>
+                <p className="text-lg text-black dark:text-white flex-center pb-5 md:pb-0 md:px-5">{project.description}</p>
             </div>
           </div>
         ))}

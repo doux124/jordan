@@ -111,19 +111,21 @@ const Keyboard = ({ highlightedNote }) => {
 
       <div>
         <h3 className='mt-5'>Notes Played:</h3>
-        <p>
-          {clickedNotes.map((note, index) => (
-            <span
-              key={index}
-              style={{
-                color: index < clickedNotes.length - 1 ? 'gray' : 'white',
-              }}
-            >
-              {convertNoteToSharp(note)}
-              {index < clickedNotes.length - 1 && ', '}
-            </span>
-          ))}
-        </p>
+          <p>
+            {clickedNotes.map((note, index) => (
+              <span
+                key={index}
+                className={`${
+                  index < clickedNotes.length - 1 
+                    ? 'text-gray-500' 
+                    : 'text-black dark:text-white'
+                }`}
+              >
+                {convertNoteToSharp(note)}
+                {index < clickedNotes.length - 1 && ', '}
+              </span>
+            ))}
+          </p>
       </div>
     </div>
   );
