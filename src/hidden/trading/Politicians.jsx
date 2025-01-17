@@ -102,7 +102,7 @@ const Politicians = () => {
           Request temporary access to CORS Anywhere's demo server at&nbsp;
           <a href="https://cors-anywhere.herokuapp.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: '#87CEEB' }}>
             CORS Anywhere
-          </a>
+          </a> then refresh this page.
           <br />
           Retrieved from:&nbsp;
           <a href="https://www.quiverquant.com/congresstrading/politician/Nancy%20Pelosi-P000197" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: '#87CEEB' }}>

@@ -35,7 +35,7 @@ const AnnuloplastyMore = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Shape Memory Effect</h2>
           <br />
-          <img src="/jordan/images/arp/SHE.png" className="w-[100vh] h-auto"/>
+          <img src="/jordan/images/arp/SHE.png" className="w-[100vh] h-auto" alt="Image loading..."/>
           <p className="text-justify mt-3">
             The shape memory property of these rings allows them to be pliable 
             outside the body. Since they can be shaped into a thin rod and inserted through the left ribs, 
@@ -48,7 +48,7 @@ const AnnuloplastyMore = () => {
         <div className="flexContainer">
           <section className="sectionAnimate flexItem">
             <h2 className="subHeader">Nitinol</h2>
-            <img src="/jordan/images/arp/nitinol_SHE.png" className="w-[100vh] h-auto mt-3"/>
+            <img src="/jordan/images/arp/nitinol_SHE.png" className="w-[100vh] h-auto mt-3" alt="Image loading..."/>
             <p className="text-justify">
               <br />
               Shape Memory Alloys like Nitinol can return to their original shape after being deformed. 
@@ -64,7 +64,7 @@ const AnnuloplastyMore = () => {
   
           <section className="sectionAnimate flexItem">
             <h2 className="subHeader">MMA-PEGDMA</h2>
-            <img src="/jordan/images/arp/MMAPEGDMA_SHE.png" className="w-[100vh] h-auto mt-3"/>
+            <img src="/jordan/images/arp/MMAPEGDMA_SHE.png" className="w-[100vh] h-auto mt-3" alt="Image loading..."/>
             <p className="text-justify">
               <br />
               Shape Memory Polymers are set using a silicon mold. As it forms, 

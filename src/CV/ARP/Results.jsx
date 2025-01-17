@@ -35,9 +35,9 @@ const Results = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Reduction in backflow</h2>
           <p className="text-justify mt-3">
-            <img src="/jordan/images/arp/results3_1.png" className="image w-[100vh] h-auto mb-5"/>
+            <img src="/jordan/images/arp/results3_1.png" className="image w-[100vh] h-auto mb-5" alt="Image loading..."/>
             <div class="flex">
-              <img src="/jordan/images/arp/results3_2.png" className="image w-[40vh] h-auto mr-5"/>
+              <img src="/jordan/images/arp/results3_2.png" className="image w-[40vh] h-auto mr-5" alt="Image loading..."/>
               <p className="mt-2">
                 We tested the efficacy of the rings using the static backflow method on swine hearts 
                 due to their similarity to human hearts. Water was pumped at a constant flow rate 
@@ -50,10 +50,10 @@ const Results = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Flexural Rigidity</h2>
           <p className="text-justify mt-3">
-            <img src="/jordan/images/arp/results4_1.png" className="image w-[100vh] h-auto mb-5"/>
+            <img src="/jordan/images/arp/results4_1.png" className="image w-[100vh] h-auto mb-5" alt="Image loading..."/>
             Weights were hung from the annuloplasty rings, extending it, and the resulting 
             radius of curvature R formed is obtained using Tracker by fitting the curved section to a circle.
-            <img src="/jordan/images/arp/results4_2.png" className="image w-[100vh] h-auto mt-5"/>
+            <img src="/jordan/images/arp/results4_2.png" className="image w-[100vh] h-auto mt-5" alt="Image loading..."/>
             <div class="flex">
               <p className="mt-2 mr-3">
               The material-specific elastic modulus E is obtained from the gradient of the stress-strain
@@ -62,15 +62,15 @@ const Results = () => {
               the traditional annuloplasty rings is then used to calculate the optimal thickness of our 
               thermosensitive annuloplasty rings.
               </p>
-              <img src="/jordan/images/arp/results4_3.png" className="image w-[40vh] h-auto"/>
+              <img src="/jordan/images/arp/results4_3.png" className="image w-[40vh] h-auto" alt="Image loading..."/>
             </div>
           </p>
         </section>
         <section className="sectionAnimate">
           <h2 className="subHeader">Reduction in incision size</h2>
           <p className="text-justify mt-3">
-            <img src="/jordan/images/arp/results1_1.png" className="image w-[100vh] h-auto mb-5"/>
-            <img src="/jordan/images/arp/results1_2.png" className="image w-[100vh] h-auto"/>
+            <img src="/jordan/images/arp/results1_1.png" className="image w-[100vh] h-auto mb-5" alt="Image loading..."/>
+            <img src="/jordan/images/arp/results1_2.png" className="image w-[100vh] h-auto" alt="Image loading..."/>
             <br /> We plotted reduction in incision size against ring thickness. At each material's optimal thickness, 
             the reduction in incisison size is 52% for Nitinol and 48% for MMA-PEGDMA. This suggests a significant reduction in incision size. The optimal thickness is calculated using the flexural rigidity 
             of each ring type.
@@ -79,7 +79,7 @@ const Results = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Recovery time</h2>
           <p className="text-justify mt-3">
-            <img src="/jordan/images/arp/results2.png" className="image w-[100vh] h-auto"/>
+            <img src="/jordan/images/arp/results2.png" className="image w-[100vh] h-auto" alt="Image loading..."/>
           </p>
         </section>
       </div>

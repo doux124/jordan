@@ -22,7 +22,7 @@ const Graphene = () => {
             By exposing graphene to low power RF plasma, we introduce defects onto its 
             surface, increasing glucose oxidase adsorption. The new sensors were evaulated 
             through Raman spectroscopy and an accessment of their electrical properties.
-            <img src="/jordan/images/smp/raman.png" className="image w-[100vh] h-auto mx-auto mt-5 center"/>
+            <img src="/jordan/images/smp/raman.png" className="image w-[100vh] h-auto mx-auto mt-5 center" alt="Image loading..."/>
           </p>
         </section>
 
@@ -43,13 +43,13 @@ const Graphene = () => {
         <section className="section">
           <h2 className="subHeader">Building the Sensor</h2>
           <p className="flex-1 text-justify mt-2">
-            <img src="/jordan/images/smp/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
+            <img src="/jordan/images/smp/cvd.png" className="image w-[50vh] h-auto mx-auto mt-5 center" alt="Image loading..."/>
             <br />
             The graphene is subjected to RF Plasma to introduce defects. This allows for a greater surface area 
             for glucose oxidase (GOx) adsorption, which reacts with glucose to alter the biosensor's electrical properties. 
             Our sensor works by measuring the change in resistance, which is mapped to the blood glucose concentration.
             <br />
-            <img src="/jordan/images/smp/gbb.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
+            <img src="/jordan/images/smp/gbb.png" className="image w-[50vh] h-auto mx-auto mt-5 center" alt="Image loading..."/>
             <br />
             The figure above shows our biosensor at its most fundamental level. 2 silver ink 
             droplets with Cu wires attached were used as metal contacts. The graphene surface 
@@ -60,7 +60,7 @@ const Graphene = () => {
         <section className="section">
           <h2 className="subHeader">Results</h2>
           <p className="flex-1 text-justify mt-2">
-            <img src="/jordan/images/smp/glucose_results.png" className="image w-[75vh] h-auto mx-auto mt-5 center"/>
+            <img src="/jordan/images/smp/glucose_results.png" className="image w-[75vh] h-auto mx-auto mt-5 center" alt="Image loading..."/>
             <br />
             Our results demonstrate that over 15mins of exposure affects the quality of GOx binding. However, 
             5-10mins of RF plasma exposure causes the effective sensing range of our biosensor to increase. 

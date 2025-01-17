@@ -37,15 +37,15 @@ const Procedure = () => {
           <h2 className="subHeader">Procedure</h2>
           <p className="text-justify mt-3">
             1. A sizer is used to measure the size of the annulus.
-            <img src="/jordan/images/arp/sizer.png" className="image w-[20vh] h-auto"/>
+            <img src="/jordan/images/arp/sizer.png" className="image w-[20vh] h-auto" alt="Image loading..."/>
             <br />
             2. The correctly sized <Link to="/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>ring</Link> is made.
-            <img src="/jordan/images/arp/steps.png" className="image w-[100vh] h-auto mt-2"/>
+            <img src="/jordan/images/arp/steps.png" className="image w-[100vh] h-auto mt-2" alt="Image loading..."/>
             <br />
             2.5. For MMA-PEGDMA rings, the copolymer has to be prepared before letting it set in our molds. 
-            <img src="/jordan/images/arp/prep.png" className="image w-[100vh] h-auto"/>
+            <img src="/jordan/images/arp/prep.png" className="image w-[100vh] h-auto" alt="Image loading..."/>
             3. The rings are sutured onto swine hearts exhibiting mitral valve regurgitation.
-            <img src="/jordan/images/arp/procedure.png" className="image w-[100vh] h-auto mt-2"/>
+            <img src="/jordan/images/arp/procedure.png" className="image w-[100vh] h-auto mt-2" alt="Image loading..."/>
             <br />
             4. Four seperate measurements were taken: 
             <br />&emsp;- Reduction in incision size
@@ -57,7 +57,7 @@ const Procedure = () => {
         <section className="sectionAnimate">
           <h2 className="subHeader">Biodegradability of MMA-PEGDMA</h2>
           <p className="text-justify mt-3">
-            <img src="/jordan/images/arp/biodegrade.png" className="image w-[100vh] h-auto"/>
+            <img src="/jordan/images/arp/biodegrade.png" className="image w-[100vh] h-auto" alt="Image loading..."/>
             <br />
             MMA-PEGDMA is non-toxic and hydrolyzes into PMMA and PEG, both of which are also safe. 
             PEG is metabolized by the liver and excreted in urine after seven days, while PMMA 

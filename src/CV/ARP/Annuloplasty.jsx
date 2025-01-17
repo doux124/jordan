@@ -71,7 +71,7 @@ const Annuloplasty = () => {
 
           <div className="flex flex-col md:flex-row items-start">
             <div className="inline-flex mb-4 md:mr-4">
-              <img src="/jordan/images/arp/backflow.png" className="w-[45vh] h-auto"/>
+              <img src="/jordan/images/arp/backflow.png" className="w-[45vh] h-auto" alt="Image loading..."/>
             </div>
             <p className="flex-1 text-justify">
               <br />
@@ -89,7 +89,7 @@ const Annuloplasty = () => {
               usually do not get it treated immediately.    
             </p>
             <div className="inline-flex mr-4 mb-4">
-              <img src="/jordan/images/arp/annuloplasty_ring.png" className="w-[45vh] h-auto ml-4"/>
+              <img src="/jordan/images/arp/annuloplasty_ring.png" className="w-[45vh] h-auto ml-4" alt="Image loading..."/>
             </div>            
           </div>
         </section>
@@ -102,7 +102,7 @@ const Annuloplasty = () => {
             , and one using <Link to="/research/annuloplasty" style={{ color: '#004d99', textDecoration: 'underline' }}>MMA-PEGDMA</Link>.
             This allowed the rings to be shaped into thin rods for insertion between the ribs. As such, the sternum does not need to be split, reducing the invasiveness of the surgery.
           </p>
-          <img src="/jordan/images/arp/rings.png" className="image w-[50vh] h-auto mx-auto mt-5 center"/>
+          <img src="/jordan/images/arp/rings.png" className="image w-[50vh] h-auto mx-auto mt-5 center" alt="Image loading..."/>
         </section>
   
         <div className="flexContainer">
@@ -136,7 +136,7 @@ const Annuloplasty = () => {
             ability to undergo the shape memory effect. Our novel research has great 
             significance in making improving the accessibility of treatment for 
             patients suffering from mitral valve regurgitation.
-            <img src="/jordan/images/arp/results.png" className="image w-[50vh] h-auto mx-auto mt-3"/>
+            <img src="/jordan/images/arp/results.png" className="image w-[50vh] h-auto mx-auto mt-3" alt="Image loading..."/>
           </p>
         </section>
 
