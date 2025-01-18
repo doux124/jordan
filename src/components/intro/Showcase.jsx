@@ -202,7 +202,7 @@ const Showcase = () => {
       {!isMobile && (
         <div className="w-64 bg-white rounded-lg shadow-lg h-fit -translate-x-16">
           <div className="p-4">
-            <h2 className="text-xl font-bold mb-4 text-gray-800">Projects</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-800 flex-center">Projects</h2>
             <div className="space-y-2">
               {projects.map((project, index) => (
                 <div
