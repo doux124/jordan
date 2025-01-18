@@ -20,20 +20,14 @@ const projects = [
     {
       id: 4,
       title: "Glucose Biosensor",
-      description: "four",
-      image: "/jordan/images/featured_works/RoverX.jpeg",
+      description: "We grew graphene using CVD and tested its quality using Raman Spectroscopy. By using RF plasma to alter the electrical properties of graphene, we expanded the detection range of graphene-based sensors for blood-glucose monitoring applications.",
+      image: "/jordan/images/featured_works/cvd.png",
     },
     {
       id: 5,
-      title: "Project 5",
+      title: "Project i'MPAC",
       description: "one",
-      image: "/jordan/images/featured_works/RoverX.jpeg",
-    },
-    {
-      id: 6,
-      title: "Project 6",
-      description: "two",
-      image: "/jordan/images/featured_works/RoverX.jpeg",
+      image: "/jordan/images/featured_works/impac.jpg",
     },
   ];
   

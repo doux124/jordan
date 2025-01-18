@@ -113,7 +113,7 @@ const Menu = ({ isMenuOpen, scrollToAboutMe }) => {
                 </div>
                 <div
                     className="social-link dark:text-white dark:bg-black"
-                    onClick={() => window.open('mailto:biev124@nus.edu.sg', '_blank')}
+                    onClick={() => window.open('mailto:onezeroten124@gmail.com?subject=Contact%20from%20Website&body=Hi%20Jordan,', '_blank')}
                 >
                     <FaEnvelope size={20} />
                 </div>
