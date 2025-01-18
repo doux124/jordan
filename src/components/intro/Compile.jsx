@@ -4,6 +4,7 @@ import Intro from "./Intro";
 import Synopsis from "./Synopsis";
 import CallToAction from "./CallToAction";
 import Showcase from "./Showcase";
+import Contact from "./Contact";
 
 const Compile = () => {
     const [loading, setLoading] = useState(false);
@@ -90,6 +91,7 @@ const Compile = () => {
                     </h1>
                     <Synopsis />
                     <Showcase />
+                    <Contact />
                 </div>
             </section>
         </div>
