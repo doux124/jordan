@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { gsap } from 'gsap';
 import projects from './projects';
 
 const Showcase = () => {
@@ -10,6 +11,9 @@ const Showcase = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [lastRotation, setLastRotation] = useState(0);
+  
+  const descriptionRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,6 +24,26 @@ const Showcase = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // GSAP animation for project description
+  useEffect(() => {
+    if (selectedProject && descriptionRef.current) {
+      gsap.fromTo(descriptionRef.current,
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "back.out(1.2)",
+        }
+      );
+    }
+  }, [selectedProject]);
 
   useEffect(() => {
     let animationFrame;
@@ -33,46 +57,49 @@ const Showcase = () => {
           setRotation(rotation + diff * 0.1);
         }
       } else if (isAutoRotating && !isDragging) {
-        setRotation(prev => prev + (isMobile ? 0.5 : 0.5));
+        setRotation(prev => prev + 0.5);
       }
       animationFrame = requestAnimationFrame(animate);
     };
     
     animationFrame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrame);
-  }, [isAutoRotating, rotation, targetRotation, isMobile, isDragging]);
+  }, [isAutoRotating, rotation, targetRotation, isDragging]);
+
+  useEffect(() => {
+    if (isMobile) {
+      const rotationDiff = Math.abs(rotation - lastRotation);
+      if (rotationDiff > 5 && selectedProject) {
+        setSelectedProject(null);
+      }
+      setLastRotation(rotation);
+    }
+  }, [rotation, isMobile, lastRotation, selectedProject]);
 
   const getImageStyle = useCallback((index) => {
+    const angleStep = (360 / projects.length);
+    const baseAngle = rotation + index * angleStep;
+    const radians = baseAngle * (Math.PI / 180);
+    
     if (isMobile) {
-      const angleStep = (360 / projects.length);
-      const baseAngle = rotation + index * angleStep;
-      const radians = baseAngle * (Math.PI / 180);
-      const radius = 350; // Radius of the circle
-      
+      const radius = 350;
       const x = radius * Math.sin(radians);
       const z = radius * Math.cos(radians);
       
-      // Calculate scaling based on z position
       const scale = (z + radius) / (2 * radius);
-      const opacity = 0.3 + scale * 0.7;
+      const opacity = 0.4 + scale * 0.6;
       const isClicked = selectedProject && selectedProject.id === projects[index].id;
       const dynamicScale = isAutoRotating || !isClicked ? 0.5 + scale : 2.2;
       
       return {
-        transform: `translate3d(${x}px, 0, ${z}px) rotateY(${-baseAngle}deg) scale(${dynamicScale})`,
+        transform: `translate3d(${x}px, 0, ${z}px) scale(${dynamicScale})`,
         opacity,
         zIndex: Math.round(z + radius),
-        visibility: z > -radius/2 ? 'visible' : 'hidden', // Hide elements behind the center
         transition: 'transform 0.3s ease-out, opacity 0.3s ease-out'
       };
     }
 
-    // Desktop styling remains the same
-    const angleStep = (360 / projects.length);
-    const baseAngle = rotation + index * angleStep;
-    const radians = baseAngle * (Math.PI / 180);
     const radius = 300;
-    
     const z = radius * Math.cos(radians);
     const x = radius * Math.sin(radians) * Math.cos(-Math.PI / 4);
     const y = radius * Math.sin(radians) * Math.sin(-Math.PI / 4);
@@ -100,13 +127,14 @@ const Showcase = () => {
 
   const rotateCarouselToProject = (index) => {
     const angleStep = 360 / projects.length;
+    const currentAngle = rotation;
     const targetAngle = -index * angleStep;
-    const currentRotation = rotation % 360;
-    let diff = targetAngle - currentRotation;
+    let diff = targetAngle - (currentAngle % 360);
+    
     if (diff > 180) diff -= 360;
     if (diff < -180) diff += 360;
-    const completeRotations = Math.floor(rotation / 360);
-    setTargetRotation(completeRotations * 360 + currentRotation + diff);
+    
+    setTargetRotation(currentAngle + diff);
   };
 
   const handleDragStart = (e) => {
@@ -144,17 +172,23 @@ const Showcase = () => {
         <div className="relative h-96 mb-8 -translate-x-20 md:-translate-x-48">
           {/* Project Description Overlay */}
           {selectedProject && (
-            <div className={`
-              absolute top-80 left-1/2 
-              ${isMobile ? '-translate-x-20 w-[80vw] max-w-md' : '-translate-x-20 w-[32rem]'}
-              bg-white/70 backdrop-blur-sm rounded-lg shadow-lg z-[2000] p-6
-            `}>
+            <div 
+              ref={descriptionRef}
+              className={`
+                absolute top-80 left-1/2 h-40 md:h-auto
+                ${isMobile ? '-translate-x-20 w-[80vw] max-w-md' : '-translate-x-20 w-[32rem]'}
+                bg-white/70 backdrop-blur-sm rounded-lg shadow-lg z-[2000] p-6
+                flex flex-col
+              `}
+            >
               <h2 className="text-2xl font-bold mb-4 text-black">{selectedProject.title}</h2>
-              <p className="text-gray-700">{selectedProject.description}</p>
+              <div className="flex-1 overflow-hidden">
+                <p className="text-gray-700 h-full overflow-y-auto pr-2">{selectedProject.description}</p>
+              </div>
             </div>
           )}
 
-          {/* Carousel Container */}
+          {/* Rest of the component remains the same */}
           <div 
             className="absolute w-full h-full flex items-center justify-center"
             style={{ perspective: '1200px' }}
@@ -202,7 +236,7 @@ const Showcase = () => {
       {!isMobile && (
         <div className="w-64 bg-white rounded-lg shadow-lg h-fit -translate-x-16">
           <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800 flex-center">Projects</h2>
+            <h2 className="text-2xl font-bold mb-4 text-gray-800 flex-center"><u>Projects</u></h2>
             <div className="space-y-2">
               {projects.map((project, index) => (
                 <div

@@ -26,7 +26,7 @@ const projects = [
     {
       id: 5,
       title: "Project i'MPAC",
-      description: "one",
+      description: "I directed the planning and execution of a student-led initiative to support Cambodian students in need during the COVID pandemic by providing soap and mask-making lessons in partnership with LJ Cambodia Foundation and ISE Travel.",
       image: "/jordan/images/featured_works/impac.jpg",
     },
   ];
