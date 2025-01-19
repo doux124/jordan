@@ -5,7 +5,7 @@ import './action.css';
 import { useNavigate } from 'react-router-dom';
 import '../../standards/buttons.css';
 
-const Menu = ({ isMenuOpen, scrollToAboutMe }) => { 
+const Menu = ({ isMenuOpen, scrollToAboutMe, scrollToShowcase }) => { 
   const menuRef = useRef(null);
   const navigate = useNavigate();
   const [animating, setAnimating] = useState(false);
@@ -75,6 +75,9 @@ const Menu = ({ isMenuOpen, scrollToAboutMe }) => {
                 <button 
                   className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
                   data-content="Click to Scroll" onClick={scrollToAboutMe}>About Me</button>
+                {/* <button 
+                  className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
+                  data-content="Click to Scroll" onClick={scrollToShowcase}>Project Showcase</button> */}
                 <button 
                   className="button-57 w-[200px] md:w-[300px] dark:border-white dark:bg-black dark:text-white transition-colors duration-300" 
                   data-content="Click to Enter" onClick={() => navigate('/research')}>Research Work</button>

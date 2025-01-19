@@ -10,11 +10,19 @@ const Compile = () => {
     const [loading, setLoading] = useState(false);
     const [showSecret, setShowSecret] = useState(false);
     const [showContent, setShowContent] = useState(false);
+    
     const aboutMeRef = useRef(null);
+    const showcaseRef = useRef(null);
 
     const scrollToAboutMe = () => {
         if (aboutMeRef.current) {
             aboutMeRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
+    const scrollToShowcase = () => {
+        if (showcaseRef.current) {
+            showcaseRef.current.scrollIntoView({ behavior: "smooth" });
         }
     };
 
@@ -40,6 +48,7 @@ const Compile = () => {
                 hideAfterDelay();
             }
         };
+        
         // Scrolling on mobile
         const handleTouchMove = (e) => {
             if (window.scrollY <= 0 && e.touches[0].clientY > window.touchStartY) {
@@ -48,6 +57,7 @@ const Compile = () => {
                 hideAfterDelay();
             }
         };
+        
         const handleTouchStart = (e) => {
             window.touchStartY = e.touches[0].clientY;
         };
@@ -81,18 +91,30 @@ const Compile = () => {
 
     return (
         <div>
-            {showContent && <CallToAction scrollToAboutMe={scrollToAboutMe} />}
+            {showContent && <CallToAction 
+                scrollToAboutMe={scrollToAboutMe}
+                scrollToShowcase={scrollToShowcase} 
+            />}
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
                     {showContent && <Intro />}
-                    <h1 ref={aboutMeRef} id="heading" className="section-heading text-center mt-4 md:mb-10 md:mt-0 text-black dark:text-white">
+                    <h1 
+                        ref={aboutMeRef} 
+                        id="about-me"
+                        className="section-heading text-center mt-4 md:mb-10 md:mt-0 text-black dark:text-white"
+                    >
                         About Me
                     </h1>
                     <Synopsis />
-                    <h1 ref={aboutMeRef} id="heading" className="section-heading text-center mt-20 mb-0 md:mb-10 md:mt-10 text-black dark:text-white">
+                    <h1 
+                        ref={showcaseRef}
+                        id="showcase"
+                        className="section-heading text-center mt-20 mb-0 md:mb-10 md:mt-10 text-black dark:text-white"
+                    >
                         Project Showcase
                     </h1>
+                    <h2 className="flex-center text-sm md:text-xl -mt-5">Click on the projects to learn more</h2>
                     <Showcase />
                     <Contact />
                 </div>

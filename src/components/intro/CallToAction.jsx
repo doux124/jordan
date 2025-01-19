@@ -3,7 +3,7 @@ import Menu from './Menu';
 import { gsap } from 'gsap';
 import './action.css';
 
-const CallToAction = ({ scrollToAboutMe }) => {
+const CallToAction = ({ scrollToAboutMe, scrollToShowcase }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -37,6 +37,7 @@ const CallToAction = ({ scrollToAboutMe }) => {
       <Menu
         isMenuOpen={isMenuOpen}
         scrollToAboutMe={scrollToAboutMe}
+        scrollToShowcase={scrollToShowcase} 
       />
     </div>
   );
