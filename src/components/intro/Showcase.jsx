@@ -25,25 +25,33 @@ const Showcase = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // GSAP animation for project description
   useEffect(() => {
-    if (selectedProject && descriptionRef.current) {
+    if (!descriptionRef.current) return;
+    
+    if (selectedProject && !isAutoRotating) {
+      // Animate in
       gsap.fromTo(descriptionRef.current,
         {
           opacity: 0,
-          y: 50,
           scale: 0.9,
         },
         {
           opacity: 1,
-          y: 0,
           scale: 1,
           duration: 0.5,
           ease: "back.out(1.2)",
         }
       );
+    } else {
+      // Animate out
+      gsap.to(descriptionRef.current, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.3,
+        ease: "power2.in"
+      });
     }
-  }, [selectedProject]);
+  }, [selectedProject, isAutoRotating]);
 
   useEffect(() => {
     let animationFrame;
@@ -160,7 +168,7 @@ const Showcase = () => {
 
   return (
     <div 
-      className={`-my-32 md:-my-0 w-full max-w-6xl mx-auto px-4 md:px-8 ${isMobile ? 'py-16 overflow-x-hidden' : 'py-40'} flex flex-col md:flex-row md:gap-8`}
+      className={`-mt-48 -mb-32 md:-mt-0 md:-mb-0 w-full max-w-6xl mx-auto px-4 md:px-8 ${isMobile ? 'py-16 overflow-x-hidden' : 'py-40'} flex flex-col md:flex-row md:gap-8`}
       onMouseLeave={() => {
         if (!isMobile) {
           setSelectedProject(null);
@@ -178,7 +186,7 @@ const Showcase = () => {
                 absolute top-80 left-1/2 h-40 md:h-auto
                 ${isMobile ? '-translate-x-20 w-[80vw] max-w-md' : '-translate-x-20 w-[32rem]'}
                 bg-white/70 backdrop-blur-sm rounded-lg shadow-lg z-[2000] p-6
-                flex flex-col
+                flex flex-col transition-opacity duration-300
               `}
             >
               <h2 className="text-2xl font-bold mb-4 text-black">{selectedProject.title}</h2>
@@ -188,7 +196,7 @@ const Showcase = () => {
             </div>
           )}
 
-          {/* Rest of the component remains the same */}
+          {/* Carousel */}
           <div 
             className="absolute w-full h-full flex items-center justify-center"
             style={{ perspective: '1200px' }}

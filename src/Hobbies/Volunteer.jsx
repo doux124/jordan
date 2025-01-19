@@ -9,7 +9,7 @@ const Embroidery = () => {
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/volunteering/carwash.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Overall in Charge of Project IMPAC</h3>
-            <p className="text-sm text-[#483C32]">TDLR we raised funds to teach underprivileged Cambodian students how to make and sell masks during COVID.</p>
+            <p className="text-sm text-[#483C32]">TLDR we raised funds to teach underprivileged Cambodian students how to make and sell masks during COVID.</p>
           </div>
 
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
@@ -33,7 +33,7 @@ const Embroidery = () => {
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">
             <img src="/jordan/images/hobbies/volunteering/lkh.jpg" className="w-full rounded-lg mb-2" />
             <h3 className="text-lg font-semibold mb-1 text-[#483C32]">Ling Kwang Home</h3>
-            <p className="text-sm text-[#483C32]">I am the Overall in Charge for planning and executing Resident's Day 2022 at Ling Kwang Home.</p>
+            <p className="text-sm text-[#483C32]">I was the Overall in Charge for planning and executing Resident's Day 2022 at Ling Kwang Home.</p>
           </div>
           
           <div className="p-4 bg-[#FFECD1] rounded-lg text-white">

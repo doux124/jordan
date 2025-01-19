@@ -3,6 +3,7 @@ import ToggleSection from "./ToggleSection";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { useNavigate } from 'react-router-dom';
+import '../CV/styles.css'
 
 import DynamicBackground from "../standards/DynamicBackground";
 

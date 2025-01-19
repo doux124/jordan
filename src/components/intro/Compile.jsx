@@ -90,7 +90,7 @@ const Compile = () => {
                         About Me
                     </h1>
                     <Synopsis />
-                    <h1 ref={aboutMeRef} id="heading" className="section-heading text-center mt-4 md:mb-10 md:mt-10 text-black dark:text-white">
+                    <h1 ref={aboutMeRef} id="heading" className="section-heading text-center mt-20 mb-0 md:mb-10 md:mt-10 text-black dark:text-white">
                         Project Showcase
                     </h1>
                     <Showcase />
