@@ -54,8 +54,15 @@ const Showcase = () => {
   }, [selectedProject, isAutoRotating]);
 
   useEffect(() => {
+    let lastTimestamp = 0;
     let animationFrame;
-    const animate = () => {
+    
+    const animate = (timestamp) => {
+      if (timestamp - lastTimestamp < 16) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+      
       if (targetRotation !== null) {
         const diff = targetRotation - rotation;
         if (Math.abs(diff) < 1) {
@@ -67,6 +74,8 @@ const Showcase = () => {
       } else if (isAutoRotating && !isDragging) {
         setRotation(prev => prev + 0.5);
       }
+      
+      lastTimestamp = timestamp;
       animationFrame = requestAnimationFrame(animate);
     };
     
