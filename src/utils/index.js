@@ -4,10 +4,10 @@ import harmony from "/videos/harmony.mp4";
 import eruditionMobile from "/videos/eruditionMobile.mp4";
 import huntMobile from "/videos/huntMobile.mp4";
 
-import main from "/videos/main.mp4"
-import mainSmall from "/videos/main_mobile.mp4"
-import mainLight from "/videos/main_lightmode.mp4"
-import mainSmallLight from "/videos/main_mobile_lightmode.mp4"
+import main from "/videos/main2.mp4"
+import mainSmall from "/videos/main_mobile2.mp4"
+import mainLight from "/videos/main_lightmode2.mp4"
+import mainSmallLight from "/videos/main_mobile_lightmode2.mp4"
 
 import timeline from "/videos/timeline.mp4"
 import timelineMobile from "/videos/timelineMobile.mp4"

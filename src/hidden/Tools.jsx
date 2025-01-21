@@ -13,7 +13,7 @@ const VirtualPet = lazy(() => import("./virtualpet/VirtualPet"));
 
 const Tools = () => {
   const navigate = useNavigate();
-  const [temperature, setTemperature] = useState(20);
+  const [temperature, setTemperature] = useState(-10);
   const [gravity, setGravity] = useState(false);
   const [count, setCount] = useState(40);
   const [flash, setFlash] = useState(false);
@@ -130,7 +130,7 @@ const Tools = () => {
         </h2>
         <div className="flex flex-col items-center">
           <label htmlFor="temperature-input" className="text-lg mb-4">
-            Temperature (-30°C to 20°C): <span>{temperature}°C</span>
+            Temperature (-30°C to 10°C): <span>{temperature}°C</span>
           </label>
           <input
             id="temperature-input"
@@ -142,8 +142,8 @@ const Tools = () => {
               if (!isNaN(value)) {
                 if (value < -30) {
                   setTemperature(-30);
-                } else if (value > 20) {
-                  setTemperature(20);
+                } else if (value > 10) {
+                  setTemperature(10);
                 } else {
                   setTemperature(value);
                 }
@@ -155,8 +155,8 @@ const Tools = () => {
                 if (!isNaN(value)) {
                   if (value < -30) {
                     setTemperature(-30);
-                  } else if (value > 20) {
-                    setTemperature(20);
+                  } else if (value > 10) {
+                    setTemperature(10);
                   } else {
                     setTemperature(value);
                   }

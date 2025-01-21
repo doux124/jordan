@@ -91,10 +91,6 @@ const Compile = () => {
 
     return (
         <div>
-            {showContent && <CallToAction 
-                scrollToAboutMe={scrollToAboutMe}
-                scrollToShowcase={scrollToShowcase} 
-            />}
             <section className="common-padding">
                 <SecretDrawings show={showSecret} />
                 <div className={`main-content ${showSecret ? 'shifted' : ''}`}>
@@ -119,6 +115,10 @@ const Compile = () => {
                     <Contact />
                 </div>
             </section>
+            {showContent && <CallToAction 
+                scrollToAboutMe={scrollToAboutMe}
+                scrollToShowcase={scrollToShowcase} 
+            />}
         </div>
     );
 };
