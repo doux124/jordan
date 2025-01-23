@@ -31,7 +31,7 @@ const Synopsis = () => {
       </p>
 
       <Link to='/game'>
-        <button className="button-85 text-2xl">Enter Game</button>
+        <button className="button-85 text-2xl hover:scale-105 transition-transform">Enter Game</button>
       </Link>
     </div>
   );

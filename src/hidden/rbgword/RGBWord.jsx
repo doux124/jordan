@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-const RGBWord = ({ text, interval = 100, color = 'white' }) => {
+const RGBWord = ({ text, interval = 100, color = document.documentElement.classList.contains('dark') ? "white" : "black" }) => {
     const specialChars = ['!', '#', '$', '%', '&', '*', '@', '█'];
     const getRandomCharacter = () => specialChars[Math.floor(Math.random() * specialChars.length)];
     

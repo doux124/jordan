@@ -435,7 +435,13 @@
   height: calc(100% + 4px);
   animation: glowing-button-100 20s linear infinite;
   transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
+  border-radius: 25px;
+}
+
+@media (max-width: 760px) {
+  .button-100:before {
+    border-radius: 10px;
+  }
 }
 
 @keyframes glowing-button-100 {
@@ -460,7 +466,6 @@
   background-position: center;
   left: 0;
   top: 0;
-  border-radius: 10px;
 }
 
 .button-200:after {

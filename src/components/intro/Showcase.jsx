@@ -167,7 +167,7 @@ const Showcase = () => {
     const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
     const sensitivity = 0.5;
     const walk = (startX - x) * sensitivity;
-    setRotation(scrollLeft + walk);
+    setRotation(scrollLeft - walk);
   };
 
   const handleDragEnd = () => {

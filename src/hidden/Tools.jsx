@@ -13,7 +13,7 @@ const VirtualPet = lazy(() => import("./virtualpet/VirtualPet"));
 
 const Tools = () => {
   const navigate = useNavigate();
-  const [temperature, setTemperature] = useState(-10);
+  const [temperature, setTemperature] = useState(0);
   const [gravity, setGravity] = useState(false);
   const [count, setCount] = useState(40);
   const [flash, setFlash] = useState(false);
