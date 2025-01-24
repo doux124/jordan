@@ -1,17 +1,20 @@
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from "react";
+import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
+import '../../standards/buttons.css';
 import {
     mainVid,
     mainVidSmall,
     mainVidLight,
     mainVidSmallLight
 } from "../../utils";
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from "react";
-import '../../standards/buttons.css';
-import { Link } from 'react-router-dom';
 
 const Intro = () => {
     const navigate = useNavigate();
     const videoRef = useRef(null);
+    const researchButtonRef = useRef(null);
+    const hobbiesButtonRef = useRef(null);
     let isDarkMode = document.documentElement.classList.contains('dark');
 
     const getVideoSource = (width, isDarkMode) => {
@@ -56,10 +59,10 @@ const Intro = () => {
                 navigate('/hidden');
             }
         } else {
-        if (1400 < x && x < 1560 && 205 < y && y < 370) {
-            navigate('/hidden');
+            if (1400 < x && x < 1560 && 205 < y && y < 370) {
+                navigate('/hidden');
+            }
         }
-    }
     };
 
     useEffect(() => {
@@ -67,14 +70,46 @@ const Intro = () => {
             handleVideoSrcSet();
         };
 
-        // Observe changes to the 'dark' class on the html element
         const observer = new MutationObserver(handleThemeChange);
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-        // Dynamic video
-        window.addEventListener('resize', handleVideoSrcSet);
+        // GSAP Entrance Animation
+        const isMobile = window.innerWidth < 760;
 
-        // Main video
+        gsap.fromTo(
+            researchButtonRef.current,
+            { 
+                opacity: 0, 
+                x: isMobile ? -50 : 50,
+                scale: 0.8 
+            },
+            { 
+                opacity: 1, 
+                x: 0,
+                scale: 1,
+                duration: 1,
+                delay: 0.8,
+                ease: "back.out(1.7)"
+            }
+        );
+
+        gsap.fromTo(
+            hobbiesButtonRef.current,
+            { 
+                opacity: 0, 
+                x: isMobile ? 50 : 50,
+                scale: 0.8 
+            },
+            { 
+                opacity: 1, 
+                x: 0,
+                scale: 1,
+                duration: 1, 
+                delay: 0.5,
+                ease: "back.out(1.7)"
+            }
+        );
+
         const video = videoRef.current;
         video.pause();
         const timeout = setTimeout(() => {
@@ -93,32 +128,44 @@ const Intro = () => {
             {window.innerWidth > 760 ? (
                 <div>
                     <Link to='/research'>
-                        <button className="button-100 button-200 absolute text-2xl w-[406px] h-[262px] top-[395px] left-[calc(50%-250px)] z-10 hover:scale-105 transition-transform"></button>
+                        <button 
+                            ref={researchButtonRef}
+                            className="button-100 button-200 absolute text-2xl w-[406px] h-[262px] top-[395px] left-[calc(50%-250px)] z-10"
+                        ></button>
                     </Link>
                     <Link to='/hobbies'>
-                        <button className="button-100 button-201 absolute text-2xl w-[406px] h-[262px] top-[395px] left-[calc(50%+180px)] z-10 hover:scale-105 transition-transform"></button>
+                        <button 
+                            ref={hobbiesButtonRef}
+                            className="button-100 button-201 absolute text-2xl w-[406px] h-[262px] top-[395px] left-[calc(50%+180px)] z-10"
+                        ></button>
                     </Link>
                 </div>
             ) : (
                 <div>
                     <Link to='/research'>
-                        <button className="button-100 button-200 absolute text-2xl w-[165px] h-[106px] top-[328px] left-[calc(50%-133px)] z-10 hover:scale-105 transition-transform"></button>
+                        <button 
+                            ref={researchButtonRef}
+                            className="button-100 button-200 absolute text-2xl w-[165px] h-[106px] top-[328px] left-[calc(50%-133px)] z-10"
+                        ></button>
                     </Link>
                     <Link to='/hobbies'>
-                        <button className="button-100 button-201 absolute text-2xl w-[165px] h-[106px] top-[455px] left-[calc(50%-28px)] z-10 hover:scale-105 transition-transform"></button>
+                        <button 
+                            ref={hobbiesButtonRef}
+                            className="button-100 button-201 absolute text-2xl w-[165px] h-[106px] top-[455px] left-[calc(50%-28px)] z-10"
+                        ></button>
                     </Link>
                 </div>
             )}
             <div className="relative w-full h-full">
                 <video
-                key={videoSrc}
-                ref={videoRef}
-                autoPlay
-                muted
-                playsInline
-                style={{ width: '100%', height: '100%' }}
+                    key={videoSrc}
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    playsInline
+                    style={{ width: '100%', height: '100%' }}
                 >
-                <source src={videoSrc} type="video/mp4" />
+                    <source src={videoSrc} type="video/mp4" />
                 </video>
                 <div
                     style={{
@@ -129,7 +176,7 @@ const Intro = () => {
                         height: '100%',
                         zIndex: 5,
                         cursor: 'pointer',
-                        backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent background
+                        backgroundColor: 'rgba(0, 0, 0, 0)',
                     }}
                     onClick={handleClick}
                 />
