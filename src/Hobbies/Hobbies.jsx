@@ -1,6 +1,8 @@
 import '../index.css';
 import './Hobbies.css';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 
 const hobbies = [
   { id: 1, name: 'Origami', image: '/jordan/images/hobbies/origami/origami.jpg', backgroundImage: '/jordan/images/hobbies/origami_bg.png' },
@@ -19,6 +21,14 @@ const Hobbies = () => {
   return (
     <div>
       <div className="background-image"></div>
+      <nav className="mt-10 mr-10 text-2xl flex justify-end">
+        <a 
+          className="navLink"
+          onClick={() => navigate('/')}
+        >
+          <FontAwesomeIcon icon={faHome} style={{ fontSize: '30px' }} />
+        </a>
+      </nav>
 
       <div className="hobbies-container">
         {hobbies.map((hobby) => (
