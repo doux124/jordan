@@ -21,7 +21,7 @@ const Hobbies = () => {
   return (
     <div>
       <div className="background-image"></div>
-      <nav className="mt-10 mr-10 text-2xl flex justify-end">
+      <nav className="my-10 mr-10 text-2xl flex justify-end">
         <a 
           className="navLink"
           onClick={() => navigate('/')}
@@ -32,7 +32,7 @@ const Hobbies = () => {
 
       <div className="hobbies-container">
         {hobbies.map((hobby) => (
-          <div key={hobby.id} className="hobby-box" onClick={() => handleClick(`/hobbies/${hobby.name.toLowerCase()}/`)}>
+          <div key={hobby.id} className="hobby-box md:-mt-48" onClick={() => handleClick(`/hobbies/${hobby.name.toLowerCase()}/`)}>
             <img src={hobby.image} alt={hobby.name} className="hobby-image" />
             <div className="relative">
               <img src={hobby.backgroundImage} alt={hobby.name} className="hobby-background-image" />
