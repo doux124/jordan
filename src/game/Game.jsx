@@ -268,7 +268,7 @@ const Game = () => {
 
     return (
         <canvas id="game-canvas" ref={canvasRef} width={3200} height={1800}>
-            {music && <Music songName={"spiderDance"} />}
+            {music && <Music songName={"spiderDance"} targetVolume={0.2}/>}
         </canvas>
     );
 };

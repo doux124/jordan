@@ -10,6 +10,8 @@ import {
     mainVidSmallLight
 } from "../../utils";
 
+const buttonSound = new Audio("/jordan/audio/sound_effects/click.mp3");
+
 const Intro = () => {
     const navigate = useNavigate();
     const videoRef = useRef(null);
@@ -31,6 +33,11 @@ const Intro = () => {
     const handleVideoSrcSet = () => {
         isDarkMode = document.documentElement.classList.contains('dark');
         setVideoSrc(getVideoSource(window.innerWidth, isDarkMode));
+    };
+
+    const playButtonSound = () => {
+        buttonSound.currentTime = 0;
+        buttonSound.play();
     };
 
     const handleClick = (event) => {
@@ -131,12 +138,14 @@ const Intro = () => {
                         <button 
                             ref={researchButtonRef}
                             className="button-100 button-200 absolute text-2xl w-[406px] h-[262px] top-[395px] left-[calc(50%-250px)] z-10"
+                            onClick={playButtonSound}
                         ></button>
                     </Link>
                     <Link to='/hobbies'>
                         <button 
                             ref={hobbiesButtonRef}
                             className="button-100 button-201 absolute text-2xl w-[406px] h-[262px] top-[395px] left-[calc(50%+180px)] z-10"
+                            onClick={playButtonSound}
                         ></button>
                     </Link>
                 </div>
@@ -146,12 +155,14 @@ const Intro = () => {
                         <button 
                             ref={researchButtonRef}
                             className="button-100 button-200 absolute text-2xl w-[165px] h-[106px] top-[328px] left-[calc(50%-133px)] z-10"
+                            onClick={playButtonSound}
                         ></button>
                     </Link>
                     <Link to='/hobbies'>
                         <button 
                             ref={hobbiesButtonRef}
                             className="button-100 button-201 absolute text-2xl w-[165px] h-[106px] top-[455px] left-[calc(50%-28px)] z-10"
+                            onClick={playButtonSound}
                         ></button>
                     </Link>
                 </div>

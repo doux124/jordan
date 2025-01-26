@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import '../../standards/buttons.css';
 
+const buttonSound = new Audio("/jordan/audio/sound_effects/click.mp3");
+
 const Synopsis = () => {
+  const playButtonSound = () => {
+    buttonSound.currentTime = 0;
+    buttonSound.play();
+  };
   return (
     <div style={styles.container} className='bg-[#fcf3e0] dark:bg-black'>
       <p style={styles.paragraph} className="text-base md:text-2xl text-black dark:text-white">
@@ -31,7 +37,7 @@ const Synopsis = () => {
       </p>
 
       <Link to='/game'>
-        <button className="button-85 text-2xl hover:scale-105 transition-transform">Enter Game</button>
+        <button className="button-85 text-2xl hover:scale-105 transition-transform" onClick={playButtonSound}>Enter Game</button>
       </Link>
     </div>
   );

@@ -6,8 +6,12 @@ import './action.css';
 const CallToAction = ({ scrollToAboutMe, scrollToShowcase }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const clickSound = useRef(new Audio("/jordan/audio/sound_effects/infographic-button.mp3"));
 
   const toggleMenu = () => {
+    clickSound.current.currentTime = 0;
+    clickSound.current.play();
+
     setIsMenuOpen(!isMenuOpen);
 
     if (!isMenuOpen) {
