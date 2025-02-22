@@ -113,7 +113,7 @@ const Tools = () => {
         </div>
 
         <div className="w-full flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2">
             <ToggleSection title="Piano">
               <Suspense fallback={<div>Loading...</div>}>
                 <div className="flex-center">
@@ -134,6 +134,19 @@ const Tools = () => {
           </div>
         </div>
       </div>
+
+      <div className="w-full flex flex-col md:flex-row">
+          <div className="w-full md:w-1/2">
+            <ToggleSection title="Word Search">
+              <Suspense fallback={<div>Loading...</div>}>
+                <div className="flex-center">
+                    <button className="button-49 text-2xl" onClick={() => navigate('/wordgame')}>Click Here</button>
+                </div>
+              </Suspense>
+            </ToggleSection>
+          </div>
+      </div>
+
       <div className='mb-44'>
         <h2 className="text-center text-3xl z-1 my-10">
           Thermostat

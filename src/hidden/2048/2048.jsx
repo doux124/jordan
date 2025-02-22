@@ -11,6 +11,7 @@ const Game2048 = () => {
   const [records, setRecords] = useState([]);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const navigate = useNavigate();
 
   // Minimum swipe distance (in pixels)
   const minSwipeDistance = 50;
