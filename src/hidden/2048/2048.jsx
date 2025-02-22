@@ -6,19 +6,20 @@ const Game2048 = () => {
   const [score, setScore] = useState(0);
   const [gameStatus, setGameStatus] = useState('not over');
   const [records, setRecords] = useState([]);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
-  // Helper functions
+  // Minimum swipe distance (in pixels)
+  const minSwipeDistance = 50;
+
+  // Helper functions (keeping all existing helpers)
   const flatten = (mat) => mat.flat();
-
   const hasZero = (mat) => flatten(mat).includes(0);
-
   const transpose = (mat) => mat[0].map((_, i) => mat.map(row => row[i]));
-
   const reverse = (mat) => mat.map(row => [...row].reverse());
-
   const deepCopy = (mat) => JSON.parse(JSON.stringify(mat));
 
-  // Game initialization
+  // Game initialization (keeping existing initialization logic)
   const newGameMatrix = (n) => Array(n).fill().map(() => Array(n).fill(0));
 
   const addTwo = (mat) => {
@@ -47,19 +48,63 @@ const Game2048 = () => {
     setRecords([]);
   }, []);
 
-  // Game status check
+  // Touch event handlers
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY
+    });
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY
+    });
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const deltaX = touchStart.x - touchEnd.x;
+    const deltaY = touchStart.y - touchEnd.y;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    if (Math.max(absDeltaX, absDeltaY) < minSwipeDistance) return;
+
+    if (absDeltaX > absDeltaY) {
+      // Horizontal swipe
+      if (deltaX > 0) {
+        move('left');
+      } else {
+        move('right');
+      }
+    } else {
+      // Vertical swipe
+      if (deltaY > 0) {
+        move('up');
+      } else {
+        move('down');
+      }
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  // Keeping all existing game logic (checkGameStatus, shiftLeft, mergeLeft)
   const checkGameStatus = (mat) => {
     if (flatten(mat).includes(2048)) return 'win';
     if (hasZero(mat)) return 'not over';
 
-    // Check horizontal adjacency
     for (let i = 0; i < GRID_SIZE; i++) {
       for (let j = 1; j < GRID_SIZE; j++) {
         if (mat[i][j] === mat[i][j-1]) return 'not over';
       }
     }
 
-    // Check vertical adjacency
     const transposed = transpose(mat);
     for (let i = 0; i < GRID_SIZE; i++) {
       for (let j = 1; j < GRID_SIZE; j++) {
@@ -70,7 +115,6 @@ const Game2048 = () => {
     return 'lose';
   };
 
-  // Merge operations
   const shiftLeft = (mat) => {
     return mat.map(row => {
       const filtered = row.filter(cell => cell !== 0);
@@ -146,7 +190,6 @@ const Game2048 = () => {
     setGameStatus('not over');
   }, [records]);
 
-  // Keyboard controls
   const handleKeyPress = useCallback((e) => {
     if (gameStatus !== 'not over') return;
     
@@ -167,7 +210,6 @@ const Game2048 = () => {
   }, [gameStatus, move]);
 
   useEffect(() => {
-    // Only initialize the game once when the component mounts
     if (matrix.length === 0) {
       initializeGame();
     }
@@ -176,7 +218,6 @@ const Game2048 = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress, initializeGame, matrix.length]);
 
-  // Cell color mapping
   const getCellColor = (value) => {
     const colors = {
       0: '#eee',
@@ -199,15 +240,20 @@ const Game2048 = () => {
     <div className="flex flex-col items-center p-4">
       <h1 className="text-4xl font-bold mb-4">2048</h1>
       
-      <div className="mb-4 flex justify-between w-full max-w-md">
-        <div className="text-xl font-bold">Score: {score}</div>
+      <div className="mb-4 flex flex-col sm:flex-row items-center justify-between w-full">
+        <div className="text-xl font-bold mb-2 sm:mb-0">Score: {score}</div>
         <div className="space-x-2">
-            <button className='button-89 my-5 ml-60 md:ml-0' onClick={initializeGame}>New Game</button>
-            <button className='button-89 my-5 ml-60 md:ml-0' onClick={handleUndo} disabled={records.length === 0}>Undo</button>
+          <button className="button-89 my-2 sm:my-5 ml-0" onClick={initializeGame}>New Game</button>
+          <button className="button-89 my-2 sm:my-5 ml-0" onClick={handleUndo} disabled={records.length === 0}>Undo</button>
         </div>
       </div>
 
-      <div className="bg-gray-300 p-4 rounded-lg">
+      <div 
+        className="bg-gray-300 p-4 rounded-lg touch-none"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <div className="grid grid-cols-4 gap-2">
           {matrix.map((row, i) => 
             row.map((cell, j) => (
