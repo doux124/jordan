@@ -102,7 +102,7 @@ const Tools = () => {
           </div>
 
           <div className="w-full md:w-1/2">
-          <ToggleSection title="Trading">
+            <ToggleSection title="Trading">
               <Suspense fallback={<div>Loading...</div>}>
                 <div className="flex-center">
                     <button className="button-49 text-2xl" onClick={() => navigate('/trading')}>Click Here</button>
@@ -113,11 +113,21 @@ const Tools = () => {
         </div>
 
         <div className="w-full flex flex-col md:flex-row">
-          <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2">
             <ToggleSection title="Piano">
               <Suspense fallback={<div>Loading...</div>}>
                 <div className="flex-center">
                     <button className="button-49 text-2xl" onClick={() => navigate('/piano')}>Click Here</button>
+                </div>
+              </Suspense>
+            </ToggleSection>
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <ToggleSection title="2048">
+              <Suspense fallback={<div>Loading...</div>}>
+                <div className="flex-center">
+                    <button className="button-49 text-2xl" onClick={() => navigate('/2048')}>Click Here</button>
                 </div>
               </Suspense>
             </ToggleSection>

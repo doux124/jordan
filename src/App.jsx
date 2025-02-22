@@ -24,6 +24,8 @@ const BirthdayButton = lazy(() => import('./hidden/birthday/BirthdayButton'));
 const Politicians = lazy(() => import('./hidden/trading/Politicians'));
 const VirtualPet = lazy(() => import('./hidden/virtualpet/VirtualPet'));
 const PianoPractice = lazy(() => import('./hidden/piano/PianoPractice'));
+const WebcamPiano = lazy(() => import('./hidden/piano/WebcamPiano'));
+const TwoZeroFourEight = lazy(() => import('./hidden/2048/2048'))
 
 const App = () => {
   const isNightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -61,6 +63,7 @@ const App = () => {
           <Route path="trading" element={<Politicians />} />
           <Route path="virtualpet" element={<VirtualPet />} />
           <Route path="piano" element={<PianoPractice />} />
+          <Route path="2048" element={<TwoZeroFourEight />}/>
         </Routes>
       </Suspense>
     </main>
