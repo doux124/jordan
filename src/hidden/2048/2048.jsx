@@ -1,4 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { useNavigate } from 'react-router-dom';
 
 const Game2048 = () => {
   const GRID_SIZE = 4;
@@ -238,10 +241,17 @@ const Game2048 = () => {
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h1 className="text-4xl font-bold mb-4">2048</h1>
-      
-      <div className="mb-4 flex flex-col sm:flex-row items-center justify-between w-full">
-        <div className="text-xl font-bold mb-2 sm:mb-0">Score: {score}</div>
+      <div className="relative flex justify-center items-center w-full my-8">
+        <h1 className="text-4xl font-bold">2048</h1>
+        <nav className="absolute right-2 text-2xl">
+          <a className="navLink" onClick={() => navigate('/tools')}>
+            <FontAwesomeIcon icon={faHome} style={{ fontSize: '30px' }} />
+          </a>
+        </nav>
+      </div>
+
+      <div className="mb-4 flex flex-center justify-between w-full">
+        <div className="text-xl font-bold pr-10">Score: {score}</div>
         <div className="space-x-2">
           <button className="button-89 my-2 sm:my-5 ml-0" onClick={initializeGame}>New Game</button>
           <button className="button-89 my-2 sm:my-5 ml-0" onClick={handleUndo} disabled={records.length === 0}>Undo</button>
