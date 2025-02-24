@@ -23,8 +23,7 @@ const BirthdayCard = lazy(() => import('./hidden/birthday/BirthdayCard'));
 const BirthdayButton = lazy(() => import('./hidden/birthday/BirthdayButton'));
 const Politicians = lazy(() => import('./hidden/trading/Politicians'));
 const VirtualPet = lazy(() => import('./hidden/virtualpet/VirtualPet'));
-const PianoPractice = lazy(() => import('./hidden/piano/PianoPractice'));
-const WebcamPiano = lazy(() => import('./hidden/piano/WebcamPiano'));
+const Piano = lazy(() => import('./hidden/piano/Piano'));
 const TwoZeroFourEight = lazy(() => import('./hidden/2048/2048'))
 const WordGame = lazy(() => import('./hidden/word/WordGame'))
 
@@ -63,7 +62,7 @@ const App = () => {
           <Route path="Surprise/:name" element={<BirthdayButton />} />
           <Route path="trading" element={<Politicians />} />
           <Route path="virtualpet" element={<VirtualPet />} />
-          <Route path="piano" element={<PianoPractice />} />
+          <Route path="piano" element={<Piano />} />
           <Route path="2048" element={<TwoZeroFourEight />}/>
           <Route path="wordgame" element={<WordGame />}/>
         </Routes>

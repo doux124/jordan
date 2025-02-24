@@ -9,8 +9,8 @@ const Keyboard = ({ highlightedNote }) => {
   const [player, setPlayer] = useState(null);
   const [clickedNotes, setClickedNotes] = useState([]);
 
-  const firstNote = MidiNumbers.fromNote('c3');
-  const lastNote = MidiNumbers.fromNote('f5');
+  const firstNote = MidiNumbers.fromNote('c4');
+  const lastNote = MidiNumbers.fromNote('b4');
 
   useEffect(() => {
     const context = new (window.AudioContext || window.webkitAudioContext)();
@@ -75,12 +75,12 @@ const Keyboard = ({ highlightedNote }) => {
   };
 
   return (
-    <div>
+    <div className='pl-4'>
       <Piano
         noteRange={{ first: firstNote, last: lastNote }}
         playNote={playNote}
         stopNote={stopNote}
-        width={1000}
+        width={600}
         renderNoteLabel={({ midiNumber }) => {
           const note = MidiNumbers.getAttributes(midiNumber).note;
           const sharpNote = convertNoteToSharp(note);

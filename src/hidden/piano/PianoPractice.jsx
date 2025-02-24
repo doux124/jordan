@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import RandomNote from './RandomNote';
 import Keyboard from './Keyboard';
-import '../../standards/buttons.css';
-import '../../CV/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { useNavigate } from 'react-router-dom';
