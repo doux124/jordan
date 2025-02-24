@@ -23,7 +23,7 @@ const Game2048 = () => {
   const reverse = (mat) => mat.map(row => [...row].reverse());
   const deepCopy = (mat) => JSON.parse(JSON.stringify(mat));
 
-  // Game initialization (keeping existing initialization logic)
+  // Game initialization with localStorage
   const newGameMatrix = (n) => Array(n).fill().map(() => Array(n).fill(0));
 
   const addTwo = (mat) => {
@@ -43,6 +43,33 @@ const Game2048 = () => {
     return matCopy;
   };
 
+  const saveGameState = (newMatrix, newScore, newGameStatus, newRecords) => {
+    localStorage.setItem('2048_state', JSON.stringify({
+      matrix: newMatrix,
+      score: newScore,
+      gameStatus: newGameStatus,
+      records: newRecords,
+      timestamp: Date.now()
+    }));
+  };
+
+  const loadGameState = () => {
+    const savedState = localStorage.getItem('2048_state');
+    if (savedState) {
+      const { matrix, score, gameStatus, records, timestamp } = JSON.parse(savedState);
+      // Optional: Check if the saved state is too old (e.g., more than 24 hours)
+      const isStateValid = Date.now() - timestamp < 24 * 60 * 60 * 1000;
+      if (isStateValid) {
+        setMatrix(matrix);
+        setScore(score);
+        setGameStatus(gameStatus);
+        setRecords(records);
+        return true;
+      }
+    }
+    return false;
+  };
+
   const initializeGame = useCallback(() => {
     let newMatrix = newGameMatrix(GRID_SIZE);
     newMatrix = addTwo(addTwo(newMatrix));
@@ -50,9 +77,10 @@ const Game2048 = () => {
     setScore(0);
     setGameStatus('not over');
     setRecords([]);
+    saveGameState(newMatrix, 0, 'not over', []);
   }, []);
 
-  // Touch event handlers
+  // Touch event handlers remain the same
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart({
@@ -98,7 +126,7 @@ const Game2048 = () => {
     setTouchEnd(null);
   };
 
-  // Keeping all existing game logic (checkGameStatus, shiftLeft, mergeLeft)
+  // Game logic functions remain the same
   const checkGameStatus = (mat) => {
     if (flatten(mat).includes(2048)) return 'win';
     if (hasZero(mat)) return 'not over';
@@ -176,23 +204,38 @@ const Game2048 = () => {
     }
 
     if (changed) {
-      if (records.length === 3) records.shift();
-      setRecords(prevRecords => [...prevRecords, { matrix: currentMatrix, score: scoreIncrement }]);
+      const newRecords = [...records];
+      if (newRecords.length === 3) newRecords.shift();
+      newRecords.push({ matrix: currentMatrix, score: scoreIncrement });
+      
       currentMatrix = addTwo(currentMatrix);
+      const newScore = score + scoreIncrement;
+      const newGameStatus = checkGameStatus(currentMatrix);
+      
       setMatrix(currentMatrix);
-      setScore(prevScore => prevScore + scoreIncrement);
-      setGameStatus(checkGameStatus(currentMatrix));
+      setScore(newScore);
+      setRecords(newRecords);
+      setGameStatus(newGameStatus);
+      
+      // Save state after each move
+      saveGameState(currentMatrix, newScore, newGameStatus, newRecords);
     }
-  }, [matrix, records]);
+  }, [matrix, records, score]);
 
   const handleUndo = useCallback(() => {
     if (records.length === 0) return;
+    const newRecords = records.slice(0, -1);
     const lastRecord = records[records.length - 1];
+    const newScore = score - lastRecord.score;
+    
     setMatrix(lastRecord.matrix);
-    setScore(prevScore => prevScore - lastRecord.score);
-    setRecords(prevRecords => prevRecords.slice(0, -1));
+    setScore(newScore);
+    setRecords(newRecords);
     setGameStatus('not over');
-  }, [records]);
+    
+    // Save state after undo
+    saveGameState(lastRecord.matrix, newScore, 'not over', newRecords);
+  }, [records, score]);
 
   const handleKeyPress = useCallback((e) => {
     if (gameStatus !== 'not over') return;
@@ -213,15 +256,20 @@ const Game2048 = () => {
     }
   }, [gameStatus, move]);
 
+  // Modified initialization useEffect
   useEffect(() => {
     if (matrix.length === 0) {
-      initializeGame();
+      const hasLoadedState = loadGameState();
+      if (!hasLoadedState) {
+        initializeGame();
+      }
     }
     
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress, initializeGame, matrix.length]);
 
+  // Cell color logic remains the same
   const getCellColor = (value) => {
     const colors = {
       0: '#eee',
@@ -252,7 +300,7 @@ const Game2048 = () => {
       </div>
 
       <div className="mb-4 flex flex-center justify-between w-full">
-        <div className="text-xl font-bold pr-10">Score: {score}</div>
+        <div className="text-xl font-bold pr-3">Score: {score}</div>
         <div className="space-x-2">
           <button className="button-89 my-2 sm:my-5 ml-0" onClick={initializeGame}>New Game</button>
           <button className="button-89 my-2 sm:my-5 ml-0" onClick={handleUndo} disabled={records.length === 0}>Undo</button>

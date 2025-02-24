@@ -57,6 +57,60 @@ const WordGame = () => {
     return rowDiff <= 1 && colDiff <= 1 && !(rowDiff === 0 && colDiff === 0);
   };
 
+  const getCellFromTouch = (touch) => {
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (element?.dataset.position) {
+      const [row, col] = element.dataset.position.split('-').map(Number);
+      return { row, col };
+    }
+    return null;
+  };
+
+  const handleTouchStart = (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const cell = getCellFromTouch(touch);
+    if (cell) {
+      setIsSelecting(true);
+      const newSelection = [cell];
+      setSelectedCells(newSelection);
+      setCurrentWord(grid[cell.row][cell.col]);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isSelecting) {
+      const touch = e.touches[0];
+      const cell = getCellFromTouch(touch);
+      if (cell) {
+        const lastCell = selectedCells[selectedCells.length - 1];
+        if (
+          lastCell &&
+          isAdjacent(lastCell, cell) &&
+          !selectedCells.some(selected => selected.row === cell.row && selected.col === cell.col)
+        ) {
+          const newSelection = [...selectedCells, cell];
+          setSelectedCells(newSelection);
+          setCurrentWord(newSelection.map(cell => grid[cell.row][cell.col]).join(''));
+        }
+      }
+    }
+  };
+
+  const handleTouchEnd = async () => {
+    if (isSelecting) {
+      setIsSelecting(false);
+      if (currentWord.length >= 3 && !foundWords.includes(currentWord)) {
+        const isValid = await checkWord(currentWord);
+        if (isValid) {
+          setFoundWords([currentWord, ...foundWords]);
+        }
+      }
+      setSelectedCells([]);
+      setCurrentWord('');
+    }
+  };
+
   const handleMouseDown = (row, col) => {
     setIsSelecting(true);
     const newSelection = [{ row, col }];
@@ -80,7 +134,7 @@ const WordGame = () => {
     if (currentWord.length >= 3 && !foundWords.includes(currentWord)) {
       const isValid = await checkWord(currentWord);
       if (isValid) {
-        setFoundWords([currentWord, ...foundWords]); // Add new words to the beginning
+        setFoundWords([currentWord, ...foundWords]);
       }
     }
     setSelectedCells([]);
@@ -89,18 +143,21 @@ const WordGame = () => {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <div className="max-w-xl bg-white rounded-lg shadow-lg p-6">
-        <div className="relative flex justify-center items-center w-full my-8">
-          <h1 className="text-2xl font-bold text-black">Word Search</h1>
-          <nav className="absolute right-2 text-2xl">
+      <div className="max-w-xl w-full bg-white rounded-lg shadow-lg p-4 md:p-6">
+        <div className="relative flex justify-center items-center w-full my-4 md:my-8">
+          <h1 className="text-xl md:text-2xl font-bold text-black">Word Search</h1>
+          <nav className="absolute right-2 text-xl md:text-2xl">
             <a className="navLink text-black" onClick={() => navigate('/tools')}>
               <FontAwesomeIcon icon={faHome} />
             </a>
           </nav>
         </div>
-        <div className="mb-6 flex-center">
+        <div className="mb-4 md:mb-6 flex justify-center">
           <div
-            className="grid grid-cols-8 gap-1 select-none w-fit"
+            className="grid grid-cols-8 gap-4 md:gap-1 select-none touch-none"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             onMouseLeave={() => {
               if (isSelecting) handleMouseUp();
             }}
@@ -111,9 +168,10 @@ const WordGame = () => {
                 return (
                   <div
                     key={`${i}-${j}`}
+                    data-position={`${i}-${j}`}
                     className={`
-                      w-10 h-10 flex items-center justify-center
-                      border rounded cursor-pointer font-medium text-lg
+                      w-8 h-8 md:w-10 md:h-10 flex items-center justify-center
+                      border rounded cursor-pointer font-medium text-base md:text-lg
                       transition-colors duration-150
                       ${isSelected ? 'bg-blue-500 text-white' : 'bg-white hover:bg-blue-100 text-black'}
                     `}
@@ -129,19 +187,19 @@ const WordGame = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <div>
-            <h3 className="text-lg font-medium mb-2 text-black">Current Word:</h3>
-            <div className="text-xl text-black">{currentWord}</div>
+            <h3 className="text-base md:text-lg font-medium mb-2 text-black">Current Word:</h3>
+            <div className="text-lg md:text-xl text-black">{currentWord}</div>
             {loading && <div className="text-gray-600">Checking word...</div>}
             {error && <div className="text-red-500">{error}</div>}
           </div>
 
           <div>
-            <h3 className="text-lg font-medium mb-2 text-black">Found Words ({foundWords.length}):</h3>
-            <div className="flex flex-col gap-2 h-48 overflow-y-auto">
+            <h3 className="text-base md:text-lg font-medium mb-2 text-black">Found Words ({foundWords.length}):</h3>
+            <div className="flex flex-col gap-2 h-40 md:h-48 overflow-y-auto">
               {foundWords.map((word, index) => (
-                <div key={index} className="flex flex-col bg-blue-50 rounded">
+                <div key={index} className="flex flex-col bg-blue-50 rounded p-2">
                   <span className="text-black font-medium">
                     {word}
                   </span>
